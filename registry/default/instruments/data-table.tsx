@@ -317,7 +317,7 @@ export function DataTable<T>({
                     className={cn(
                       onRowActivate &&
                         "cursor-pointer outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-inset",
-                      isActive && "bg-accent/32 hover:bg-accent/40",
+                      isActive && "bg-accent hover:bg-accent",
                     )}
                     data-active={isActive ? "" : undefined}
                     data-state={isSelected ? "selected" : undefined}
