@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "card-demo",
+  "title": "Card demo",
+  "description": "A record card with values, units, and a status badge.",
+  "registryDependencies": [
+    "@aperture/card",
+    "@aperture/badge"
+  ],
+  "files": [
+    {
+      "path": "registry/default/examples/card-demo.tsx",
+      "content": "import { Badge } from \"@/registry/default/ui/badge\";\nimport {\n  Card,\n  CardDescription,\n  CardFooter,\n  CardHeader,\n  CardPanel,\n  CardTitle,\n} from \"@/registry/default/ui/card\";\n\nexport function CardDemo() {\n  return (\n    <Card className=\"max-w-sm\">\n      <CardHeader>\n        <CardTitle>Magnetic susceptibility</CardTitle>\n        <CardDescription>Run 12 · 24 samples</CardDescription>\n      </CardHeader>\n      <CardPanel>\n        <dl className=\"grid grid-cols-2 gap-3 text-sm\">\n          <div>\n            <dt className=\"text-muted-foreground text-xs\">Mean χ</dt>\n            <dd className=\"mt-0.5 tabular-nums\">3.42 × 10⁻⁶ m³/kg</dd>\n          </div>\n          <div>\n            <dt className=\"text-muted-foreground text-xs\">Std. dev.</dt>\n            <dd className=\"mt-0.5 tabular-nums\">0.18 × 10⁻⁶ m³/kg</dd>\n          </div>\n        </dl>\n      </CardPanel>\n      <CardFooter>\n        <Badge variant=\"success\">Complete</Badge>\n      </CardFooter>\n    </Card>\n  );\n}\n",
+      "type": "registry:example"
+    }
+  ],
+  "type": "registry:example"
+}

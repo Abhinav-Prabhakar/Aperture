@@ -1,0 +1,48 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.*
+.yarn/*
+
+# Build output
+.next/
+out/
+dist/
+build/
+.turbo/
+*.tsbuildinfo
+
+# Environment
+.env
+.env.*
+!.env.example
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Editors and OS
+.DS_Store
+.idea/
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+
+# Test output
+coverage/
+playwright-report/
+test-results/
+blob-report/
+
+# Local reference checkout of coss/ui (not part of the project)
+.reference/
+
+# Generated registry artifacts (commit if you prefer; ignored by default)
+# apps/web/public/r/
+
+# Misc
+*.pem
+.vercel

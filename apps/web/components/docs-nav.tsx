@@ -1,0 +1,67 @@
+"use client";
+
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { cn } from "@/registry/default/lib/utils";
+
+const NAV = [
+  {
+    title: "Getting started",
+    items: [
+      { href: "/docs", label: "Introduction" },
+      { href: "/docs/instruments", label: "Instruments" },
+    ],
+  },
+  {
+    title: "Elements",
+    items: [
+      { href: "/docs/elements", label: "All elements" },
+      { href: "/docs/elements/button", label: "Button" },
+      { href: "/docs/elements/card", label: "Card" },
+    ],
+  },
+  {
+    title: "Design",
+    items: [{ href: "/docs/design/tokens", label: "Tokens" }],
+  },
+];
+
+export function DocsNav() {
+  const pathname = usePathname();
+
+  return (
+    <nav aria-label="Docs" className="grid gap-7">
+      {NAV.map((group) => (
+        <div key={group.title}>
+          <p className="mb-2 font-mono text-[11px] text-muted-foreground uppercase tracking-wider">
+            {group.title}
+          </p>
+          <ul className="grid gap-0.5">
+            {group.items.map((item) => {
+              const active =
+                item.href === "/docs"
+                  ? pathname === "/docs"
+                  : pathname.startsWith(item.href);
+              return (
+                <li key={item.href}>
+                  <Link
+                    aria-current={active ? "page" : undefined}
+                    className={cn(
+                      "block rounded-md px-2 py-1.5 text-sm transition-colors hover:bg-accent",
+                      active
+                        ? "bg-accent font-medium text-foreground"
+                        : "text-muted-foreground",
+                    )}
+                    href={item.href}
+                  >
+                    {item.label}
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+      ))}
+    </nav>
+  );
+}

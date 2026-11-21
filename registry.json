@@ -1,0 +1,1113 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "aperture",
+  "homepage": "https://aperture-ui.dev",
+  "items": [
+    {
+      "name": "ui",
+      "registryDependencies": [
+        "@aperture/accordion",
+        "@aperture/alert",
+        "@aperture/alert-dialog",
+        "@aperture/autocomplete",
+        "@aperture/avatar",
+        "@aperture/badge",
+        "@aperture/breadcrumb",
+        "@aperture/button",
+        "@aperture/calendar",
+        "@aperture/card",
+        "@aperture/checkbox",
+        "@aperture/checkbox-group",
+        "@aperture/collapsible",
+        "@aperture/combobox",
+        "@aperture/composer",
+        "@aperture/command",
+        "@aperture/context-menu",
+        "@aperture/dialog",
+        "@aperture/drawer",
+        "@aperture/empty",
+        "@aperture/field",
+        "@aperture/fieldset",
+        "@aperture/form",
+        "@aperture/frame",
+        "@aperture/group",
+        "@aperture/input",
+        "@aperture/otp-field",
+        "@aperture/input-group",
+        "@aperture/kbd",
+        "@aperture/label",
+        "@aperture/menu",
+        "@aperture/meter",
+        "@aperture/number-field",
+        "@aperture/pagination",
+        "@aperture/popover",
+        "@aperture/preview-card",
+        "@aperture/progress",
+        "@aperture/radio-group",
+        "@aperture/scroll-area",
+        "@aperture/select",
+        "@aperture/separator",
+        "@aperture/sheet",
+        "@aperture/sidebar",
+        "@aperture/skeleton",
+        "@aperture/slider",
+        "@aperture/spinner",
+        "@aperture/switch",
+        "@aperture/table",
+        "@aperture/tabs",
+        "@aperture/textarea",
+        "@aperture/toast",
+        "@aperture/toggle",
+        "@aperture/toggle-group",
+        "@aperture/toolbar",
+        "@aperture/tooltip",
+        "@aperture/utils"
+      ],
+      "type": "registry:ui",
+      "title": "All elements",
+      "description": "Element from the Aperture element layer."
+    },
+    {
+      "dependencies": ["@base-ui/react"],
+      "files": [
+        {
+          "path": "registry/default/ui/accordion.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "name": "accordion",
+      "type": "registry:ui",
+      "registryDependencies": ["@aperture/utils"],
+      "title": "Accordion",
+      "description": "Element from the Aperture element layer."
+    },
+    {
+      "cssVars": {
+        "dark": {
+          "destructive-foreground": "var(--color-red-400)",
+          "info": "var(--color-blue-500)",
+          "info-foreground": "var(--color-blue-400)",
+          "success": "var(--color-emerald-500)",
+          "success-foreground": "var(--color-emerald-400)",
+          "warning": "var(--color-amber-500)",
+          "warning-foreground": "var(--color-amber-400)"
+        },
+        "light": {
+          "destructive-foreground": "var(--color-red-700)",
+          "info": "var(--color-blue-500)",
+          "info-foreground": "var(--color-blue-700)",
+          "success": "var(--color-emerald-500)",
+          "success-foreground": "var(--color-emerald-700)",
+          "warning": "var(--color-amber-500)",
+          "warning-foreground": "var(--color-amber-700)"
+        }
+      },
+      "files": [
+        {
+          "path": "registry/default/ui/alert.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "name": "alert",
+      "type": "registry:ui",
+      "registryDependencies": ["@aperture/utils"],
+      "title": "Alert",
+      "description": "Element from the Aperture element layer."
+    },
+    {
+      "dependencies": ["@base-ui/react"],
+      "files": [
+        {
+          "path": "registry/default/ui/alert-dialog.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "name": "alert-dialog",
+      "type": "registry:ui",
+      "registryDependencies": ["@aperture/utils"],
+      "title": "Alert dialog",
+      "description": "Element from the Aperture element layer."
+    },
+    {
+      "dependencies": ["@base-ui/react"],
+      "files": [
+        {
+          "path": "registry/default/ui/autocomplete.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "name": "autocomplete",
+      "registryDependencies": [
+        "@aperture/input",
+        "@aperture/scroll-area",
+        "@aperture/utils"
+      ],
+      "type": "registry:ui",
+      "title": "Autocomplete",
+      "description": "Element from the Aperture element layer."
+    },
+    {
+      "dependencies": ["@base-ui/react"],
+      "files": [
+        {
+          "path": "registry/default/ui/avatar.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "name": "avatar",
+      "type": "registry:ui",
+      "registryDependencies": ["@aperture/utils"],
+      "title": "Avatar",
+      "description": "Element from the Aperture element layer."
+    },
+    {
+      "cssVars": {
+        "dark": {
+          "destructive-foreground": "var(--color-red-400)",
+          "info": "var(--color-blue-500)",
+          "info-foreground": "var(--color-blue-400)",
+          "success": "var(--color-emerald-500)",
+          "success-foreground": "var(--color-emerald-400)",
+          "warning": "var(--color-amber-500)",
+          "warning-foreground": "var(--color-amber-400)"
+        },
+        "light": {
+          "destructive-foreground": "var(--color-red-700)",
+          "info": "var(--color-blue-500)",
+          "info-foreground": "var(--color-blue-700)",
+          "success": "var(--color-emerald-500)",
+          "success-foreground": "var(--color-emerald-700)",
+          "warning": "var(--color-amber-500)",
+          "warning-foreground": "var(--color-amber-700)"
+        }
+      },
+      "dependencies": ["@base-ui/react"],
+      "files": [
+        {
+          "path": "registry/default/ui/badge.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "name": "badge",
+      "type": "registry:ui",
+      "registryDependencies": ["@aperture/utils"],
+      "title": "Badge",
+      "description": "Element from the Aperture element layer."
+    },
+    {
+      "dependencies": ["@base-ui/react"],
+      "files": [
+        {
+          "path": "registry/default/ui/breadcrumb.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "name": "breadcrumb",
+      "type": "registry:ui",
+      "registryDependencies": ["@aperture/utils"],
+      "title": "Breadcrumb",
+      "description": "Element from the Aperture element layer."
+    },
+    {
+      "cssVars": {
+        "dark": {
+          "destructive-foreground": "var(--color-red-400)"
+        },
+        "light": {
+          "destructive-foreground": "var(--color-red-700)"
+        }
+      },
+      "dependencies": ["@base-ui/react"],
+      "files": [
+        {
+          "path": "registry/default/ui/button.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "name": "button",
+      "registryDependencies": ["@aperture/spinner", "@aperture/utils"],
+      "type": "registry:ui",
+      "title": "Button",
+      "description": "Element from the Aperture element layer."
+    },
+    {
+      "dependencies": ["@daypicker/react", "lucide-react"],
+      "files": [
+        {
+          "path": "registry/default/ui/calendar.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "name": "calendar",
+      "registryDependencies": ["@aperture/utils"],
+      "type": "registry:ui",
+      "title": "Calendar",
+      "description": "Element from the Aperture element layer."
+    },
+    {
+      "dependencies": ["@base-ui/react"],
+      "files": [
+        {
+          "path": "registry/default/ui/card.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "name": "card",
+      "type": "registry:ui",
+      "registryDependencies": ["@aperture/utils"],
+      "title": "Card",
+      "description": "Element from the Aperture element layer."
+    },
+    {
+      "dependencies": ["@base-ui/react"],
+      "files": [
+        {
+          "path": "registry/default/ui/checkbox.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "name": "checkbox",
+      "type": "registry:ui",
+      "registryDependencies": ["@aperture/utils"],
+      "title": "Checkbox",
+      "description": "Element from the Aperture element layer."
+    },
+    {
+      "dependencies": ["@base-ui/react"],
+      "files": [
+        {
+          "path": "registry/default/ui/checkbox-group.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "name": "checkbox-group",
+      "type": "registry:ui",
+      "registryDependencies": ["@aperture/utils"],
+      "title": "Checkbox group",
+      "description": "Element from the Aperture element layer."
+    },
+    {
+      "dependencies": ["@base-ui/react"],
+      "files": [
+        {
+          "path": "registry/default/ui/collapsible.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "name": "collapsible",
+      "type": "registry:ui",
+      "registryDependencies": ["@aperture/utils"],
+      "title": "Collapsible",
+      "description": "Element from the Aperture element layer."
+    },
+    {
+      "dependencies": ["@base-ui/react"],
+      "files": [
+        {
+          "path": "registry/default/ui/combobox.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "name": "combobox",
+      "registryDependencies": [
+        "@aperture/input",
+        "@aperture/scroll-area",
+        "@aperture/utils"
+      ],
+      "type": "registry:ui",
+      "title": "Combobox",
+      "description": "Element from the Aperture element layer."
+    },
+    {
+      "dependencies": ["@base-ui/react"],
+      "files": [
+        {
+          "path": "registry/default/ui/composer.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "name": "composer",
+      "registryDependencies": [
+        "@aperture/composer-editor",
+        "@aperture/scroll-area",
+        "@aperture/utils"
+      ],
+      "type": "registry:ui",
+      "title": "Composer",
+      "description": "Element from the Aperture element layer."
+    },
+    {
+      "dependencies": ["@base-ui/react"],
+      "files": [
+        {
+          "path": "registry/default/ui/command.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "name": "command",
+      "registryDependencies": ["@aperture/autocomplete", "@aperture/utils"],
+      "type": "registry:ui",
+      "title": "Command",
+      "description": "Element from the Aperture element layer."
+    },
+    {
+      "cssVars": {
+        "dark": {
+          "destructive-foreground": "var(--color-red-400)"
+        },
+        "light": {
+          "destructive-foreground": "var(--color-red-700)"
+        }
+      },
+      "dependencies": ["@base-ui/react"],
+      "files": [
+        {
+          "path": "registry/default/ui/context-menu.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "name": "context-menu",
+      "type": "registry:ui",
+      "registryDependencies": ["@aperture/utils"],
+      "title": "Context menu",
+      "description": "Element from the Aperture element layer."
+    },
+    {
+      "dependencies": ["@base-ui/react"],
+      "files": [
+        {
+          "path": "registry/default/ui/dialog.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "name": "dialog",
+      "registryDependencies": [
+        "@aperture/button",
+        "@aperture/scroll-area",
+        "@aperture/utils"
+      ],
+      "type": "registry:ui",
+      "title": "Dialog",
+      "description": "Element from the Aperture element layer."
+    },
+    {
+      "dependencies": ["@base-ui/react"],
+      "files": [
+        {
+          "path": "registry/default/ui/drawer.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "name": "drawer",
+      "registryDependencies": [
+        "@aperture/button",
+        "@aperture/scroll-area",
+        "@aperture/utils"
+      ],
+      "type": "registry:ui",
+      "title": "Drawer",
+      "description": "Element from the Aperture element layer."
+    },
+    {
+      "files": [
+        {
+          "path": "registry/default/ui/empty.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "name": "empty",
+      "type": "registry:ui",
+      "registryDependencies": ["@aperture/utils"],
+      "title": "Empty",
+      "description": "Element from the Aperture element layer."
+    },
+    {
+      "cssVars": {
+        "dark": {
+          "destructive-foreground": "var(--color-red-400)"
+        },
+        "light": {
+          "destructive-foreground": "var(--color-red-700)"
+        }
+      },
+      "dependencies": ["@base-ui/react"],
+      "files": [
+        {
+          "path": "registry/default/ui/field.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "name": "field",
+      "type": "registry:ui",
+      "registryDependencies": ["@aperture/utils"],
+      "title": "Field",
+      "description": "Element from the Aperture element layer."
+    },
+    {
+      "dependencies": ["@base-ui/react"],
+      "files": [
+        {
+          "path": "registry/default/ui/fieldset.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "name": "fieldset",
+      "type": "registry:ui",
+      "registryDependencies": ["@aperture/utils"],
+      "title": "Fieldset",
+      "description": "Element from the Aperture element layer."
+    },
+    {
+      "dependencies": ["@base-ui/react"],
+      "files": [
+        {
+          "path": "registry/default/ui/form.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "name": "form",
+      "type": "registry:ui",
+      "registryDependencies": ["@aperture/utils"],
+      "title": "Form",
+      "description": "Element from the Aperture element layer."
+    },
+    {
+      "files": [
+        {
+          "path": "registry/default/ui/frame.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "name": "frame",
+      "type": "registry:ui",
+      "registryDependencies": ["@aperture/utils"],
+      "title": "Frame",
+      "description": "Element from the Aperture element layer."
+    },
+    {
+      "dependencies": ["@base-ui/react"],
+      "files": [
+        {
+          "path": "registry/default/ui/group.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "name": "group",
+      "registryDependencies": ["@aperture/separator", "@aperture/utils"],
+      "type": "registry:ui",
+      "title": "Group",
+      "description": "Element from the Aperture element layer."
+    },
+    {
+      "dependencies": ["@base-ui/react"],
+      "files": [
+        {
+          "path": "registry/default/ui/input.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "name": "input",
+      "type": "registry:ui",
+      "registryDependencies": ["@aperture/utils"],
+      "title": "Input",
+      "description": "Element from the Aperture element layer."
+    },
+    {
+      "cssVars": {
+        "theme": {
+          "--animate-caret-blink": "1s ease-out infinite caret-blink"
+        }
+      },
+      "dependencies": ["@base-ui/react"],
+      "files": [
+        {
+          "path": "registry/default/ui/otp-field.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "name": "otp-field",
+      "registryDependencies": ["@aperture/separator", "@aperture/utils"],
+      "type": "registry:ui",
+      "title": "OTP field",
+      "description": "Element from the Aperture element layer."
+    },
+    {
+      "files": [
+        {
+          "path": "registry/default/ui/input-group.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "name": "input-group",
+      "registryDependencies": [
+        "@aperture/input",
+        "@aperture/textarea",
+        "@aperture/utils"
+      ],
+      "type": "registry:ui",
+      "title": "Input group",
+      "description": "Element from the Aperture element layer."
+    },
+    {
+      "files": [
+        {
+          "path": "registry/default/ui/kbd.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "name": "kbd",
+      "type": "registry:ui",
+      "registryDependencies": ["@aperture/utils"],
+      "title": "Kbd",
+      "description": "Element from the Aperture element layer."
+    },
+    {
+      "dependencies": ["@base-ui/react"],
+      "files": [
+        {
+          "path": "registry/default/ui/label.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "name": "label",
+      "type": "registry:ui",
+      "registryDependencies": ["@aperture/utils"],
+      "title": "Label",
+      "description": "Element from the Aperture element layer."
+    },
+    {
+      "cssVars": {
+        "dark": {
+          "destructive-foreground": "var(--color-red-400)"
+        },
+        "light": {
+          "destructive-foreground": "var(--color-red-700)"
+        }
+      },
+      "dependencies": ["@base-ui/react"],
+      "files": [
+        {
+          "path": "registry/default/ui/menu.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "name": "menu",
+      "type": "registry:ui",
+      "registryDependencies": ["@aperture/utils"],
+      "title": "Menu",
+      "description": "Element from the Aperture element layer."
+    },
+    {
+      "dependencies": ["@base-ui/react"],
+      "files": [
+        {
+          "path": "registry/default/ui/meter.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "name": "meter",
+      "type": "registry:ui",
+      "registryDependencies": ["@aperture/utils"],
+      "title": "Meter",
+      "description": "Element from the Aperture element layer."
+    },
+    {
+      "dependencies": ["@base-ui/react"],
+      "files": [
+        {
+          "path": "registry/default/ui/number-field.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "name": "number-field",
+      "registryDependencies": ["@aperture/label", "@aperture/utils"],
+      "type": "registry:ui",
+      "title": "Number field",
+      "description": "Element from the Aperture element layer."
+    },
+    {
+      "files": [
+        {
+          "path": "registry/default/ui/pagination.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "name": "pagination",
+      "registryDependencies": ["@aperture/button", "@aperture/utils"],
+      "type": "registry:ui",
+      "title": "Pagination",
+      "description": "Element from the Aperture element layer."
+    },
+    {
+      "dependencies": ["@base-ui/react"],
+      "files": [
+        {
+          "path": "registry/default/ui/popover.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "name": "popover",
+      "type": "registry:ui",
+      "registryDependencies": ["@aperture/utils"],
+      "title": "Popover",
+      "description": "Element from the Aperture element layer."
+    },
+    {
+      "dependencies": ["@base-ui/react"],
+      "files": [
+        {
+          "path": "registry/default/ui/preview-card.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "name": "preview-card",
+      "type": "registry:ui",
+      "registryDependencies": ["@aperture/utils"],
+      "title": "Preview card",
+      "description": "Element from the Aperture element layer."
+    },
+    {
+      "dependencies": ["@base-ui/react"],
+      "files": [
+        {
+          "path": "registry/default/ui/progress.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "name": "progress",
+      "type": "registry:ui",
+      "registryDependencies": ["@aperture/utils"],
+      "title": "Progress",
+      "description": "Element from the Aperture element layer."
+    },
+    {
+      "dependencies": ["@base-ui/react"],
+      "files": [
+        {
+          "path": "registry/default/ui/radio-group.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "name": "radio-group",
+      "type": "registry:ui",
+      "registryDependencies": ["@aperture/utils"],
+      "title": "Radio group",
+      "description": "Element from the Aperture element layer."
+    },
+    {
+      "dependencies": ["@base-ui/react"],
+      "files": [
+        {
+          "path": "registry/default/ui/scroll-area.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "name": "scroll-area",
+      "type": "registry:ui",
+      "registryDependencies": ["@aperture/utils"],
+      "title": "Scroll Area",
+      "description": "Element from the Aperture element layer."
+    },
+    {
+      "dependencies": ["@base-ui/react"],
+      "files": [
+        {
+          "path": "registry/default/ui/select.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "name": "select",
+      "type": "registry:ui",
+      "registryDependencies": ["@aperture/utils"],
+      "title": "Select",
+      "description": "Element from the Aperture element layer."
+    },
+    {
+      "dependencies": ["@base-ui/react"],
+      "files": [
+        {
+          "path": "registry/default/ui/segmented-control.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "name": "segmented-control",
+      "type": "registry:ui",
+      "registryDependencies": ["@aperture/utils"],
+      "title": "Segmented control",
+      "description": "Element from the Aperture element layer."
+    },
+    {
+      "dependencies": ["@base-ui/react"],
+      "files": [
+        {
+          "path": "registry/default/ui/separator.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "name": "separator",
+      "type": "registry:ui",
+      "registryDependencies": ["@aperture/utils"],
+      "title": "Separator",
+      "description": "Element from the Aperture element layer."
+    },
+    {
+      "dependencies": ["@base-ui/react"],
+      "files": [
+        {
+          "path": "registry/default/ui/sheet.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "name": "sheet",
+      "registryDependencies": [
+        "@aperture/button",
+        "@aperture/scroll-area",
+        "@aperture/utils"
+      ],
+      "type": "registry:ui",
+      "title": "Sheet",
+      "description": "Element from the Aperture element layer."
+    },
+    {
+      "files": [
+        {
+          "path": "registry/default/ui/sidebar.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "name": "sidebar",
+      "registryDependencies": [
+        "@aperture/button",
+        "@aperture/input",
+        "@aperture/scroll-area",
+        "@aperture/separator",
+        "@aperture/sheet",
+        "@aperture/skeleton",
+        "@aperture/tooltip",
+        "@aperture/use-media-query",
+        "@aperture/utils"
+      ],
+      "type": "registry:ui",
+      "title": "Sidebar",
+      "description": "Element from the Aperture element layer."
+    },
+    {
+      "cssVars": {
+        "theme": {
+          "--animate-skeleton": "skeleton 2s -1s infinite linear"
+        }
+      },
+      "files": [
+        {
+          "path": "registry/default/ui/skeleton.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "name": "skeleton",
+      "type": "registry:ui",
+      "registryDependencies": ["@aperture/utils"],
+      "title": "Skeleton",
+      "description": "Element from the Aperture element layer."
+    },
+    {
+      "dependencies": ["@base-ui/react"],
+      "files": [
+        {
+          "path": "registry/default/ui/slider.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "name": "slider",
+      "type": "registry:ui",
+      "registryDependencies": ["@aperture/utils"],
+      "title": "Slider",
+      "description": "Element from the Aperture element layer."
+    },
+    {
+      "files": [
+        {
+          "path": "registry/default/ui/spinner.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "name": "spinner",
+      "type": "registry:ui",
+      "registryDependencies": ["@aperture/utils"],
+      "title": "Spinner",
+      "description": "Element from the Aperture element layer."
+    },
+    {
+      "dependencies": ["@base-ui/react"],
+      "files": [
+        {
+          "path": "registry/default/ui/switch.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "name": "switch",
+      "type": "registry:ui",
+      "registryDependencies": ["@aperture/utils"],
+      "title": "Switch",
+      "description": "Element from the Aperture element layer."
+    },
+    {
+      "dependencies": ["@base-ui/react"],
+      "files": [
+        {
+          "path": "registry/default/ui/table.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "name": "table",
+      "type": "registry:ui",
+      "registryDependencies": ["@aperture/utils"],
+      "title": "Table",
+      "description": "Element from the Aperture element layer."
+    },
+    {
+      "dependencies": ["@base-ui/react"],
+      "files": [
+        {
+          "path": "registry/default/ui/tabs.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "name": "tabs",
+      "registryDependencies": [
+        "@aperture/segmented-control",
+        "@aperture/utils"
+      ],
+      "type": "registry:ui",
+      "title": "Tabs",
+      "description": "Element from the Aperture element layer."
+    },
+    {
+      "dependencies": ["@base-ui/react"],
+      "files": [
+        {
+          "path": "registry/default/ui/textarea.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "name": "textarea",
+      "type": "registry:ui",
+      "registryDependencies": ["@aperture/utils"],
+      "title": "Textarea",
+      "description": "Element from the Aperture element layer."
+    },
+    {
+      "cssVars": {
+        "theme": {
+          "--animate-toast-success-odd": "toast-success-odd 0.32s cubic-bezier(0.5, 1, 0.89, 1)",
+          "--animate-toast-success-even": "toast-success-even 0.32s cubic-bezier(0.5, 1, 0.89, 1)",
+          "--animate-toast-error-odd": "toast-error-odd 0.28s cubic-bezier(0.5, 1, 0.89, 1)",
+          "--animate-toast-error-even": "toast-error-even 0.28s cubic-bezier(0.5, 1, 0.89, 1)"
+        }
+      },
+      "dependencies": ["@base-ui/react"],
+      "files": [
+        {
+          "path": "registry/default/ui/toast.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "name": "toast",
+      "registryDependencies": ["@aperture/button", "@aperture/utils"],
+      "type": "registry:ui",
+      "title": "Toast",
+      "description": "Element from the Aperture element layer."
+    },
+    {
+      "dependencies": ["@base-ui/react"],
+      "files": [
+        {
+          "path": "registry/default/ui/toggle.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "name": "toggle",
+      "type": "registry:ui",
+      "registryDependencies": ["@aperture/utils"],
+      "title": "Toggle",
+      "description": "Element from the Aperture element layer."
+    },
+    {
+      "dependencies": ["@base-ui/react"],
+      "files": [
+        {
+          "path": "registry/default/ui/toggle-group.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "name": "toggle-group",
+      "registryDependencies": [
+        "@aperture/separator",
+        "@aperture/toggle",
+        "@aperture/utils"
+      ],
+      "type": "registry:ui",
+      "title": "Toggle group",
+      "description": "Element from the Aperture element layer."
+    },
+    {
+      "dependencies": ["@base-ui/react"],
+      "files": [
+        {
+          "path": "registry/default/ui/toolbar.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "name": "toolbar",
+      "type": "registry:ui",
+      "registryDependencies": ["@aperture/utils"],
+      "title": "Toolbar",
+      "description": "Element from the Aperture element layer."
+    },
+    {
+      "dependencies": ["@base-ui/react"],
+      "files": [
+        {
+          "path": "registry/default/ui/tooltip.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "name": "tooltip",
+      "type": "registry:ui",
+      "registryDependencies": ["@aperture/utils"],
+      "title": "Tooltip",
+      "description": "Element from the Aperture element layer."
+    },
+    {
+      "dependencies": ["clsx", "tailwind-merge"],
+      "files": [
+        {
+          "path": "registry/default/lib/utils.ts",
+          "type": "registry:lib"
+        }
+      ],
+      "name": "utils",
+      "type": "registry:lib",
+      "title": "Utils",
+      "description": "Utility from the Aperture element layer."
+    },
+    {
+      "dependencies": ["@base-ui/react"],
+      "files": [
+        {
+          "path": "registry/default/lib/composer-editor.ts",
+          "type": "registry:lib"
+        }
+      ],
+      "name": "composer-editor",
+      "registryDependencies": ["@aperture/use-composer-editor"],
+      "type": "registry:lib",
+      "title": "Composer editor",
+      "description": "Utility from the Aperture element layer."
+    },
+    {
+      "files": [
+        {
+          "path": "registry/default/lib/composer-document.ts",
+          "type": "registry:lib"
+        }
+      ],
+      "name": "composer-document",
+      "registryDependencies": ["@aperture/composer-query"],
+      "type": "registry:lib",
+      "title": "Composer document",
+      "description": "Utility from the Aperture element layer."
+    },
+    {
+      "files": [
+        {
+          "path": "registry/default/lib/composer-clipboard.ts",
+          "type": "registry:lib"
+        }
+      ],
+      "name": "composer-clipboard",
+      "registryDependencies": ["@aperture/composer-document"],
+      "type": "registry:lib",
+      "title": "Composer clipboard",
+      "description": "Utility from the Aperture element layer."
+    },
+    {
+      "files": [
+        {
+          "path": "registry/default/lib/composer-query.ts",
+          "type": "registry:lib"
+        }
+      ],
+      "name": "composer-query",
+      "type": "registry:lib",
+      "title": "Composer query",
+      "description": "Utility from the Aperture element layer."
+    },
+    {
+      "files": [
+        {
+          "path": "registry/default/hooks/use-media-query.ts",
+          "type": "registry:hook"
+        }
+      ],
+      "name": "use-media-query",
+      "type": "registry:hook",
+      "title": "useMediaQuery",
+      "description": "Hook from the Aperture element layer."
+    },
+    {
+      "files": [
+        {
+          "path": "registry/default/hooks/use-copy-to-clipboard.ts",
+          "type": "registry:hook"
+        }
+      ],
+      "name": "use-copy-to-clipboard",
+      "type": "registry:hook",
+      "title": "useCopyToClipboard",
+      "description": "Hook from the Aperture element layer."
+    },
+    {
+      "dependencies": ["@base-ui/react"],
+      "files": [
+        {
+          "path": "registry/default/hooks/use-composer-editor.ts",
+          "type": "registry:hook"
+        }
+      ],
+      "name": "use-composer-editor",
+      "registryDependencies": [
+        "@aperture/composer-document",
+        "@aperture/composer-clipboard"
+      ],
+      "type": "registry:hook",
+      "title": "useComposerEditor",
+      "description": "Hook from the Aperture element layer."
+    },
+    {
+      "name": "button-demo",
+      "type": "registry:example",
+      "title": "Button demo",
+      "description": "Button variants composed with icons.",
+      "registryDependencies": ["@aperture/button"],
+      "files": [
+        {
+          "path": "registry/default/examples/button-demo.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "card-demo",
+      "type": "registry:example",
+      "title": "Card demo",
+      "description": "A record card with values, units, and a status badge.",
+      "registryDependencies": ["@aperture/card", "@aperture/badge"],
+      "files": [
+        {
+          "path": "registry/default/examples/card-demo.tsx",
+          "type": "registry:example"
+        }
+      ]
+    }
+  ]
+}
