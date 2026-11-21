@@ -1577,6 +1577,48 @@
           "type": "registry:block"
         }
       ]
+    },
+    {
+      "name": "sample-registry",
+      "type": "registry:block",
+      "title": "Sample Registry",
+      "description": "A complete sample inventory workbench: studies, storage, aliquots, chain of custody, linked runs, CSV export, and every state.",
+      "dependencies": [],
+      "registryDependencies": [
+        "@aperture/button",
+        "@aperture/input",
+        "@aperture/data-table",
+        "@aperture/stat",
+        "@aperture/status-badge",
+        "@aperture/timeline",
+        "@aperture/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/default/workbenches/sample-registry/types.ts",
+          "type": "registry:block"
+        },
+        {
+          "path": "registry/default/workbenches/sample-registry/adapter.ts",
+          "type": "registry:block"
+        },
+        {
+          "path": "registry/default/workbenches/sample-registry/mock-data.ts",
+          "type": "registry:block"
+        },
+        {
+          "path": "registry/default/workbenches/sample-registry/filter-rail.tsx",
+          "type": "registry:block"
+        },
+        {
+          "path": "registry/default/workbenches/sample-registry/sample-record.tsx",
+          "type": "registry:block"
+        },
+        {
+          "path": "registry/default/workbenches/sample-registry/sample-registry.tsx",
+          "type": "registry:block"
+        }
+      ]
     }
   ]
 }
