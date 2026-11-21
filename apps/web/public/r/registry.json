@@ -1335,6 +1335,134 @@
           "type": "registry:example"
         }
       ]
+    },
+    {
+      "name": "metadata-editor",
+      "type": "registry:ui",
+      "title": "Metadata Editor",
+      "description": "A controlled key/value editor for run metadata and provenance, with fixed schema keys and removable custom fields.",
+      "dependencies": [],
+      "registryDependencies": [
+        "@aperture/button",
+        "@aperture/input",
+        "@aperture/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/default/instruments/metadata-editor.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "metadata-editor-demo",
+      "type": "registry:example",
+      "title": "Metadata Editor demo",
+      "description": "Run metadata with two required keys and an addable field.",
+      "registryDependencies": ["@aperture/metadata-editor"],
+      "files": [
+        {
+          "path": "registry/default/examples/metadata-editor-demo.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "file-dropzone",
+      "type": "registry:ui",
+      "title": "File Dropzone",
+      "description": "A keyboard-accessible dropzone with type and size validation, plus an upload queue with real progress.",
+      "dependencies": [],
+      "registryDependencies": [
+        "@aperture/button",
+        "@aperture/status-badge",
+        "@aperture/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/default/instruments/file-dropzone.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "file-dropzone-demo",
+      "type": "registry:example",
+      "title": "File Dropzone demo",
+      "description": "A CSV dropzone feeding a live queue with upload progress.",
+      "registryDependencies": ["@aperture/file-dropzone"],
+      "files": [
+        {
+          "path": "registry/default/examples/file-dropzone-demo.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "data-table",
+      "type": "registry:ui",
+      "title": "Data Table",
+      "description": "A sortable, selectable table for measurements with units in the header and missing values explicit.",
+      "dependencies": [],
+      "registryDependencies": [
+        "@aperture/checkbox",
+        "@aperture/table",
+        "@aperture/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/default/instruments/data-table.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "data-table-demo",
+      "type": "registry:example",
+      "title": "Data Table demo",
+      "description": "A plate sample table with sorted concentrations, QC flags, and selection.",
+      "registryDependencies": [
+        "@aperture/data-table",
+        "@aperture/scientific-number",
+        "@aperture/status-badge"
+      ],
+      "files": [
+        {
+          "path": "registry/default/examples/data-table-demo.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "uncertainty-input",
+      "type": "registry:ui",
+      "title": "Uncertainty Input",
+      "description": "A measurement input that keeps its error term, symmetric or asymmetric, and shows the reported form.",
+      "dependencies": ["@aperture/quantities"],
+      "registryDependencies": [
+        "@aperture/field",
+        "@aperture/input-group",
+        "@aperture/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/default/instruments/uncertainty-input.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "uncertainty-input-demo",
+      "type": "registry:example",
+      "title": "Uncertainty Input demo",
+      "description": "Symmetric concentration and asymmetric half-life measurements with live reported forms.",
+      "registryDependencies": ["@aperture/uncertainty-input"],
+      "files": [
+        {
+          "path": "registry/default/examples/uncertainty-input-demo.tsx",
+          "type": "registry:example"
+        }
+      ]
     }
   ]
 }

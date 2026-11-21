@@ -1,12 +1,25 @@
-import { render, screen, within } from "@testing-library/react";
+import { fireEvent, render, screen, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import axe from "axe-core";
 import { useState } from "react";
 import { describe, expect, it, vi } from "vitest";
 import {
+  DataTable,
+  type DataTableColumn,
+} from "@/registry/default/instruments/data-table";
+import {
+  FileDropzone,
+  type UploadItem,
+  UploadQueue,
+} from "@/registry/default/instruments/file-dropzone";
+import {
   type LogEntry,
   LogViewer,
 } from "@/registry/default/instruments/log-viewer";
+import {
+  MetadataEditor,
+  type MetadataField,
+} from "@/registry/default/instruments/metadata-editor";
 import {
   type ProtocolStep,
   ProtocolSteps,
@@ -23,6 +36,10 @@ import {
   Timeline,
   type TimelineItem,
 } from "@/registry/default/instruments/timeline";
+import {
+  UncertaintyInput,
+  type UncertaintyValue,
+} from "@/registry/default/instruments/uncertainty-input";
 
 async function expectNoViolations(container: HTMLElement) {
   const results = await axe.run(container, {
@@ -424,6 +441,420 @@ describe("ProtocolSteps", () => {
   it("has no accessibility violations", async () => {
     const { container } = render(
       <ProtocolSteps label="Western blot" steps={steps} />,
+    );
+    await expectNoViolations(container);
+  });
+});
+
+function MetadataHarness({
+  initial,
+}: {
+  initial: MetadataField[];
+}): React.ReactElement {
+  const [fields, setFields] = useState(initial);
+  return (
+    <MetadataEditor
+      description="Stored with every export."
+      fields={fields}
+      onChange={setFields}
+      title="Run metadata"
+    />
+  );
+}
+
+describe("MetadataEditor", () => {
+  const fields: MetadataField[] = [
+    {
+      id: "instrument",
+      label: "Instrument",
+      value: "Plate reader",
+      required: true,
+    },
+    { id: "operator", label: "Operator", value: "A. Rao" },
+  ];
+
+  it("links every value to its field name", async () => {
+    const user = userEvent.setup();
+    render(<MetadataHarness initial={fields} />);
+
+    const operator = screen.getByLabelText("Operator value");
+    expect(operator).toHaveValue("A. Rao");
+    await user.clear(operator);
+    await user.type(operator, "J. Chen");
+    expect(screen.getByLabelText("Operator value")).toHaveValue("J. Chen");
+  });
+
+  it("adds a custom field and focuses its name", async () => {
+    const user = userEvent.setup();
+    render(<MetadataHarness initial={fields} />);
+
+    await user.click(screen.getByRole("button", { name: "Add field" }));
+    const name = screen.getByLabelText("Field name");
+    expect(name).toHaveFocus();
+
+    await user.type(name, "Strain");
+    await user.type(screen.getByLabelText("Strain value"), "N2");
+    expect(screen.getByLabelText("Strain value")).toHaveValue("N2");
+    expect(screen.getByText("3 fields")).toBeInTheDocument();
+  });
+
+  it("removes custom fields but keeps required ones", async () => {
+    const user = userEvent.setup();
+    render(<MetadataHarness initial={fields} />);
+
+    expect(
+      screen.queryByRole("button", { name: "Remove Instrument" }),
+    ).not.toBeInTheDocument();
+
+    await user.click(screen.getByRole("button", { name: "Remove Operator" }));
+    expect(screen.queryByLabelText("Operator value")).not.toBeInTheDocument();
+    expect(screen.getByText("1 field")).toBeInTheDocument();
+  });
+
+  it("has no accessibility violations", async () => {
+    const { container } = render(<MetadataHarness initial={fields} />);
+    await expectNoViolations(container);
+  });
+});
+
+describe("FileDropzone", () => {
+  it("accepts a matching file", async () => {
+    const user = userEvent.setup();
+    const onFiles = vi.fn();
+    const { container } = render(
+      <FileDropzone accept=".csv" onFiles={onFiles} />,
+    );
+    const input = container.querySelector(
+      'input[type="file"]',
+    ) as HTMLInputElement;
+    const file = new File(["a,b"], "plate.csv", { type: "text/csv" });
+
+    await user.upload(input, file);
+    expect(onFiles).toHaveBeenCalledWith([file]);
+  });
+
+  it("rejects the wrong type with a reason", () => {
+    const onFiles = vi.fn();
+    const onReject = vi.fn();
+    const { container } = render(
+      <FileDropzone accept=".csv" onFiles={onFiles} onReject={onReject} />,
+    );
+    const input = container.querySelector(
+      'input[type="file"]',
+    ) as HTMLInputElement;
+    const file = new File(["notes"], "notes.txt", { type: "text/plain" });
+
+    fireEvent.change(input, { target: { files: [file] } });
+    expect(onFiles).not.toHaveBeenCalled();
+    expect(onReject).toHaveBeenCalledWith([{ file, reason: "type" }]);
+    expect(screen.getByRole("alert")).toHaveTextContent(
+      "notes.txt is not an accepted file type.",
+    );
+  });
+
+  it("rejects files above the size limit", async () => {
+    const user = userEvent.setup();
+    const onReject = vi.fn();
+    const { container } = render(
+      <FileDropzone maxSize={5} onFiles={() => {}} onReject={onReject} />,
+    );
+    const input = container.querySelector(
+      'input[type="file"]',
+    ) as HTMLInputElement;
+    const file = new File(["too large"], "large.csv", { type: "text/csv" });
+
+    await user.upload(input, file);
+    expect(onReject).toHaveBeenCalledWith([{ file, reason: "size" }]);
+    expect(screen.getByRole("alert")).toHaveTextContent(
+      "large.csv is larger than 5 B.",
+    );
+  });
+
+  it("has no accessibility violations", async () => {
+    const { container } = render(<FileDropzone onFiles={() => {}} />);
+    await expectNoViolations(container);
+  });
+});
+
+describe("UploadQueue", () => {
+  const items: UploadItem[] = [
+    {
+      id: "a",
+      name: "run-12.csv",
+      size: 1_240_000,
+      status: "uploading",
+      progress: 64,
+    },
+    {
+      id: "b",
+      name: "run-13.csv",
+      size: 1_180_000,
+      status: "error",
+      error: "Connection reset.",
+    },
+  ];
+
+  it("shows size, state, and progress", () => {
+    render(<UploadQueue items={items} />);
+
+    expect(screen.getByText("run-12.csv")).toBeInTheDocument();
+    expect(screen.getAllByText("1.2 MB")).toHaveLength(2);
+    expect(
+      screen.getByRole("progressbar", { name: "run-12.csv upload" }),
+    ).toHaveAttribute("aria-valuenow", "64");
+    expect(screen.getByText("Connection reset.")).toBeInTheDocument();
+  });
+
+  it("retries failed files and removes queued ones", async () => {
+    const user = userEvent.setup();
+    const onRetry = vi.fn();
+    const onRemove = vi.fn();
+    render(<UploadQueue items={items} onRemove={onRemove} onRetry={onRetry} />);
+
+    await user.click(screen.getByRole("button", { name: "Retry run-13.csv" }));
+    expect(onRetry).toHaveBeenCalledWith("b");
+
+    await user.click(screen.getByRole("button", { name: "Remove run-12.csv" }));
+    expect(onRemove).toHaveBeenCalledWith("a");
+  });
+
+  it("has an empty state and no accessibility violations", async () => {
+    const { container } = render(
+      <UploadQueue emptyLabel="Nothing queued." items={[]} />,
+    );
+    expect(screen.getByText("Nothing queued.")).toBeInTheDocument();
+    await expectNoViolations(container);
+  });
+});
+
+describe("DataTable", () => {
+  type Row = { id: string; sample: string; value: number | null };
+  const rows: Row[] = [
+    { id: "a", sample: "S-002", value: 2 },
+    { id: "b", sample: "S-001", value: null },
+    { id: "c", sample: "S-003", value: 5 },
+  ];
+  const columns: DataTableColumn<Row>[] = [
+    {
+      id: "sample",
+      header: "Sample",
+      cell: (row) => row.sample,
+      sortValue: (row) => row.sample,
+    },
+    {
+      id: "value",
+      header: "Value",
+      unit: "mg",
+      align: "end",
+      numeric: true,
+      cell: (row) => row.value ?? "—",
+      sortValue: (row) => row.value,
+    },
+  ];
+
+  it("renders units once and sorts missing values last", () => {
+    render(
+      <DataTable
+        columns={columns}
+        defaultSort={{ columnId: "value", direction: "desc" }}
+        getRowId={(row) => row.id}
+        getRowLabel={(row) => row.sample}
+        rows={rows}
+        title="Samples"
+      />,
+    );
+
+    const table = screen.getByRole("table", { name: "Samples" });
+    expect(within(table).getByText("(mg)")).toBeInTheDocument();
+
+    const bodyRows = within(table).getAllByRole("row").slice(1);
+    expect(bodyRows[0]).toHaveTextContent("S-003");
+    expect(bodyRows.at(-1)).toHaveTextContent("S-001");
+  });
+
+  it("cycles sort direction and keeps aria-sort on one column", async () => {
+    const user = userEvent.setup();
+    render(
+      <DataTable
+        columns={columns}
+        getRowId={(row) => row.id}
+        rows={rows}
+        title="Samples"
+      />,
+    );
+
+    const table = screen.getByRole("table", { name: "Samples" });
+    await user.click(screen.getByRole("button", { name: /Sort by Sample/ }));
+
+    expect(
+      screen.getByRole("columnheader", { name: /Sample/ }),
+    ).toHaveAttribute("aria-sort", "ascending");
+    expect(
+      screen.getByRole("columnheader", { name: /Value/ }),
+    ).not.toHaveAttribute("aria-sort");
+
+    let bodyRows = within(table).getAllByRole("row").slice(1);
+    expect(bodyRows[0]).toHaveTextContent("S-001");
+
+    await user.click(screen.getByRole("button", { name: /Sort by Sample/ }));
+    expect(
+      screen.getByRole("columnheader", { name: /Sample/ }),
+    ).toHaveAttribute("aria-sort", "descending");
+    bodyRows = within(table).getAllByRole("row").slice(1);
+    expect(bodyRows[0]).toHaveTextContent("S-003");
+  });
+
+  it("selects rows by id and selects all", async () => {
+    const user = userEvent.setup();
+    render(
+      <DataTable
+        columns={columns}
+        getRowId={(row) => row.id}
+        getRowLabel={(row) => row.sample}
+        rows={rows}
+        selectable
+        title="Samples"
+      />,
+    );
+
+    await user.click(screen.getByRole("checkbox", { name: "Select S-002" }));
+    expect(screen.getByText(/3 rows · 1 selected/)).toBeInTheDocument();
+
+    await user.click(screen.getByRole("checkbox", { name: "Select all rows" }));
+    expect(screen.getByText(/3 rows · 3 selected/)).toBeInTheDocument();
+  });
+
+  it("has an empty state and no accessibility violations", async () => {
+    const { container } = render(
+      <DataTable
+        columns={columns}
+        emptyLabel="No samples."
+        getRowId={(row) => row.id}
+        rows={[]}
+        title="Samples"
+      />,
+    );
+    expect(screen.getByText("No samples.")).toBeInTheDocument();
+    await expectNoViolations(container);
+  });
+});
+
+function UncertaintyHarness({
+  initialValue = 12.47,
+  initialUncertainty = 0.32,
+  precision,
+  label = "Concentration",
+  unit = "µg/mL",
+}: {
+  initialValue?: number | null;
+  initialUncertainty?: UncertaintyValue | null;
+  precision?: number;
+  label?: string;
+  unit?: string;
+}): React.ReactElement {
+  const [value, setValue] = useState<number | null>(initialValue);
+  const [uncertainty, setUncertainty] = useState<UncertaintyValue | null>(
+    initialUncertainty,
+  );
+
+  return (
+    <UncertaintyInput
+      hint="Standard deviation of three technical replicates."
+      label={label}
+      onUncertaintyChange={setUncertainty}
+      onValueChange={setValue}
+      precision={precision}
+      uncertainty={uncertainty}
+      unit={unit}
+      value={value}
+    />
+  );
+}
+
+describe("UncertaintyInput", () => {
+  it("reports the value and error together", () => {
+    render(<UncertaintyHarness />);
+
+    expect(screen.getByText("12.5 ± 0.3 µg/mL")).toBeInTheDocument();
+    expect(screen.getByLabelText("Concentration")).toHaveValue("12.47");
+    expect(screen.getByLabelText(/Concentration uncertainty/i)).toHaveValue(
+      "0.32",
+    );
+  });
+
+  it("honors a fixed precision", () => {
+    render(<UncertaintyHarness precision={2} />);
+
+    expect(screen.getByText("12.47 ± 0.32 µg/mL")).toBeInTheDocument();
+  });
+
+  it("updates the reported form as the value changes", async () => {
+    const user = userEvent.setup();
+    render(<UncertaintyHarness />);
+
+    const value = screen.getByLabelText("Concentration");
+    await user.clear(value);
+    await user.type(value, "13");
+
+    const uncertainty = screen.getByLabelText(/Concentration uncertainty/i);
+    await user.clear(uncertainty);
+    await user.type(uncertainty, "0.5");
+
+    expect(screen.getByText("13.0 ± 0.5 µg/mL")).toBeInTheDocument();
+  });
+
+  it("rejects a negative uncertainty on blur", () => {
+    render(<UncertaintyHarness />);
+
+    const uncertainty = screen.getByLabelText(/Concentration uncertainty/i);
+    fireEvent.change(uncertainty, { target: { value: "-0.2" } });
+
+    expect(screen.queryByText("12.5 ± 0.3 µg/mL")).not.toBeInTheDocument();
+    fireEvent.blur(uncertainty);
+
+    expect(screen.getByRole("alert")).toHaveTextContent(
+      "Uncertainty cannot be negative.",
+    );
+  });
+
+  it("reports asymmetric errors and requires both bounds", () => {
+    render(
+      <UncertaintyHarness
+        initialUncertainty={{ lower: 1.5, upper: 1.8 }}
+        initialValue={14.2}
+        label="Half-life"
+        unit="h"
+      />,
+    );
+
+    expect(screen.getByText("14.2 +1.8 / −1.5 h")).toBeInTheDocument();
+
+    const lower = screen.getByLabelText(/Half-life lower error/i);
+    fireEvent.change(lower, { target: { value: "-0.2" } });
+    fireEvent.blur(lower);
+    expect(screen.getByRole("alert")).toHaveTextContent(
+      "Lower error cannot be negative.",
+    );
+
+    const upper = screen.getByLabelText(/Half-life upper error/i);
+    fireEvent.change(upper, { target: { value: "" } });
+    fireEvent.blur(upper);
+    expect(screen.getByRole("alert")).toHaveTextContent(
+      "Enter both bounds, or neither.",
+    );
+  });
+
+  it("has no accessibility violations", async () => {
+    const { container } = render(
+      <div>
+        <UncertaintyHarness />
+        <UncertaintyHarness
+          initialUncertainty={{ lower: 1.5, upper: 1.8 }}
+          initialValue={14.2}
+          label="Half-life"
+          unit="h"
+        />
+      </div>,
     );
     await expectNoViolations(container);
   });

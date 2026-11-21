@@ -87,6 +87,10 @@ const READY = new Map([
   ["Log Viewer", "log-viewer"],
   ["Timeline", "timeline"],
   ["Protocol Steps", "protocol-steps"],
+  ["Metadata Editor", "metadata-editor"],
+  ["File Dropzone + Queue", "file-dropzone"],
+  ["Data Table", "data-table"],
+  ["Uncertainty Input", "uncertainty-input"],
 ]);
 
 export default function InstrumentsPage() {
@@ -95,14 +99,14 @@ export default function InstrumentsPage() {
       <div className="flex flex-wrap items-center gap-2">
         <Badge variant="outline">Layer 02</Badge>
         <Badge variant="outline">Phase 1</Badge>
-        <Badge variant="outline">8 ready · 4 in progress</Badge>
+        <Badge variant="outline">12 ready · 0 in progress</Badge>
       </div>
       <h1 className="mt-4 font-heading font-bold text-4xl tracking-tight">
         Instruments
       </h1>
       <p className="mt-3 text-lg text-muted-foreground leading-relaxed">
-        Focused research components that solve one real problem well. Eight are
-        ready now; the rest are being built against the same contract.
+        Focused research components that solve one real problem well. The
+        founding set of twelve is ready. Workbenches come next.
       </p>
 
       <h2 className="mt-10 font-heading font-semibold text-2xl tracking-tight">

@@ -24,6 +24,13 @@ const NAV = [
       { href: "/docs/instruments/log-viewer", label: "Log Viewer" },
       { href: "/docs/instruments/timeline", label: "Timeline" },
       { href: "/docs/instruments/protocol-steps", label: "Protocol Steps" },
+      { href: "/docs/instruments/metadata-editor", label: "Metadata Editor" },
+      { href: "/docs/instruments/file-dropzone", label: "File Dropzone" },
+      { href: "/docs/instruments/data-table", label: "Data Table" },
+      {
+        href: "/docs/instruments/uncertainty-input",
+        label: "Uncertainty Input",
+      },
     ],
   },
   {

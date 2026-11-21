@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "file-dropzone-demo",
+  "title": "File Dropzone demo",
+  "description": "A CSV dropzone feeding a live queue with upload progress.",
+  "registryDependencies": [
+    "@aperture/file-dropzone"
+  ],
+  "files": [
+    {
+      "path": "registry/default/examples/file-dropzone-demo.tsx",
+      "content": "\"use client\";\n\nimport { useState } from \"react\";\nimport {\n  FileDropzone,\n  type UploadItem,\n  UploadQueue,\n} from \"@/registry/default/instruments/file-dropzone\";\n\nconst INITIAL: UploadItem[] = [\n  {\n    id: \"run-12\",\n    name: \"run-12.csv\",\n    size: 1_240_000,\n    status: \"uploading\",\n    progress: 64,\n  },\n  {\n    id: \"run-11\",\n    name: \"run-11.csv\",\n    size: 1_180_000,\n    status: \"complete\",\n  },\n];\n\nexport function FileDropzoneDemo() {\n  const [items, setItems] = useState<UploadItem[]>(INITIAL);\n\n  return (\n    <div className=\"grid w-full gap-4\">\n      <FileDropzone\n        accept=\".csv,.tsv\"\n        hint=\"CSV or TSV, up to 25 MB per file. Files stay local until you upload them.\"\n        label=\"Add plate exports\"\n        maxSize={25_000_000}\n        onFiles={(files) =>\n          setItems((current) => [\n            ...current,\n            ...files.map((file) => ({\n              id: `${file.name}-${file.size}-${file.lastModified}`,\n              name: file.name,\n              size: file.size,\n              status: \"queued\" as const,\n            })),\n          ])\n        }\n      />\n      <UploadQueue\n        items={items}\n        onRemove={(id) =>\n          setItems((current) => current.filter((item) => item.id !== id))\n        }\n        title=\"Plate exports\"\n      />\n    </div>\n  );\n}\n",
+      "type": "registry:example"
+    }
+  ],
+  "type": "registry:example"
+}

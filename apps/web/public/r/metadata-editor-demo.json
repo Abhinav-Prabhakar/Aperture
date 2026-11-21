@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "metadata-editor-demo",
+  "title": "Metadata Editor demo",
+  "description": "Run metadata with two required keys and an addable field.",
+  "registryDependencies": [
+    "@aperture/metadata-editor"
+  ],
+  "files": [
+    {
+      "path": "registry/default/examples/metadata-editor-demo.tsx",
+      "content": "\"use client\";\n\nimport { useState } from \"react\";\nimport {\n  MetadataEditor,\n  type MetadataField,\n} from \"@/registry/default/instruments/metadata-editor\";\n\nconst INITIAL: MetadataField[] = [\n  {\n    id: \"instrument\",\n    label: \"Instrument\",\n    value: \"Plate reader · BMG FLUOstar\",\n    required: true,\n  },\n  {\n    id: \"operator\",\n    label: \"Operator\",\n    value: \"A. Rao\",\n    required: true,\n  },\n  {\n    id: \"acquired\",\n    label: \"Acquired\",\n    value: \"2026-11-21 09:32 UTC\",\n  },\n  {\n    id: \"protocol\",\n    label: \"Protocol\",\n    value: \"absorbance-600 v3\",\n  },\n  {\n    id: \"notes\",\n    label: \"Notes\",\n    value: \"\",\n    placeholder: \"Anything the next person needs to know.\",\n  },\n];\n\nexport function MetadataEditorDemo() {\n  const [fields, setFields] = useState(INITIAL);\n\n  return (\n    <MetadataEditor\n      className=\"w-full\"\n      description=\"Stored with every export and shown beside the results.\"\n      fields={fields}\n      onChange={setFields}\n      title=\"Run metadata\"\n    />\n  );\n}\n",
+      "type": "registry:example"
+    }
+  ],
+  "type": "registry:example"
+}

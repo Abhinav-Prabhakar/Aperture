@@ -8,7 +8,7 @@
 [![Status](https://img.shields.io/badge/status-pre--alpha-000?style=flat-square)](./PLAN.md)
 [![License](https://img.shields.io/badge/license-MIT-000?style=flat-square)](./LICENSE)
 [![Elements](https://img.shields.io/badge/elements-56-000?style=flat-square)](./registry/default/ui)
-[![Tests](https://img.shields.io/badge/tests-57_passing-000?style=flat-square)](./apps/web/test)
+[![Tests](https://img.shields.io/badge/tests-89_passing-000?style=flat-square)](./apps/web/test)
 [![React](https://img.shields.io/badge/React-19-000?style=flat-square&logo=react&logoColor=white)](https://react.dev)
 [![Tailwind](https://img.shields.io/badge/Tailwind-4-000?style=flat-square&logo=tailwindcss&logoColor=white)](https://tailwindcss.com)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.9-000?style=flat-square&logo=typescript&logoColor=white)](https://typescriptlang.org)
@@ -32,7 +32,7 @@ A table with units. An inspector with provenance. Missing values that read as mi
 
 <img src="./docs/assets/layers.webp" alt="The Aperture layers: elements, instruments, workbenches" width="100%" />
 
-**56 elements** · **5 of 12 instruments ready** · **4 workbenches** — one design contract from the first button to the finished screen.
+**56 elements** · **12 of 12 instruments ready** · **4 workbenches** — one design contract from the first button to the finished screen.
 
 ## Details researchers notice
 
@@ -57,19 +57,37 @@ Units live with the value. Uncertainty is a first-class input. The chrome is ach
 
 Life sciences first — sample tables, plate readers, growth curves, dose–response, PCR programs, reagent inventory. The same grammar extends to physics, astronomy, chemistry, earth science, social science, economics, and the humanities.
 
-## The first four instruments
+## Twelve instruments
 
 <p align="center">
-  <img src="./docs/assets/instrument-quantity-input-doc.webp" alt="Quantity Input documentation: a concentration value with unit and uncertainty" width="49%" />
-  <img src="./docs/assets/instrument-scientific-number-doc.webp" alt="Scientific Number documentation: precision, uncertainty, and full-precision copy" width="49%" />
+  <img src="./docs/assets/instrument-quantity-input-doc.webp" alt="Quantity Input: a concentration value with unit and uncertainty" width="32%" />
+  <img src="./docs/assets/instrument-scientific-number-doc.webp" alt="Scientific Number: precision, uncertainty, and full-precision copy" width="32%" />
+  <img src="./docs/assets/instrument-uncertainty-input-doc.webp" alt="Uncertainty Input: symmetric and asymmetric errors with a reported form" width="32%" />
 </p>
 
 <p align="center">
-  <img src="./docs/assets/instrument-stat-doc.webp" alt="Stat documentation: a four-column run summary" width="49%" />
-  <img src="./docs/assets/instrument-sparkline-doc.webp" alt="Sparkline documentation: a series, an empty state, and a flat baseline" width="49%" />
+  <img src="./docs/assets/instrument-stat-doc.webp" alt="Stat and Stat Grid: a four-column run summary" width="32%" />
+  <img src="./docs/assets/instrument-sparkline-doc.webp" alt="Sparkline: a series, an empty state, and a flat baseline" width="32%" />
+  <img src="./docs/assets/instrument-status-badge-doc.webp" alt="Status Badge and Status Dot: text plus shape, never color alone" width="32%" />
 </p>
 
-Live in the registry with docs, tests, and accessible names: `quantity-input`, `scientific-number`, `stat`, `sparkline`, plus `status-badge` and its dot. Seven instruments remain.
+<p align="center">
+  <img src="./docs/assets/instrument-data-table-doc.webp" alt="Data Table: sortable samples with units, QC flags, and selection" width="32%" />
+  <img src="./docs/assets/instrument-metadata-editor-doc.webp" alt="Metadata Editor: fixed schema keys and addable provenance fields" width="32%" />
+  <img src="./docs/assets/instrument-file-dropzone-doc.webp" alt="File Dropzone and Upload Queue: validated drops and live progress" width="32%" />
+</p>
+
+<p align="center">
+  <img src="./docs/assets/instrument-log-viewer-doc.webp" alt="Log Viewer: levels, filters, timestamps, and follow-tail" width="32%" />
+  <img src="./docs/assets/instrument-timeline-doc.webp" alt="Timeline: an event history with actors and details" width="32%" />
+  <img src="./docs/assets/instrument-protocol-steps-doc.webp" alt="Protocol Steps: ordered, checkable steps with timing and notes" width="32%" />
+</p>
+
+Every instrument ships with a docs page, tests, accessible names, and a registry entry. Copy one in:
+
+```bash
+npx shadcn@latest add @aperture/uncertainty-input
+```
 
 ## Light. Dark. Every screen.
 
@@ -104,7 +122,7 @@ Every component lands in your repository. You own the code.
 
 ## Status
 
-Phase 1: elements, tokens, registry, docs, `@aperture/quantities`, and five founding instruments are in place. The remaining instruments and the workbenches are next. Counts and commands on the site describe the target, not a finished release.
+Phase 1: elements, tokens, registry, docs, `@aperture/quantities`, and all twelve founding instruments are in place. The workbenches are next. Counts and commands on the site describe the target, not a finished release.
 
 ---
 
