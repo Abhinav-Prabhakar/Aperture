@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "scientific-number-demo",
+  "title": "Scientific Number demo",
+  "description": "Notation, precision, uncertainty, and copy in one readout.",
+  "registryDependencies": [
+    "@aperture/scientific-number"
+  ],
+  "files": [
+    {
+      "path": "registry/default/examples/scientific-number-demo.tsx",
+      "content": "import { ScientificNumber } from \"@/registry/default/instruments/scientific-number\";\n\nexport function ScientificNumberDemo() {\n  return (\n    <div className=\"grid gap-3 text-sm\">\n      <div className=\"flex items-baseline justify-between gap-4\">\n        <span className=\"text-muted-foreground\">Default</span>\n        <ScientificNumber unit=\"m³/kg\" value={0.00000342} />\n      </div>\n      <div className=\"flex items-baseline justify-between gap-4\">\n        <span className=\"text-muted-foreground\">With uncertainty</span>\n        <ScientificNumber\n          uncertainty={0.00000018}\n          unit=\"m³/kg\"\n          value={0.00000342}\n        />\n      </div>\n      <div className=\"flex items-baseline justify-between gap-4\">\n        <span className=\"text-muted-foreground\">Fixed precision</span>\n        <ScientificNumber precision={2} unit=\"mm\" value={12.4} />\n      </div>\n      <div className=\"flex items-baseline justify-between gap-4\">\n        <span className=\"text-muted-foreground\">Copyable</span>\n        <ScientificNumber copyable unit=\"m/s\" value={299792458} />\n      </div>\n    </div>\n  );\n}\n",
+      "type": "registry:example"
+    }
+  ],
+  "type": "registry:example"
+}

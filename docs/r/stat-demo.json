@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "stat-demo",
+  "title": "Stat demo",
+  "description": "A four-column run summary with direction and context.",
+  "registryDependencies": [
+    "@aperture/stat",
+    "@aperture/scientific-number"
+  ],
+  "files": [
+    {
+      "path": "registry/default/examples/stat-demo.tsx",
+      "content": "import { ScientificNumber } from \"@/registry/default/instruments/scientific-number\";\nimport { Stat, StatGrid } from \"@/registry/default/instruments/stat\";\n\nexport function StatDemo() {\n  return (\n    <StatGrid columns={4}>\n      <Stat\n        hint=\"n = 24 samples\"\n        label=\"Mean χ\"\n        unit=\"m³/kg\"\n        value={<ScientificNumber value={0.00000342} />}\n      />\n      <Stat\n        hint=\"Across four runs\"\n        label=\"Std. dev.\"\n        unit=\"m³/kg\"\n        value={<ScientificNumber value={0.00000018} />}\n      />\n      <Stat\n        delta=\"+2.1%\"\n        hint=\"Versus run 11\"\n        label=\"Recovery\"\n        trend=\"up\"\n        unit=\"%\"\n        value=\"96.4\"\n      />\n      <Stat\n        delta=\"−0.4%\"\n        hint=\"Versus run 11\"\n        label=\"Drift\"\n        trend=\"down\"\n        unit=\"%\"\n        value=\"0.8\"\n      />\n    </StatGrid>\n  );\n}\n",
+      "type": "registry:example"
+    }
+  ],
+  "type": "registry:example"
+}

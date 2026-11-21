@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "stat",
+  "title": "Stat",
+  "description": "A compact label/value/unit readout and grid for run summaries and inspectors.",
+  "dependencies": [],
+  "registryDependencies": [
+    "@aperture/utils"
+  ],
+  "files": [
+    {
+      "path": "registry/default/instruments/stat.tsx",
+      "content": "import type * as React from \"react\";\nimport { cn } from \"@/registry/default/lib/utils\";\n\nconst COLUMNS = {\n  2: \"sm:grid-cols-2\",\n  3: \"sm:grid-cols-2 lg:grid-cols-3\",\n  4: \"sm:grid-cols-2 lg:grid-cols-4\",\n} as const;\n\nexport type StatProps = Omit<React.ComponentProps<\"div\">, \"children\"> & {\n  /** What is being measured. Include the unit in the value or a separate unit. */\n  label: React.ReactNode;\n  /** The value. Pass a ScientificNumber for controlled precision. */\n  value: React.ReactNode;\n  /** Unit symbol shown after the value. */\n  unit?: string;\n  /** A signed change, e.g. \"+2.1%\". */\n  delta?: string;\n  /** Optional direction for the arrow. Up and down are not inherently good. */\n  trend?: \"up\" | \"down\" | \"flat\";\n  /** Context: sample size, comparison period, or method. */\n  hint?: React.ReactNode;\n};\n\nexport function Stat({\n  label,\n  value,\n  unit,\n  delta,\n  trend,\n  hint,\n  className,\n  ...props\n}: StatProps): React.ReactElement {\n  return (\n    <div className={cn(\"min-w-0\", className)} data-slot=\"stat\" {...props}>\n      <dl className=\"grid gap-1\">\n        <dt className=\"text-muted-foreground text-xs\">{label}</dt>\n        <dd className=\"flex min-w-0 flex-wrap items-baseline gap-x-1.5 gap-y-1\">\n          <span className=\"font-heading font-semibold text-xl tabular-nums tracking-tight\">\n            {value}\n          </span>\n          {unit ? (\n            <span className=\"text-muted-foreground text-xs\">{unit}</span>\n          ) : null}\n          {delta ? (\n            <span className=\"ms-auto inline-flex items-center gap-1 font-mono text-muted-foreground text-xs tabular-nums\">\n              {trend === \"up\" ? (\n                <span aria-hidden=\"true\">↗</span>\n              ) : trend === \"down\" ? (\n                <span aria-hidden=\"true\">↘</span>\n              ) : null}\n              {delta}\n            </span>\n          ) : null}\n        </dd>\n        {hint ? (\n          <dd className=\"text-muted-foreground text-xs leading-relaxed\">\n            {hint}\n          </dd>\n        ) : null}\n      </dl>\n    </div>\n  );\n}\n\nexport type StatGridProps = React.ComponentProps<\"div\"> & {\n  /** Column count at the small breakpoint and above. */\n  columns?: keyof typeof COLUMNS;\n};\n\nexport function StatGrid({\n  columns = 4,\n  className,\n  children,\n  ...props\n}: StatGridProps): React.ReactElement {\n  return (\n    <div\n      className={cn(\n        \"grid gap-px overflow-hidden rounded-xl border bg-border\",\n        \"[&>[data-slot=stat]]:bg-background [&>[data-slot=stat]]:p-4\",\n        COLUMNS[columns],\n        className,\n      )}\n      data-slot=\"stat-grid\"\n      {...props}\n    >\n      {children}\n    </div>\n  );\n}\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "button-demo",
+  "title": "Button demo",
+  "description": "Button variants composed with icons.",
+  "registryDependencies": [
+    "@aperture/button"
+  ],
+  "files": [
+    {
+      "path": "registry/default/examples/button-demo.tsx",
+      "content": "import { ArrowRightIcon, PlusIcon } from \"lucide-react\";\nimport { Button } from \"@/registry/default/ui/button\";\n\nexport function ButtonDemo() {\n  return (\n    <div className=\"flex flex-wrap items-center gap-2\">\n      <Button>\n        <PlusIcon />\n        New sample\n      </Button>\n      <Button variant=\"secondary\">Duplicate</Button>\n      <Button variant=\"outline\">\n        Export\n        <ArrowRightIcon />\n      </Button>\n      <Button variant=\"ghost\">Cancel</Button>\n      <Button variant=\"destructive\">Delete</Button>\n    </div>\n  );\n}\n",
+      "type": "registry:example"
+    }
+  ],
+  "type": "registry:example"
+}

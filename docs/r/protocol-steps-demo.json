@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "protocol-steps-demo",
+  "title": "Protocol Steps demo",
+  "description": "A Western blot day-one protocol with a caution and an active step.",
+  "registryDependencies": [
+    "@aperture/protocol-steps"
+  ],
+  "files": [
+    {
+      "path": "registry/default/examples/protocol-steps-demo.tsx",
+      "content": "import type { ProtocolStep } from \"@/registry/default/instruments/protocol-steps\";\nimport { ProtocolSteps } from \"@/registry/default/instruments/protocol-steps\";\n\nconst STEPS: ProtocolStep[] = [\n  {\n    id: \"lyse\",\n    title: \"Lyse cells\",\n    description: \"Resuspend the pellet in 200 µL ice-cold RIPA buffer.\",\n    duration: \"10 min\",\n    status: \"complete\",\n  },\n  {\n    id: \"denature\",\n    title: \"Reduce and denature\",\n    description: \"Add loading dye and heat the sample to 95 °C.\",\n    duration: \"5 min at 95 °C\",\n    status: \"complete\",\n  },\n  {\n    id: \"load\",\n    title: \"Load the gel\",\n    description: \"Load 20 µg total protein per lane; include the ladder.\",\n    duration: \"15 min\",\n    status: \"active\",\n    note: {\n      kind: \"caution\",\n      text: \"Do not overfill the wells; sample will spill into the running buffer.\",\n    },\n  },\n  {\n    id: \"run\",\n    title: \"Run the gel\",\n    description:\n      \"Run at constant voltage until the dye front reaches the base.\",\n    duration: \"45 min at 120 V\",\n    status: \"pending\",\n  },\n  {\n    id: \"transfer\",\n    title: \"Transfer to membrane\",\n    description: \"Wet transfer inTowbin buffer with 20% methanol.\",\n    duration: \"60 min at 100 V\",\n    status: \"pending\",\n    note: {\n      kind: \"note\",\n      text: \"Keep the membrane methanol-wet throughout the transfer.\",\n    },\n  },\n];\n\nexport function ProtocolStepsDemo() {\n  return <ProtocolSteps label=\"Western blot · day 1\" steps={STEPS} />;\n}\n",
+      "type": "registry:example"
+    }
+  ],
+  "type": "registry:example"
+}

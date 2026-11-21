@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "sparkline-demo",
+  "title": "Sparkline demo",
+  "description": "A series, an empty state, and a flat baseline.",
+  "registryDependencies": [
+    "@aperture/sparkline"
+  ],
+  "files": [
+    {
+      "path": "registry/default/examples/sparkline-demo.tsx",
+      "content": "import { Sparkline } from \"@/registry/default/instruments/sparkline\";\n\nconst CONCENTRATION = [8.1, 9.4, 10.2, 9.8, 11.6, 12.4, 12.1, 12.9, 12.4];\n\nexport function SparklineDemo() {\n  return (\n    <div className=\"flex flex-wrap items-center gap-8\">\n      <div className=\"grid gap-2\">\n        <span className=\"text-muted-foreground text-xs\">Concentration</span>\n        <Sparkline\n          label=\"Concentration over nine runs\"\n          values={CONCENTRATION}\n        />\n      </div>\n      <div className=\"grid gap-2\">\n        <span className=\"text-muted-foreground text-xs\">Empty</span>\n        <Sparkline label=\"No readings\" values={[]} />\n      </div>\n      <div className=\"grid gap-2\">\n        <span className=\"text-muted-foreground text-xs\">Flat</span>\n        <Sparkline label=\"Stable baseline\" values={[3, 3, 3, 3]} />\n      </div>\n    </div>\n  );\n}\n",
+      "type": "registry:example"
+    }
+  ],
+  "type": "registry:example"
+}

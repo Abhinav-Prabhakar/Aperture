@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "status-badge",
+  "title": "Status Badge",
+  "description": "A state indicator with a dot, visible label, tooltip description, and optional announcement.",
+  "dependencies": [],
+  "registryDependencies": [
+    "@aperture/badge",
+    "@aperture/tooltip",
+    "@aperture/utils"
+  ],
+  "files": [
+    {
+      "path": "registry/default/instruments/status-badge.tsx",
+      "content": "\"use client\";\n\nimport type * as React from \"react\";\nimport { cn } from \"@/registry/default/lib/utils\";\nimport { Badge } from \"@/registry/default/ui/badge\";\nimport {\n  Tooltip,\n  TooltipPopup,\n  TooltipTrigger,\n} from \"@/registry/default/ui/tooltip\";\n\nexport const STATUS_META = {\n  idle: {\n    label: \"Idle\",\n    dot: \"bg-muted-foreground\",\n    variant: \"secondary\",\n  },\n  running: {\n    label: \"Running\",\n    dot: \"bg-info\",\n    variant: \"info\",\n  },\n  success: {\n    label: \"Complete\",\n    dot: \"bg-success\",\n    variant: \"success\",\n  },\n  warning: {\n    label: \"Needs attention\",\n    dot: \"bg-warning\",\n    variant: \"warning\",\n  },\n  error: {\n    label: \"Failed\",\n    dot: \"bg-destructive\",\n    variant: \"error\",\n  },\n  offline: {\n    label: \"Offline\",\n    dot: \"bg-muted-foreground/64\",\n    variant: \"outline\",\n  },\n} as const;\n\nexport type Status = keyof typeof STATUS_META;\n\nconst DOT = \"inline-block size-1.5 shrink-0 rounded-full\";\n\nfunction resolveLabel(status: Status, label?: string): string {\n  return label ?? STATUS_META[status].label;\n}\n\nexport type StatusDotProps = Omit<React.ComponentProps<\"span\">, \"children\"> & {\n  /** The state being reported. */\n  status: Status;\n  /** Accessible name. Required when the dot is the only visible signal. */\n  label?: string;\n};\n\nexport function StatusDot({\n  status,\n  label,\n  className,\n  ...props\n}: StatusDotProps): React.ReactElement {\n  const meta = STATUS_META[status];\n  const name = label ?? meta.label;\n\n  return (\n    <span\n      aria-label={name}\n      className={cn(\"inline-flex items-center align-middle\", className)}\n      data-slot=\"status-dot\"\n      data-status={status}\n      role=\"img\"\n      {...props}\n    >\n      <span aria-hidden=\"true\" className={cn(DOT, meta.dot)} />\n    </span>\n  );\n}\n\nexport type StatusBadgeProps = Omit<\n  React.ComponentProps<typeof Badge>,\n  \"children\" | \"variant\"\n> & {\n  /** The state being reported. */\n  status: Status;\n  /** Visible text. Defaults to the status name. */\n  label?: string;\n  /** Extra context, shown in a tooltip and exposed as the description. */\n  description?: React.ReactNode;\n  /** Announce changes to assistive technology. */\n  announce?: boolean;\n};\n\nexport function StatusBadge({\n  status,\n  label,\n  description,\n  announce = false,\n  size = \"default\",\n  className,\n  ...props\n}: StatusBadgeProps): React.ReactElement {\n  const meta = STATUS_META[status];\n  const text = resolveLabel(status, label);\n\n  const badge = (\n    <Badge\n      className={cn(\"gap-1.5 font-normal\", className)}\n      data-slot=\"status-badge\"\n      data-status={status}\n      role={announce ? \"status\" : undefined}\n      size={size}\n      variant={meta.variant}\n      {...props}\n    >\n      <span\n        aria-hidden=\"true\"\n        className={cn(\n          DOT,\n          meta.dot,\n          status === \"running\" && \"motion-safe:animate-pulse\",\n        )}\n        data-slot=\"status-badge-dot\"\n      />\n      <span data-slot=\"status-badge-label\">{text}</span>\n    </Badge>\n  );\n\n  if (!description) {\n    return badge;\n  }\n\n  return (\n    <Tooltip>\n      <TooltipTrigger render={badge} />\n      <TooltipPopup>{description}</TooltipPopup>\n    </Tooltip>\n  );\n}\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

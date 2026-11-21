@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "scientific-number",
+  "title": "Scientific Number",
+  "description": "Measured values with significant figures, uncertainty, units, and full-precision copy.",
+  "dependencies": [
+    "@aperture/quantities"
+  ],
+  "registryDependencies": [
+    "@aperture/use-copy-to-clipboard",
+    "@aperture/utils"
+  ],
+  "files": [
+    {
+      "path": "registry/default/instruments/scientific-number.tsx",
+      "content": "\"use client\";\n\nimport { formatNumber, formatWithUncertainty } from \"@aperture/quantities\";\nimport { CheckIcon, CopyIcon } from \"lucide-react\";\nimport type * as React from \"react\";\nimport { useCopyToClipboard } from \"@/registry/default/hooks/use-copy-to-clipboard\";\nimport { cn } from \"@/registry/default/lib/utils\";\n\nexport type ScientificNumberProps = Omit<\n  React.ComponentProps<\"span\">,\n  \"children\"\n> & {\n  /** The measured value. */\n  value: number;\n  /** Absolute uncertainty in the same unit. */\n  uncertainty?: number;\n  /** Display symbol, e.g. \"mg/L\". Rendered after the number. */\n  unit?: string;\n  /** Digits in the significand. Defaults to 3. */\n  significantFigures?: number;\n  /** Fixed decimal places. Wins over significantFigures. */\n  precision?: number;\n  /** \"auto\" switches to scientific notation at the edges. */\n  notation?: \"auto\" | \"scientific\" | \"fixed\";\n  /** Show a button that copies the full, unrounded value. */\n  copyable?: boolean;\n  /** Called after a successful copy. */\n  onCopy?: (text: string) => void;\n};\n\nexport function ScientificNumber({\n  value,\n  uncertainty,\n  unit,\n  significantFigures = 3,\n  precision,\n  notation = \"auto\",\n  copyable = false,\n  onCopy,\n  className,\n  ...props\n}: ScientificNumberProps): React.ReactElement {\n  const { copyToClipboard, isCopied } = useCopyToClipboard();\n\n  const display =\n    uncertainty === undefined\n      ? formatNumber(value, { notation, precision, significantFigures })\n      : formatWithUncertainty(value, uncertainty, {\n          notation,\n          precision,\n          significantFigures,\n        });\n\n  const full = [\n    String(value),\n    uncertainty === undefined ? null : `± ${uncertainty}`,\n    unit,\n  ]\n    .filter(Boolean)\n    .join(\" \");\n\n  return (\n    <span\n      className={cn(\n        \"group inline-flex items-baseline gap-1.5 whitespace-nowrap tabular-nums\",\n        className,\n      )}\n      data-slot=\"scientific-number\"\n      data-unit={unit}\n      data-value={value}\n      {...props}\n    >\n      <span>{display}</span>\n      {unit ? (\n        <span className=\"font-normal text-[0.9em] text-muted-foreground\">\n          {unit}\n        </span>\n      ) : null}\n      {copyable ? (\n        <button\n          aria-label={\n            isCopied ? \"Copied full precision\" : \"Copy full precision\"\n          }\n          className=\"-my-1 inline-flex size-5 shrink-0 cursor-pointer items-center justify-center rounded-sm text-muted-foreground opacity-64 outline-none transition-[opacity,background-color] hover:bg-accent hover:text-foreground hover:opacity-100 focus-visible:opacity-100 focus-visible:ring-2 focus-visible:ring-ring\"\n          onClick={() => {\n            copyToClipboard(full);\n            onCopy?.(full);\n          }}\n          type=\"button\"\n        >\n          {isCopied ? (\n            <CheckIcon aria-hidden=\"true\" className=\"size-3\" />\n          ) : (\n            <CopyIcon aria-hidden=\"true\" className=\"size-3\" />\n          )}\n        </button>\n      ) : null}\n    </span>\n  );\n}\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

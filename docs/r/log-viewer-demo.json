@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "log-viewer-demo",
+  "title": "Log Viewer demo",
+  "description": "A plate reader run log with all four levels.",
+  "registryDependencies": [
+    "@aperture/log-viewer"
+  ],
+  "files": [
+    {
+      "path": "registry/default/examples/log-viewer-demo.tsx",
+      "content": "import type { LogEntry } from \"@/registry/default/instruments/log-viewer\";\nimport { LogViewer } from \"@/registry/default/instruments/log-viewer\";\n\nconst ENTRIES: LogEntry[] = [\n  {\n    id: \"1\",\n    time: \"14:02:03\",\n    dateTime: \"2026-11-21T14:02:03Z\",\n    level: \"info\",\n    source: \"reader\",\n    message: \"Plate 1 loaded (96 wells).\",\n  },\n  {\n    id: \"2\",\n    time: \"14:02:04\",\n    dateTime: \"2026-11-21T14:02:04Z\",\n    level: \"debug\",\n    source: \"reader\",\n    message: \"Gain 1.00; integration 0.10 s; 25 flashes.\",\n  },\n  {\n    id: \"3\",\n    time: \"14:02:11\",\n    dateTime: \"2026-11-21T14:02:11Z\",\n    level: \"info\",\n    source: \"reader\",\n    message: \"A1–H12 acquisition started.\",\n  },\n  {\n    id: \"4\",\n    time: \"14:03:42\",\n    dateTime: \"2026-11-21T14:03:42Z\",\n    level: \"warning\",\n    source: \"reader\",\n    message: \"Well D7 saturated at 4.12 × 10⁶ AU; result censored.\",\n  },\n  {\n    id: \"5\",\n    time: \"14:05:08\",\n    dateTime: \"2026-11-21T14:05:08Z\",\n    level: \"info\",\n    source: \"analysis\",\n    message: \"Background subtracted; 96 wells retained.\",\n  },\n  {\n    id: \"6\",\n    time: \"14:05:09\",\n    dateTime: \"2026-11-21T14:05:09Z\",\n    level: \"error\",\n    source: \"export\",\n    message: \"Write failed: /data/run-12.csv is read-only.\",\n  },\n];\n\nexport function LogViewerDemo() {\n  return <LogViewer entries={ENTRIES} title=\"Plate reader · run 12\" />;\n}\n",
+      "type": "registry:example"
+    }
+  ],
+  "type": "registry:example"
+}

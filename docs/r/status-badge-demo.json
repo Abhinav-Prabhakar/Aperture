@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "status-badge-demo",
+  "title": "Status Badge demo",
+  "description": "Every state, a live advance, and compact status dots.",
+  "registryDependencies": [
+    "@aperture/status-badge",
+    "@aperture/button"
+  ],
+  "files": [
+    {
+      "path": "registry/default/examples/status-badge-demo.tsx",
+      "content": "\"use client\";\n\nimport { useState } from \"react\";\nimport {\n  STATUS_META,\n  type Status,\n  StatusBadge,\n  StatusDot,\n} from \"@/registry/default/instruments/status-badge\";\nimport { Button } from \"@/registry/default/ui/button\";\n\nconst CYCLE: Status[] = [\"idle\", \"running\", \"success\", \"warning\", \"error\"];\n\nexport function StatusBadgeDemo() {\n  const [index, setIndex] = useState(1);\n  const status = CYCLE[index];\n\n  return (\n    <div className=\"grid w-full gap-6\">\n      <div className=\"flex flex-wrap items-center justify-between gap-3 rounded-lg border p-4\">\n        <div className=\"flex items-center gap-3\">\n          <StatusBadge\n            announce\n            description=\"The plate reader is reporting live progress.\"\n            label={status === \"running\" ? \"Acquiring\" : undefined}\n            status={status}\n          />\n          <span className=\"text-muted-foreground text-xs\">\n            Plate reader · run 12\n          </span>\n        </div>\n        <Button\n          onClick={() => setIndex((value) => (value + 1) % CYCLE.length)}\n          size=\"sm\"\n          variant=\"outline\"\n        >\n          Advance\n        </Button>\n      </div>\n\n      <div className=\"flex flex-wrap items-center gap-x-5 gap-y-3\">\n        {(Object.keys(STATUS_META) as Status[]).map((key) => (\n          <span className=\"inline-flex items-center gap-2\" key={key}>\n            <StatusDot label={STATUS_META[key].label} status={key} />\n            <span className=\"text-muted-foreground text-xs\">\n              {STATUS_META[key].label}\n            </span>\n          </span>\n        ))}\n      </div>\n    </div>\n  );\n}\n",
+      "type": "registry:example"
+    }
+  ],
+  "type": "registry:example"
+}
