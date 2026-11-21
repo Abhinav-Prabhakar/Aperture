@@ -49,8 +49,8 @@ export default function LabDashboardPreviewPage() {
   const empty = demo === "empty";
 
   return (
-    <div className="min-h-svh bg-muted/24">
-      <header className="border-b bg-background">
+    <div className="min-h-svh bg-muted/24 print:min-h-0 print:bg-background">
+      <header className="border-b bg-background print:hidden">
         <div className="mx-auto flex max-w-[110rem] flex-wrap items-center gap-2 px-3 py-2 sm:px-4">
           <ApertureMark className="size-5" title="" />
           <span className="font-heading font-semibold text-sm">Aperture</span>
@@ -72,7 +72,7 @@ export default function LabDashboardPreviewPage() {
         </div>
       </header>
 
-      <main className="mx-auto max-w-[110rem] p-3 sm:p-4">
+      <main className="mx-auto max-w-[110rem] p-3 sm:p-4 print:max-w-none print:p-0">
         <LabDashboard
           activity={empty ? [] : MOCK_ACTIVITY}
           alerts={empty ? [] : MOCK_ALERTS}
@@ -92,7 +92,7 @@ export default function LabDashboardPreviewPage() {
           schedule={empty ? [] : MOCK_SCHEDULE}
           syncToUrl
         />
-        <p className="mt-3 text-muted-foreground text-xs">
+        <p className="mt-3 text-muted-foreground text-xs print:hidden">
           Demo lab with synthetic instruments and samples. The open instrument
           and active sample are in the URL; opening a sample continues in the
           Data Explorer.
