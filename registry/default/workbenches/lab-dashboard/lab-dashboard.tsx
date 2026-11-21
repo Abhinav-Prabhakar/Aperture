@@ -147,6 +147,8 @@ export type LabDashboardProps = Omit<
   onRetry?: () => void;
   /** Open a sample elsewhere, for example in the Data Explorer. */
   onSampleOpen?: (sample: InFlightSample) => void;
+  /** Persist an acknowledgement. The alert stays on screen either way. */
+  onAcknowledge?: (alert: LabAlert) => void;
   /** Keep the open instrument and active sample in the address bar. */
   syncToUrl?: boolean;
 };
@@ -168,6 +170,7 @@ export function LabDashboard({
   offline = false,
   onRetry,
   onSampleOpen,
+  onAcknowledge,
   syncToUrl = false,
   className,
   ...props
@@ -247,6 +250,10 @@ export function LabDashboard({
   }
 
   function acknowledge(id: string) {
+    const alert = alerts.find((entry) => entry.id === id);
+    if (alert) {
+      onAcknowledge?.(alert);
+    }
     setAcknowledged((current) => new Set(current).add(id));
   }
 

@@ -438,7 +438,13 @@ export function SampleRegistry({
               value={summary.count}
             />
             <Stat
-              hint={`${summary.missingVolume} missing volume`}
+              hint={
+                summary.missingVolume === 0
+                  ? "All volumes recorded"
+                  : `${summary.missingVolume} missing volume${
+                      summary.missingVolume === 1 ? "" : "s"
+                    }`
+              }
               label="Stored"
               value={summary.stored}
             />

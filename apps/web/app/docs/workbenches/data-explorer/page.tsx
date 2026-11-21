@@ -146,6 +146,32 @@ const samples: ExplorerSample[] = await loadSamples(runId);
       />
 
       <h2 className="mt-10 font-heading font-semibold text-2xl tracking-tight">
+        Data contract
+      </h2>
+      <ol className="mt-3 grid gap-2 text-sm leading-relaxed">
+        <li>
+          <strong className="font-medium">Rows in.</strong> Pass{" "}
+          <code className="font-mono text-xs">samples</code> from your query.
+          Each row is an <code className="font-mono text-xs">ExplorerSample</code>;
+          a censored concentration is <code className="font-mono text-xs">null</code>{" "}
+          with a note, never zero.
+        </li>
+        <li>
+          <strong className="font-medium">Filter and summarize.</strong>{" "}
+          <code className="font-mono text-xs">filterSamples</code>,{" "}
+          <code className="font-mono text-xs">summarize</code>, and{" "}
+          <code className="font-mono text-xs">toCsv</code> are ordinary
+          functions. Keep them client-side for a few thousand rows or replace
+          them with server calls; the layout does not care.
+        </li>
+        <li>
+          <strong className="font-medium">Actions out.</strong> Filters, sort,
+          and the open sample live in the URL. Point export at your API if the
+          full dataset should not reach the browser.
+        </li>
+      </ol>
+
+      <h2 className="mt-10 font-heading font-semibold text-2xl tracking-tight">
         URL parameters
       </h2>
       <p className="mt-2 text-muted-foreground text-sm leading-relaxed">

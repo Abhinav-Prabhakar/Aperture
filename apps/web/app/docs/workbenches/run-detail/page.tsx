@@ -118,6 +118,31 @@ export default function RunDetailPage() {
       </ul>
 
       <h2 className="mt-10 font-heading font-semibold text-2xl tracking-tight">
+        Data contract
+      </h2>
+      <ol className="mt-3 grid gap-2 text-sm leading-relaxed">
+        <li>
+          <strong className="font-medium">One run in.</strong> Pass a{" "}
+          <code className="font-mono text-xs">RunRecord</code> with parameters,
+          metrics, artifacts, events, and log entries. Missing values stay{" "}
+          <code className="font-mono text-xs">null</code>; timestamps are ISO
+          8601 and rendered in UTC.
+        </li>
+        <li>
+          <strong className="font-medium">Artifacts out.</strong>{" "}
+          <code className="font-mono text-xs">onArtifactOpen(artifact)</code>{" "}
+          hands the selected file to your object store or download route. Without
+          it the panel is metadata only.
+        </li>
+        <li>
+          <strong className="font-medium">Two routes out.</strong>{" "}
+          <code className="font-mono text-xs">onOpenData(run)</code> continues to
+          the samples; print stays client-side. The open artifact is stored as{" "}
+          <code className="font-mono text-xs">?artifact=</code>.
+        </li>
+      </ol>
+
+      <h2 className="mt-10 font-heading font-semibold text-2xl tracking-tight">
         Install
       </h2>
       <CodeBlock code="npx shadcn@latest add @aperture/run-detail" />

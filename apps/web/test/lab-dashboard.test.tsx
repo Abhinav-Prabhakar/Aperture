@@ -53,8 +53,9 @@ describe("LabDashboard", () => {
   });
 
   it("acknowledges an alert without deleting the record", async () => {
+    const onAcknowledge = vi.fn();
     const user = userEvent.setup();
-    render(<LabDashboard />);
+    render(<LabDashboard onAcknowledge={onAcknowledge} />);
 
     const alerts = screen.getByRole("region", { name: "Alerts" });
     expect(within(alerts).getByText("4 open")).toBeInTheDocument();
@@ -65,6 +66,9 @@ describe("LabDashboard", () => {
       }),
     );
 
+    expect(onAcknowledge).toHaveBeenCalledWith(
+      expect.objectContaining({ title: "Autoclave cycle 4412 aborted" }),
+    );
     expect(within(alerts).getByText("3 open")).toBeInTheDocument();
     expect(within(alerts).getByText("Acknowledged")).toBeInTheDocument();
     expect(

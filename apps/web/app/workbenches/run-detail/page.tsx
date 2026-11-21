@@ -7,7 +7,10 @@ import { ApertureMark } from "@/components/aperture-mark";
 import { Button } from "@/registry/default/ui/button";
 import { MOCK_RUN } from "@/registry/default/workbenches/run-detail/mock-data";
 import { RunDetail } from "@/registry/default/workbenches/run-detail/run-detail";
-import type { RunRecord } from "@/registry/default/workbenches/run-detail/types";
+import type {
+  RunArtifact,
+  RunRecord,
+} from "@/registry/default/workbenches/run-detail/types";
 
 type DemoState =
   | "ready"
@@ -45,6 +48,32 @@ export default function RunDetailPreviewPage() {
     router.push("/workbenches/data-explorer/?run=RUN-2026-1120");
   }
 
+  function openArtifact(artifact: RunArtifact) {
+    const body = [
+      "Aperture Run Detail — synthetic artifact",
+      "",
+      `Run: ${MOCK_RUN.id}`,
+      `Artifact: ${artifact.name}`,
+      `Kind: ${artifact.kind}`,
+      `Size: ${artifact.sizeBytes} bytes`,
+      `SHA-256: ${artifact.checksum}`,
+      `Created: ${artifact.createdAt}`,
+      "",
+      artifact.description,
+      "",
+      "Replace onArtifactOpen with your download URL or object-store call.",
+    ].join("\n");
+    const blob = new Blob([body], { type: "text/plain;charset=utf-8" });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = `${artifact.name}.txt`;
+    document.body.append(link);
+    link.click();
+    link.remove();
+    window.setTimeout(() => URL.revokeObjectURL(url), 0);
+  }
+
   return (
     <div className="min-h-svh bg-muted/24 print:min-h-0 print:bg-background">
       <header className="border-b bg-background print:hidden">
@@ -79,6 +108,7 @@ export default function RunDetailPreviewPage() {
           }
           loading={demo === "loading"}
           offline={demo === "offline"}
+          onArtifactOpen={openArtifact}
           onOpenData={openData}
           onRetry={() => setDemo("ready")}
           run={demo === "missing" ? null : MOCK_RUN}

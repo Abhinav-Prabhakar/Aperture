@@ -122,6 +122,31 @@ export default function SampleRegistryPage() {
       </ul>
 
       <h2 className="mt-10 font-heading font-semibold text-2xl tracking-tight">
+        Data contract
+      </h2>
+      <ol className="mt-3 grid gap-2 text-sm leading-relaxed">
+        <li>
+          <strong className="font-medium">Inventory in.</strong> Pass{" "}
+          <code className="font-mono text-xs">samples</code> and{" "}
+          <code className="font-mono text-xs">asOf</code>. Each record carries
+          study, subject, storage coordinates, aliquots, custody, and linked run
+          IDs; an unrecorded volume is <code className="font-mono text-xs">null</code>.
+        </li>
+        <li>
+          <strong className="font-medium">Runs out.</strong>{" "}
+          <code className="font-mono text-xs">onRunOpen(runId)</code> opens the
+          run that used the sample. The open sample, filters, and sort stay in
+          the URL.
+        </li>
+        <li>
+          <strong className="font-medium">Export out.</strong>{" "}
+          <code className="font-mono text-xs">toCsv</code> serializes the current
+          filtered view. Swap it for a server export when the registry is larger
+          than the browser should hold.
+        </li>
+      </ol>
+
+      <h2 className="mt-10 font-heading font-semibold text-2xl tracking-tight">
         Install
       </h2>
       <CodeBlock code="npx shadcn@latest add @aperture/sample-registry" />

@@ -3,6 +3,7 @@
 import {
   AlertTriangleIcon,
   ArrowUpRightIcon,
+  DownloadIcon,
   FileArchiveIcon,
   FileIcon,
   FileImageIcon,
@@ -69,6 +70,8 @@ export type RunDetailProps = Omit<
   onRetry?: () => void;
   /** Continue to the samples that belong to this run. */
   onOpenData?: (run: RunRecord) => void;
+  /** Download or open an artifact. Omit to show metadata only. */
+  onArtifactOpen?: (artifact: RunArtifact) => void;
   /** Keep the open artifact in the address bar. */
   syncToUrl?: boolean;
 };
@@ -82,6 +85,7 @@ export function RunDetail({
   offline = false,
   onRetry,
   onOpenData,
+  onArtifactOpen,
   syncToUrl = false,
   className,
   ...props
@@ -485,7 +489,11 @@ export function RunDetail({
                   ))}
                 </ul>
                 {selectedArtifact ? (
-                  <ArtifactDetail artifact={selectedArtifact} id={detailId} />
+                  <ArtifactDetail
+                    artifact={selectedArtifact}
+                    id={detailId}
+                    onOpen={onArtifactOpen}
+                  />
                 ) : null}
               </section>
             </aside>
@@ -566,9 +574,11 @@ function ArtifactRow({
 function ArtifactDetail({
   artifact,
   id,
+  onOpen,
 }: {
   artifact: RunArtifact;
   id: string;
+  onOpen?: (artifact: RunArtifact) => void;
 }): React.ReactElement {
   return (
     <div
@@ -579,6 +589,18 @@ function ArtifactDetail({
       <p className="text-[11px] text-muted-foreground leading-relaxed">
         {artifact.description}
       </p>
+      {onOpen ? (
+        <Button
+          className="mt-2"
+          onClick={() => onOpen(artifact)}
+          size="xs"
+          type="button"
+          variant="outline"
+        >
+          <DownloadIcon />
+          Download
+        </Button>
+      ) : null}
       <dl className="mt-2 grid gap-1 text-[10px]">
         <div className="flex items-start justify-between gap-3">
           <dt className="shrink-0 text-muted-foreground">SHA-256</dt>

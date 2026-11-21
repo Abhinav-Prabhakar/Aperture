@@ -93,6 +93,17 @@ describe("RunDetail", () => {
     ).toBeInTheDocument();
   });
 
+  it("hands the selected artifact to the download adapter", async () => {
+    const onArtifactOpen = vi.fn();
+    const user = userEvent.setup();
+    render(<RunDetail onArtifactOpen={onArtifactOpen} />);
+
+    await user.click(screen.getByRole("button", { name: "Download" }));
+    expect(onArtifactOpen).toHaveBeenCalledWith(
+      expect.objectContaining({ id: "samples-csv" }),
+    );
+  });
+
   it("prints the report and continues to the samples", async () => {
     const print = vi.fn();
     Object.defineProperty(window, "print", { value: print, writable: true });

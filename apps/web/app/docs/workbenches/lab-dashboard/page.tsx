@@ -115,6 +115,30 @@ export default function LabDashboardPage() {
       </ul>
 
       <h2 className="mt-10 font-heading font-semibold text-2xl tracking-tight">
+        Data contract
+      </h2>
+      <ol className="mt-3 grid gap-2 text-sm leading-relaxed">
+        <li>
+          <strong className="font-medium">Everything in.</strong> Instruments,
+          alerts, samples, schedule, activity, and <code className="font-mono text-xs">asOf</code>{" "}
+          are the whole input. Replace the <code className="font-mono text-xs">MOCK_*</code>{" "}
+          exports with one adapter that returns the same five arrays.
+        </li>
+        <li>
+          <strong className="font-medium">Acknowledgement out.</strong>{" "}
+          <code className="font-mono text-xs">onAcknowledge(alert)</code> fires
+          after the local state moves. Persist it, then let the next fetch return
+          the acknowledged record; the alert stays visible either way.
+        </li>
+        <li>
+          <strong className="font-medium">Sample open out.</strong>{" "}
+          <code className="font-mono text-xs">onSampleOpen(sample)</code> is the
+          handoff to your sample or data route. Instrument selection and the
+          active sample are local and URL-addressable.
+        </li>
+      </ol>
+
+      <h2 className="mt-10 font-heading font-semibold text-2xl tracking-tight">
         Install
       </h2>
       <CodeBlock code="npx shadcn@latest add @aperture/lab-dashboard" />
