@@ -1463,6 +1463,51 @@
           "type": "registry:example"
         }
       ]
+    },
+    {
+      "name": "data-explorer",
+      "type": "registry:block",
+      "title": "Data Explorer",
+      "description": "A complete research workbench: filter rail, sortable sample table, inspector with chain of custody, all states, and CSV export.",
+      "dependencies": [],
+      "registryDependencies": [
+        "@aperture/button",
+        "@aperture/input",
+        "@aperture/separator",
+        "@aperture/data-table",
+        "@aperture/scientific-number",
+        "@aperture/sparkline",
+        "@aperture/stat",
+        "@aperture/status-badge",
+        "@aperture/timeline",
+        "@aperture/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/default/workbenches/data-explorer/types.ts",
+          "type": "registry:block"
+        },
+        {
+          "path": "registry/default/workbenches/data-explorer/adapter.ts",
+          "type": "registry:block"
+        },
+        {
+          "path": "registry/default/workbenches/data-explorer/mock-data.ts",
+          "type": "registry:block"
+        },
+        {
+          "path": "registry/default/workbenches/data-explorer/filter-rail.tsx",
+          "type": "registry:block"
+        },
+        {
+          "path": "registry/default/workbenches/data-explorer/sample-inspector.tsx",
+          "type": "registry:block"
+        },
+        {
+          "path": "registry/default/workbenches/data-explorer/data-explorer.tsx",
+          "type": "registry:block"
+        }
+      ]
     }
   ]
 }
