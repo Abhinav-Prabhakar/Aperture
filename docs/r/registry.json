@@ -1543,6 +1543,40 @@
           "type": "registry:block"
         }
       ]
+    },
+    {
+      "name": "run-detail",
+      "type": "registry:block",
+      "title": "Run Detail",
+      "description": "A complete run report workbench: parameters, QC metrics, artifacts with checksums and provenance, run log, and every state.",
+      "dependencies": [],
+      "registryDependencies": [
+        "@aperture/button",
+        "@aperture/log-viewer",
+        "@aperture/scientific-number",
+        "@aperture/stat",
+        "@aperture/status-badge",
+        "@aperture/timeline",
+        "@aperture/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/default/workbenches/run-detail/types.ts",
+          "type": "registry:block"
+        },
+        {
+          "path": "registry/default/workbenches/run-detail/adapter.ts",
+          "type": "registry:block"
+        },
+        {
+          "path": "registry/default/workbenches/run-detail/mock-data.ts",
+          "type": "registry:block"
+        },
+        {
+          "path": "registry/default/workbenches/run-detail/run-detail.tsx",
+          "type": "registry:block"
+        }
+      ]
     }
   ]
 }
