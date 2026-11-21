@@ -183,6 +183,17 @@ export function DataExplorer({
   }, [filtered, activeId]);
 
   React.useEffect(() => {
+    setSelected((current) => {
+      if (current.size === 0) {
+        return current;
+      }
+      const visible = new Set(filtered.map((sample) => sample.id));
+      const next = new Set(Array.from(current).filter((id) => visible.has(id)));
+      return next.size === current.size ? current : next;
+    });
+  }, [filtered]);
+
+  React.useEffect(() => {
     if (!syncToUrl) {
       return;
     }

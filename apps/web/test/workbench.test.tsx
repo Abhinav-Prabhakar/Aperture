@@ -49,9 +49,13 @@ describe("DataExplorer", () => {
     const user = userEvent.setup();
     render(<DataExplorer />);
 
+    await user.click(screen.getByRole("checkbox", { name: "Select S-001" }));
+    expect(screen.getByText(/24 rows · 1 selected/)).toBeInTheDocument();
+
     await user.click(screen.getByRole("button", { name: /Censored/ }));
 
     expect(screen.getByText("1 row")).toBeInTheDocument();
+    expect(screen.queryByText(/selected/)).not.toBeInTheDocument();
     expect(screen.getByText("1 missing concentration")).toBeInTheDocument();
 
     const inspector = screen.getByRole("complementary", {
