@@ -21,6 +21,9 @@ const NAV = [
       { href: "/docs/instruments/stat", label: "Stat" },
       { href: "/docs/instruments/sparkline", label: "Sparkline" },
       { href: "/docs/instruments/status-badge", label: "Status Badge" },
+      { href: "/docs/instruments/log-viewer", label: "Log Viewer" },
+      { href: "/docs/instruments/timeline", label: "Timeline" },
+      { href: "/docs/instruments/protocol-steps", label: "Protocol Steps" },
     ],
   },
   {

@@ -84,6 +84,9 @@ const READY = new Map([
   ["Stat + Stat Grid", "stat"],
   ["Sparkline", "sparkline"],
   ["Status Badge + Dot", "status-badge"],
+  ["Log Viewer", "log-viewer"],
+  ["Timeline", "timeline"],
+  ["Protocol Steps", "protocol-steps"],
 ]);
 
 export default function InstrumentsPage() {
@@ -92,13 +95,13 @@ export default function InstrumentsPage() {
       <div className="flex flex-wrap items-center gap-2">
         <Badge variant="outline">Layer 02</Badge>
         <Badge variant="outline">Phase 1</Badge>
-        <Badge variant="outline">5 ready · 7 in progress</Badge>
+        <Badge variant="outline">8 ready · 4 in progress</Badge>
       </div>
       <h1 className="mt-4 font-heading font-bold text-4xl tracking-tight">
         Instruments
       </h1>
       <p className="mt-3 text-lg text-muted-foreground leading-relaxed">
-        Focused research components that solve one real problem well. Five are
+        Focused research components that solve one real problem well. Eight are
         ready now; the rest are being built against the same contract.
       </p>
 

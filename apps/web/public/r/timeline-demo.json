@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "timeline-demo",
+  "title": "Timeline demo",
+  "description": "A plate run from preparation through a censored well.",
+  "registryDependencies": [
+    "@aperture/timeline"
+  ],
+  "files": [
+    {
+      "path": "registry/default/examples/timeline-demo.tsx",
+      "content": "import type { TimelineItem } from \"@/registry/default/instruments/timeline\";\nimport { Timeline } from \"@/registry/default/instruments/timeline\";\n\nconst ITEMS: TimelineItem[] = [\n  {\n    id: \"prep\",\n    title: \"Plate prepared\",\n    description:\n      \"Compound dilution series in columns 1–12; 96 wells at 100 µL.\",\n    time: \"08:42\",\n    dateTime: \"2026-11-21T08:42:00Z\",\n    meta: \"Operator: A. Rao · Plate 1\",\n  },\n  {\n    id: \"calibration\",\n    title: \"Reader calibrated\",\n    description: \"Dark current and gain checked against the reference block.\",\n    time: \"09:05\",\n    dateTime: \"2026-11-21T09:05:00Z\",\n    status: \"success\",\n  },\n  {\n    id: \"acquisition\",\n    title: \"Acquisition complete\",\n    description: \"Absorbance at 600 nm, 25 flashes per well, 24 minutes.\",\n    time: \"09:32\",\n    dateTime: \"2026-11-21T09:32:00Z\",\n    status: \"success\",\n  },\n  {\n    id: \"analysis\",\n    title: \"Background subtracted\",\n    description: \"Blank wells B1–B3 used for the per-plate correction.\",\n    time: \"09:40\",\n    dateTime: \"2026-11-21T09:40:00Z\",\n  },\n  {\n    id: \"warning\",\n    title: \"One well censored\",\n    description:\n      \"D7 saturated the detector. Reported as > 4.12 × 10⁶ AU, not as a value.\",\n    time: \"09:41\",\n    dateTime: \"2026-11-21T09:41:00Z\",\n    status: \"warning\",\n  },\n];\n\nexport function TimelineDemo() {\n  return <Timeline items={ITEMS} label=\"Run 12 events\" />;\n}\n",
+      "type": "registry:example"
+    }
+  ],
+  "type": "registry:example"
+}

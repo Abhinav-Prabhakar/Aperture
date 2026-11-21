@@ -1254,6 +1254,87 @@
           "type": "registry:example"
         }
       ]
+    },
+    {
+      "name": "log-viewer",
+      "type": "registry:ui",
+      "title": "Log Viewer",
+      "description": "A dense, filterable run log with severity, source, timestamps, and follow mode.",
+      "dependencies": [],
+      "registryDependencies": ["@aperture/button", "@aperture/utils"],
+      "files": [
+        {
+          "path": "registry/default/instruments/log-viewer.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "log-viewer-demo",
+      "type": "registry:example",
+      "title": "Log Viewer demo",
+      "description": "A plate reader run log with all four levels.",
+      "registryDependencies": ["@aperture/log-viewer"],
+      "files": [
+        {
+          "path": "registry/default/examples/log-viewer-demo.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "timeline",
+      "type": "registry:ui",
+      "title": "Timeline",
+      "description": "A chronological run record with times, optional outcomes, context, and an honest empty state.",
+      "dependencies": [],
+      "registryDependencies": ["@aperture/status-badge", "@aperture/utils"],
+      "files": [
+        {
+          "path": "registry/default/instruments/timeline.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "timeline-demo",
+      "type": "registry:example",
+      "title": "Timeline demo",
+      "description": "A plate run from preparation through a censored well.",
+      "registryDependencies": ["@aperture/timeline"],
+      "files": [
+        {
+          "path": "registry/default/examples/timeline-demo.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "protocol-steps",
+      "type": "registry:ui",
+      "title": "Protocol Steps",
+      "description": "A sequential protocol with progress, durations, active step, cautions, and skipped steps.",
+      "dependencies": [],
+      "registryDependencies": ["@aperture/utils"],
+      "files": [
+        {
+          "path": "registry/default/instruments/protocol-steps.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "protocol-steps-demo",
+      "type": "registry:example",
+      "title": "Protocol Steps demo",
+      "description": "A Western blot day-one protocol with a caution and an active step.",
+      "registryDependencies": ["@aperture/protocol-steps"],
+      "files": [
+        {
+          "path": "registry/default/examples/protocol-steps-demo.tsx",
+          "type": "registry:example"
+        }
+      ]
     }
   ]
 }
