@@ -8,7 +8,7 @@
 [![Status](https://img.shields.io/badge/status-pre--alpha-000?style=flat-square)](./PLAN.md)
 [![License](https://img.shields.io/badge/license-MIT-000?style=flat-square)](./LICENSE)
 [![Elements](https://img.shields.io/badge/elements-56-000?style=flat-square)](./registry/default/ui)
-[![Tests](https://img.shields.io/badge/tests-52_passing-000?style=flat-square)](./apps/web/test)
+[![Tests](https://img.shields.io/badge/tests-57_passing-000?style=flat-square)](./apps/web/test)
 [![React](https://img.shields.io/badge/React-19-000?style=flat-square&logo=react&logoColor=white)](https://react.dev)
 [![Tailwind](https://img.shields.io/badge/Tailwind-4-000?style=flat-square&logo=tailwindcss&logoColor=white)](https://tailwindcss.com)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.9-000?style=flat-square&logo=typescript&logoColor=white)](https://typescriptlang.org)
@@ -32,7 +32,7 @@ A table with units. An inspector with provenance. Missing values that read as mi
 
 <img src="./docs/assets/layers.webp" alt="The Aperture layers: elements, instruments, workbenches" width="100%" />
 
-**56 elements** · **4 of 12 instruments ready** · **4 workbenches** — one design contract from the first button to the finished screen.
+**56 elements** · **5 of 12 instruments ready** · **4 workbenches** — one design contract from the first button to the finished screen.
 
 ## Details researchers notice
 
@@ -69,7 +69,7 @@ Life sciences first — sample tables, plate readers, growth curves, dose–resp
   <img src="./docs/assets/instrument-sparkline-doc.webp" alt="Sparkline documentation: a series, an empty state, and a flat baseline" width="49%" />
 </p>
 
-Live in the registry with docs, tests, and accessible names: `quantity-input`, `scientific-number`, `stat`, `sparkline`. The other eight are in progress against the same contract.
+Live in the registry with docs, tests, and accessible names: `quantity-input`, `scientific-number`, `stat`, `sparkline`, plus `status-badge` and its dot. Seven instruments remain.
 
 ## Light. Dark. Every screen.
 
@@ -104,7 +104,7 @@ Every component lands in your repository. You own the code.
 
 ## Status
 
-Phase 1: elements, tokens, registry, docs, `@aperture/quantities`, and four founding instruments are in place. The remaining instruments and the workbenches are next. Counts and commands on the site describe the target, not a finished release.
+Phase 1: elements, tokens, registry, docs, `@aperture/quantities`, and five founding instruments are in place. The remaining instruments and the workbenches are next. Counts and commands on the site describe the target, not a finished release.
 
 ---
 

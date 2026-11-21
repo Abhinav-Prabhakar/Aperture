@@ -20,6 +20,7 @@ const NAV = [
       { href: "/docs/instruments/quantity-input", label: "Quantity Input" },
       { href: "/docs/instruments/stat", label: "Stat" },
       { href: "/docs/instruments/sparkline", label: "Sparkline" },
+      { href: "/docs/instruments/status-badge", label: "Status Badge" },
     ],
   },
   {

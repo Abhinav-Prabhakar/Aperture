@@ -7,6 +7,10 @@ import { QuantityInput } from "@/registry/default/instruments/quantity-input";
 import { ScientificNumber } from "@/registry/default/instruments/scientific-number";
 import { Sparkline } from "@/registry/default/instruments/sparkline";
 import { Stat, StatGrid } from "@/registry/default/instruments/stat";
+import {
+  StatusBadge,
+  StatusDot,
+} from "@/registry/default/instruments/status-badge";
 
 async function expectNoViolations(container: HTMLElement) {
   const results = await axe.run(container, {
@@ -199,6 +203,47 @@ describe("Sparkline", () => {
   it("has no accessibility violations", async () => {
     const { container } = render(
       <Sparkline label="Baseline" values={[3, 3, 3, 3]} />,
+    );
+    await expectNoViolations(container);
+  });
+});
+
+describe("StatusBadge", () => {
+  it("renders a visible label and a machine-readable state", () => {
+    render(<StatusBadge status="running" />);
+    const badge = screen
+      .getByText("Running")
+      .closest('[data-slot="status-badge"]');
+    expect(badge).toHaveAttribute("data-status", "running");
+  });
+
+  it("accepts a domain label without losing the status", () => {
+    render(<StatusBadge label="Acquiring" status="running" />);
+    expect(screen.getByText("Acquiring")).toBeInTheDocument();
+    expect(screen.queryByText("Running")).not.toBeInTheDocument();
+  });
+
+  it("announces changes only when asked", () => {
+    const { rerender } = render(<StatusBadge status="running" />);
+    expect(screen.queryByRole("status")).not.toBeInTheDocument();
+
+    rerender(<StatusBadge announce status="success" />);
+    expect(screen.getByRole("status")).toHaveTextContent("Complete");
+  });
+
+  it("gives a standalone dot an accessible name", () => {
+    render(<StatusDot label="Reader 3 offline" status="offline" />);
+    expect(
+      screen.getByRole("img", { name: "Reader 3 offline" }),
+    ).toHaveAttribute("data-status", "offline");
+  });
+
+  it("has no accessibility violations", async () => {
+    const { container } = render(
+      <div className="flex gap-2">
+        <StatusBadge status="success" />
+        <StatusDot label="Offline" status="offline" />
+      </div>,
     );
     await expectNoViolations(container);
   });

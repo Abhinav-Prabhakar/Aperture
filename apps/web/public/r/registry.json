@@ -1223,6 +1223,37 @@
           "type": "registry:example"
         }
       ]
+    },
+    {
+      "name": "status-badge",
+      "type": "registry:ui",
+      "title": "Status Badge",
+      "description": "A state indicator with a dot, visible label, tooltip description, and optional announcement.",
+      "dependencies": [],
+      "registryDependencies": [
+        "@aperture/badge",
+        "@aperture/tooltip",
+        "@aperture/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/default/instruments/status-badge.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "status-badge-demo",
+      "type": "registry:example",
+      "title": "Status Badge demo",
+      "description": "Every state, a live advance, and compact status dots.",
+      "registryDependencies": ["@aperture/status-badge", "@aperture/button"],
+      "files": [
+        {
+          "path": "registry/default/examples/status-badge-demo.tsx",
+          "type": "registry:example"
+        }
+      ]
     }
   ]
 }
