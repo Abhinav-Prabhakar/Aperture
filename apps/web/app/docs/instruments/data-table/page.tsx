@@ -58,6 +58,8 @@ export default function DataTablePage() {
   rows={samples}
   getRowId={(row) => row.id}
   getRowLabel={(row) => row.sample}
+  activeRowId={activeId}
+  onRowActivate={(id) => setActiveId(id)}
   selectable
 />`}
       />
@@ -84,7 +86,8 @@ export default function DataTablePage() {
         </li>
         <li>
           Selection is by stable row id, not index. Give every row a checkbox name
-          a person can read.
+          a person can read. An active row is a reading position, not a
+          selection: the inspector follows it while export follows the selection.
         </li>
         <li>
           This table sorts and renders in memory. For thousands of rows, add

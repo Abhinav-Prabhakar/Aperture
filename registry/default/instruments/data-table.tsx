@@ -25,6 +25,8 @@ export type DataTableColumn<T> = {
   /** Use tabular numerals. Turn on for counts and measurements. */
   numeric?: boolean;
   width?: string;
+  /** Extra classes for both the header and body cells. */
+  className?: string;
 };
 
 export type DataTableSort = {
@@ -50,6 +52,9 @@ export type DataTableProps<T> = Omit<
   /** Controlled selection. Omit to let the table manage it. */
   selectedIds?: ReadonlySet<string>;
   onSelectionChange?: (ids: Set<string>) => void;
+  /** The row shown in a detail panel. */
+  activeRowId?: string;
+  onRowActivate?: (id: string, row: T) => void;
   defaultSort?: DataTableSort;
   maxHeight?: number | string;
 };
@@ -87,6 +92,8 @@ export function DataTable<T>({
   selectable = false,
   selectedIds,
   onSelectionChange,
+  activeRowId,
+  onRowActivate,
   defaultSort,
   maxHeight,
   className,
@@ -232,6 +239,7 @@ export function DataTable<T>({
                     className={cn(
                       column.align === "end" && "text-end",
                       column.numeric && "tabular-nums",
+                      column.className,
                     )}
                     key={column.id}
                     scope="col"
@@ -302,10 +310,52 @@ export function DataTable<T>({
               sortedRows.map((row) => {
                 const id = getRowId(row);
                 const isSelected = selected.has(id);
+                const isActive = activeRowId === id;
                 return (
                   <TableRow
+                    aria-current={isActive ? "true" : undefined}
+                    className={cn(
+                      onRowActivate &&
+                        "cursor-pointer outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-inset",
+                      isActive && "bg-accent/32 hover:bg-accent/40",
+                    )}
+                    data-active={isActive ? "" : undefined}
                     data-state={isSelected ? "selected" : undefined}
                     key={id}
+                    onClick={
+                      onRowActivate
+                        ? (event) => {
+                            const target = event.target as HTMLElement;
+                            if (
+                              target.closest(
+                                'button, a, input, select, textarea, [role="checkbox"]',
+                              )
+                            ) {
+                              return;
+                            }
+                            onRowActivate(id, row);
+                          }
+                        : undefined
+                    }
+                    onKeyDown={
+                      onRowActivate
+                        ? (event) => {
+                            const target = event.target as HTMLElement;
+                            if (
+                              target.closest(
+                                'button, a, input, select, textarea, [role="checkbox"]',
+                              )
+                            ) {
+                              return;
+                            }
+                            if (event.key === "Enter" || event.key === " ") {
+                              event.preventDefault();
+                              onRowActivate(id, row);
+                            }
+                          }
+                        : undefined
+                    }
+                    tabIndex={onRowActivate ? 0 : undefined}
                   >
                     {selectable ? (
                       <TableCell className="w-px">
@@ -321,6 +371,7 @@ export function DataTable<T>({
                         className={cn(
                           column.align === "end" && "text-end",
                           column.numeric && "tabular-nums",
+                          column.className,
                         )}
                         data-column={column.id}
                         key={column.id}
