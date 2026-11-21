@@ -8,7 +8,7 @@
 [![Status](https://img.shields.io/badge/status-pre--alpha-000?style=flat-square)](./PLAN.md)
 [![License](https://img.shields.io/badge/license-MIT-000?style=flat-square)](./LICENSE)
 [![Elements](https://img.shields.io/badge/elements-56-000?style=flat-square)](./registry/default/ui)
-[![Tests](https://img.shields.io/badge/tests-89_passing-000?style=flat-square)](./apps/web/test)
+[![Tests](https://img.shields.io/badge/tests-99_passing-000?style=flat-square)](./apps/web/test)
 [![React](https://img.shields.io/badge/React-19-000?style=flat-square&logo=react&logoColor=white)](https://react.dev)
 [![Tailwind](https://img.shields.io/badge/Tailwind-4-000?style=flat-square&logo=tailwindcss&logoColor=white)](https://tailwindcss.com)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.9-000?style=flat-square&logo=typescript&logoColor=white)](https://typescriptlang.org)
@@ -24,15 +24,15 @@ Elements, instruments, and whole workbenches — so you spend your time on the s
 
 ## A workbench, not a widget demo
 
-<img src="./docs/assets/explorer-light.webp" alt="Data Explorer workbench with sample table, inspector, status badges, and a concentration trend" width="100%" />
+<img src="./docs/assets/workbench-data-explorer.webp" alt="Data Explorer workbench with summary stats, filter rail, sample table, inspector, and chain of custody" width="100%" />
 
-A table with units. An inspector with provenance. Missing values that read as missing, not zero. This is the whole idea: researchers should not rebuild the same instrument panel in every lab.
+Filters, a sortable table, an inspector with provenance, and a real CSV export. Missing values read as missing, not zero. This is the whole idea: researchers should not rebuild the same instrument panel in every lab. [Open the workbench →](https://abhinav-prabhakar.github.io/Aperture/workbenches/data-explorer/)
 
 ## Three layers. One system.
 
 <img src="./docs/assets/layers.webp" alt="The Aperture layers: elements, instruments, workbenches" width="100%" />
 
-**56 elements** · **12 of 12 instruments ready** · **4 workbenches** — one design contract from the first button to the finished screen.
+**56 elements** · **12 instruments** · **1 workbench** — one design contract from the first button to the finished screen.
 
 ## Details researchers notice
 
@@ -122,7 +122,7 @@ Every component lands in your repository. You own the code.
 
 ## Status
 
-Phase 1: elements, tokens, registry, docs, `@aperture/quantities`, and all twelve founding instruments are in place. The workbenches are next. Counts and commands on the site describe the target, not a finished release.
+Phase 1: elements, tokens, registry, docs, `@aperture/quantities`, all twelve founding instruments, and the Data Explorer workbench are in place. Three more workbenches and the domain packs are next. Counts and commands on the site describe what exists, not a finished release.
 
 ---
 

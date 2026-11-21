@@ -30,14 +30,14 @@ const LAYERS = [
     href: "/docs/instruments",
     description:
       "Research-native components: quantity input, uncertainty, tables, logs, protocols, plots.",
-    badge: "12 planned",
+    badge: "12 ready",
   },
   {
     title: "Workbenches",
-    href: "/docs/instruments",
+    href: "/docs/workbenches",
     description:
       "Complete screens: data explorer, lab dashboard, sample registry, run detail.",
-    badge: "Phase 2",
+    badge: "1 ready",
   },
 ];
 
@@ -62,11 +62,11 @@ export default function DocsPage() {
       </div>
 
       <div className="mt-10 rounded-xl border bg-muted/32 p-4">
-        <p className="font-medium text-sm">Phase 0 is in progress.</p>
+        <p className="font-medium text-sm">Phase 1 is well underway.</p>
         <p className="mt-1 text-muted-foreground text-sm leading-relaxed">
-          The element layer, tokens, and registry pipeline are in place. The
-          founding instruments and the first workbenches are next. Counts and
-          commands on this site describe the target, not a finished release.
+          The element layer, tokens, registry pipeline, and all twelve founding
+          instruments are in place. The Data Explorer is the first finished
+          workbench; the remaining workbenches and domain packs are next.
         </p>
       </div>
 
@@ -112,7 +112,10 @@ npx @aperture/cli init
 npx shadcn@latest add @aperture/button
 
 # Add an instrument
-npx shadcn@latest add @aperture/quantity-input`}
+npx shadcn@latest add @aperture/quantity-input
+
+# Add a workbench
+npx shadcn@latest add @aperture/data-explorer`}
         filename="Terminal"
       />
 
@@ -130,6 +133,11 @@ npx shadcn@latest add @aperture/quantity-input`}
             href: "/docs/elements/card",
             label: "Card",
             detail: "The panel grammar used across every workbench.",
+          },
+          {
+            href: "/docs/workbenches/data-explorer",
+            label: "Data Explorer",
+            detail: "The first complete workbench, with every state.",
           },
           {
             href: "/docs/design/tokens",
