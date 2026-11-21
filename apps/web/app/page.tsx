@@ -136,7 +136,7 @@ export default function HomePage() {
             {[
               ["56", "elements"],
               ["12", "founding instruments"],
-              ["4", "workbenches"],
+              ["2", "workbenches"],
               ["MIT", "license"],
               ["AA", "WCAG 2.2 target"],
               ["8", "disciplines planned"],

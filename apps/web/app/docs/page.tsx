@@ -37,7 +37,7 @@ const LAYERS = [
     href: "/docs/workbenches",
     description:
       "Complete screens: data explorer, lab dashboard, sample registry, run detail.",
-    badge: "1 ready",
+    badge: "2 ready",
   },
 ];
 
@@ -64,9 +64,9 @@ export default function DocsPage() {
       <div className="mt-10 rounded-xl border bg-muted/32 p-4">
         <p className="font-medium text-sm">Phase 1 is well underway.</p>
         <p className="mt-1 text-muted-foreground text-sm leading-relaxed">
-          The element layer, tokens, registry pipeline, and all twelve founding
-          instruments are in place. The Data Explorer is the first finished
-          workbench; the remaining workbenches and domain packs are next.
+          The element layer, tokens, registry pipeline, all twelve founding
+          instruments, and the Data Explorer and Lab Dashboard workbenches are
+          in place. The remaining workbenches and domain packs are next.
         </p>
       </div>
 
@@ -138,6 +138,11 @@ npx shadcn@latest add @aperture/data-explorer`}
             href: "/docs/workbenches/data-explorer",
             label: "Data Explorer",
             detail: "The first complete workbench, with every state.",
+          },
+          {
+            href: "/docs/workbenches/lab-dashboard",
+            label: "Lab Dashboard",
+            detail: "Instrument health, alerts, samples, and the day’s schedule.",
           },
           {
             href: "/docs/design/tokens",

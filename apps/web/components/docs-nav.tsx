@@ -38,6 +38,7 @@ const NAV = [
     items: [
       { href: "/docs/workbenches", label: "Overview", exact: true },
       { href: "/docs/workbenches/data-explorer", label: "Data Explorer" },
+      { href: "/docs/workbenches/lab-dashboard", label: "Lab Dashboard" },
     ],
   },
   {

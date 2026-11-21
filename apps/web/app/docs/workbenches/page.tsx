@@ -20,8 +20,8 @@ const WORKBENCHES = [
   },
   {
     name: "Lab Dashboard",
-    href: null,
-    status: "In progress",
+    href: "/docs/workbenches/lab-dashboard",
+    status: "Ready",
     description:
       "Instrument status, samples in flight, alerts, schedule, and recent activity.",
   },
@@ -46,7 +46,7 @@ export default function WorkbenchesPage() {
     <article>
       <div className="flex flex-wrap items-center gap-2">
         <Badge variant="outline">Workbenches</Badge>
-        <Badge variant="outline">1 ready · 3 in progress</Badge>
+        <Badge variant="outline">2 ready · 2 in progress</Badge>
       </div>
       <h1 className="mt-4 font-heading font-bold text-4xl tracking-tight">
         Workbenches
@@ -86,7 +86,7 @@ export default function WorkbenchesPage() {
                 size="sm"
                 variant="outline"
               >
-                Open Data Explorer
+                Open {workbench.name}
                 <ArrowRightIcon />
               </Button>
             ) : null}

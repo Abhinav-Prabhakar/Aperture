@@ -8,7 +8,7 @@
 [![Status](https://img.shields.io/badge/status-pre--alpha-000?style=flat-square)](./PLAN.md)
 [![License](https://img.shields.io/badge/license-MIT-000?style=flat-square)](./LICENSE)
 [![Elements](https://img.shields.io/badge/elements-56-000?style=flat-square)](./registry/default/ui)
-[![Tests](https://img.shields.io/badge/tests-99_passing-000?style=flat-square)](./apps/web/test)
+[![Tests](https://img.shields.io/badge/tests-105_passing-000?style=flat-square)](./apps/web/test)
 [![React](https://img.shields.io/badge/React-19-000?style=flat-square&logo=react&logoColor=white)](https://react.dev)
 [![Tailwind](https://img.shields.io/badge/Tailwind-4-000?style=flat-square&logo=tailwindcss&logoColor=white)](https://tailwindcss.com)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.9-000?style=flat-square&logo=typescript&logoColor=white)](https://typescriptlang.org)
@@ -28,11 +28,17 @@ Elements, instruments, and whole workbenches — so you spend your time on the s
 
 Filters, a sortable table, an inspector with provenance, and a real CSV export. Missing values read as missing, not zero. This is the whole idea: researchers should not rebuild the same instrument panel in every lab. [Open the workbench →](https://abhinav-prabhakar.github.io/Aperture/workbenches/data-explorer/)
 
+## The lab, at a glance
+
+<img src="./docs/assets/workbench-lab-dashboard.webp" alt="Lab Dashboard with instrument health, alerts, samples in flight, today's schedule, and recent activity" width="100%" />
+
+Instrument health, acknowledgeable alerts, samples in flight, the day's schedule, and a filterable activity log. Every state is designed, including offline. [Open the dashboard →](https://abhinav-prabhakar.github.io/Aperture/workbenches/lab-dashboard/)
+
 ## Three layers. One system.
 
 <img src="./docs/assets/layers.webp" alt="The Aperture layers: elements, instruments, workbenches" width="100%" />
 
-**56 elements** · **12 instruments** · **1 workbench** — one design contract from the first button to the finished screen.
+**56 elements** · **12 instruments** · **2 workbenches** — one design contract from the first button to the finished screen.
 
 ## Details researchers notice
 
@@ -122,7 +128,7 @@ Every component lands in your repository. You own the code.
 
 ## Status
 
-Phase 1: elements, tokens, registry, docs, `@aperture/quantities`, all twelve founding instruments, and the Data Explorer workbench are in place. Three more workbenches and the domain packs are next. Counts and commands on the site describe what exists, not a finished release.
+Phase 1: elements, tokens, registry, docs, `@aperture/quantities`, all twelve founding instruments, and the Data Explorer and Lab Dashboard workbenches are in place. Two more workbenches and the domain packs are next. Counts and commands on the site describe what exists, not a finished release.
 
 ---
 
