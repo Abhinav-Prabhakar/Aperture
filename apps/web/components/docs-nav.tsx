@@ -39,6 +39,7 @@ const NAV = [
       { href: "/docs/workbenches", label: "Overview", exact: true },
       { href: "/docs/workbenches/data-explorer", label: "Data Explorer" },
       { href: "/docs/workbenches/lab-dashboard", label: "Lab Dashboard" },
+      { href: "/docs/workbenches/run-detail", label: "Run Detail" },
     ],
   },
   {
