@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Badge } from "@/registry/default/ui/badge";
 import {
   Table,
@@ -77,19 +78,27 @@ const LIFE_SCIENCE = [
   "Reagent Inventory",
 ];
 
+const READY = new Map([
+  ["Scientific Number", "scientific-number"],
+  ["Quantity Input", "quantity-input"],
+  ["Stat + Stat Grid", "stat"],
+  ["Sparkline", "sparkline"],
+]);
+
 export default function InstrumentsPage() {
   return (
     <article>
       <div className="flex flex-wrap items-center gap-2">
         <Badge variant="outline">Layer 02</Badge>
         <Badge variant="outline">Phase 1</Badge>
+        <Badge variant="outline">4 ready · 8 in progress</Badge>
       </div>
       <h1 className="mt-4 font-heading font-bold text-4xl tracking-tight">
         Instruments
       </h1>
       <p className="mt-3 text-lg text-muted-foreground leading-relaxed">
-        Focused research components that solve one real problem well. These are
-        the twelve that ship first, each with docs, tests, and a recipe.
+        Focused research components that solve one real problem well. Four are
+        ready now; the rest are being built against the same contract.
       </p>
 
       <h2 className="mt-10 font-heading font-semibold text-2xl tracking-tight">
@@ -109,24 +118,38 @@ export default function InstrumentsPage() {
             </TableRow>
           </TableHeader>
           <TableBody>
-            {INSTRUMENTS.map(([name, family, job]) => (
-              <TableRow key={name}>
-                <TableCell className="font-medium">{name}</TableCell>
-                <TableCell>
-                  <Badge size="sm" variant="secondary">
-                    {family}
-                  </Badge>
-                </TableCell>
-                <TableCell className="hidden max-w-md whitespace-normal text-muted-foreground sm:table-cell">
-                  {job}
-                </TableCell>
-                <TableCell className="text-end">
-                  <Badge size="sm" variant="outline">
-                    Planned
-                  </Badge>
-                </TableCell>
-              </TableRow>
-            ))}
+            {INSTRUMENTS.map(([name, family, job]) => {
+              const slug = READY.get(name);
+              return (
+                <TableRow key={name}>
+                  <TableCell className="font-medium">
+                    {slug ? (
+                      <Link
+                        className="underline-offset-4 hover:underline"
+                        href={`/docs/instruments/${slug}`}
+                      >
+                        {name}
+                      </Link>
+                    ) : (
+                      name
+                    )}
+                  </TableCell>
+                  <TableCell>
+                    <Badge size="sm" variant="secondary">
+                      {family}
+                    </Badge>
+                  </TableCell>
+                  <TableCell className="hidden max-w-md whitespace-normal text-muted-foreground sm:table-cell">
+                    {job}
+                  </TableCell>
+                  <TableCell className="text-end">
+                    <Badge size="sm" variant={slug ? "success" : "outline"}>
+                      {slug ? "Ready" : "Planned"}
+                    </Badge>
+                  </TableCell>
+                </TableRow>
+              );
+            })}
           </TableBody>
         </Table>
       </div>

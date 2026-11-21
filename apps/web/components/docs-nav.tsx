@@ -7,9 +7,19 @@ import { cn } from "@/registry/default/lib/utils";
 const NAV = [
   {
     title: "Getting started",
+    items: [{ href: "/docs", label: "Introduction" }],
+  },
+  {
+    title: "Instruments",
     items: [
-      { href: "/docs", label: "Introduction" },
-      { href: "/docs/instruments", label: "Instruments" },
+      { href: "/docs/instruments", label: "Overview", exact: true },
+      {
+        href: "/docs/instruments/scientific-number",
+        label: "Scientific Number",
+      },
+      { href: "/docs/instruments/quantity-input", label: "Quantity Input" },
+      { href: "/docs/instruments/stat", label: "Stat" },
+      { href: "/docs/instruments/sparkline", label: "Sparkline" },
     ],
   },
   {
@@ -44,9 +54,11 @@ export function DocsNav() {
           <ul className="grid gap-0.5">
             {group.items.map((item) => {
               const active =
-                item.href === "/docs"
-                  ? current === "/docs"
-                  : current.startsWith(item.href);
+                "exact" in item && item.exact
+                  ? current === item.href
+                  : item.href === "/docs"
+                    ? current === "/docs"
+                    : current.startsWith(item.href);
               return (
                 <li key={item.href}>
                   <Link

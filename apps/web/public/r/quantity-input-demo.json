@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "quantity-input-demo",
+  "title": "Quantity Input demo",
+  "description": "A live concentration input with conversion and uncertainty.",
+  "registryDependencies": [
+    "@aperture/quantity-input"
+  ],
+  "files": [
+    {
+      "path": "registry/default/examples/quantity-input-demo.tsx",
+      "content": "\"use client\";\n\nimport { useState } from \"react\";\nimport { QuantityInput } from \"@/registry/default/instruments/quantity-input\";\n\nexport function QuantityInputDemo() {\n  const [value, setValue] = useState<number | null>(12.4);\n  const [unit, setUnit] = useState(\"mg/L\");\n  const [uncertainty, setUncertainty] = useState<number | null>(0.2);\n\n  return (\n    <QuantityInput\n      className=\"w-full max-w-sm\"\n      hint=\"Reported as mean ± standard deviation.\"\n      label=\"Concentration\"\n      onUncertaintyChange={setUncertainty}\n      onUnitChange={setUnit}\n      onValueChange={setValue}\n      uncertainty={uncertainty}\n      unit={unit}\n      units={[\"mg/L\", \"µg/mL\", \"g/L\"]}\n      value={value}\n    />\n  );\n}\n",
+      "type": "registry:example"
+    }
+  ],
+  "type": "registry:example"
+}

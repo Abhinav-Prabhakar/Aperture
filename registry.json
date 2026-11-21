@@ -1108,6 +1108,121 @@
           "type": "registry:example"
         }
       ]
+    },
+    {
+      "name": "scientific-number",
+      "type": "registry:ui",
+      "title": "Scientific Number",
+      "description": "Measured values with significant figures, uncertainty, units, and full-precision copy.",
+      "dependencies": ["@aperture/quantities"],
+      "registryDependencies": [
+        "@aperture/use-copy-to-clipboard",
+        "@aperture/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/default/instruments/scientific-number.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "quantity-input",
+      "type": "registry:ui",
+      "title": "Quantity Input",
+      "description": "A measured value with a unit menu, conversion, uncertainty, precision, and validation.",
+      "dependencies": ["@aperture/quantities"],
+      "registryDependencies": [
+        "@aperture/field",
+        "@aperture/input-group",
+        "@aperture/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/default/instruments/quantity-input.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "stat",
+      "type": "registry:ui",
+      "title": "Stat",
+      "description": "A compact label/value/unit readout and grid for run summaries and inspectors.",
+      "dependencies": [],
+      "registryDependencies": ["@aperture/utils"],
+      "files": [
+        {
+          "path": "registry/default/instruments/stat.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "sparkline",
+      "type": "registry:ui",
+      "title": "Sparkline",
+      "description": "An inline series with a precise screen-reader summary and an honest empty state.",
+      "dependencies": [],
+      "registryDependencies": ["@aperture/utils"],
+      "files": [
+        {
+          "path": "registry/default/instruments/sparkline.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "scientific-number-demo",
+      "type": "registry:example",
+      "title": "Scientific Number demo",
+      "description": "Notation, precision, uncertainty, and copy in one readout.",
+      "registryDependencies": ["@aperture/scientific-number"],
+      "files": [
+        {
+          "path": "registry/default/examples/scientific-number-demo.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "quantity-input-demo",
+      "type": "registry:example",
+      "title": "Quantity Input demo",
+      "description": "A live concentration input with conversion and uncertainty.",
+      "registryDependencies": ["@aperture/quantity-input"],
+      "files": [
+        {
+          "path": "registry/default/examples/quantity-input-demo.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "stat-demo",
+      "type": "registry:example",
+      "title": "Stat demo",
+      "description": "A four-column run summary with direction and context.",
+      "registryDependencies": ["@aperture/stat", "@aperture/scientific-number"],
+      "files": [
+        {
+          "path": "registry/default/examples/stat-demo.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "sparkline-demo",
+      "type": "registry:example",
+      "title": "Sparkline demo",
+      "description": "A series, an empty state, and a flat baseline.",
+      "registryDependencies": ["@aperture/sparkline"],
+      "files": [
+        {
+          "path": "registry/default/examples/sparkline-demo.tsx",
+          "type": "registry:example"
+        }
+      ]
     }
   ]
 }
