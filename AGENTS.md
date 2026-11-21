@@ -40,7 +40,12 @@ registry/default/hooks/
 registry/default/lib/
 packages/                        # logic-only npm packages
 apps/web/                        # landing + docs + registry
+docs/                            # published static site, plus catalog/assets
 ```
+
+`docs/` is the GitHub Pages root. Build it with `bun run deploy:pages`, which
+exports the site, syncs it into `docs/`, commits that folder on `main`, and
+pushes. Pages serves `main` / `docs`; there is no `gh-pages` branch.
 
 ## Adding a component
 
@@ -75,7 +80,8 @@ Use `design.md` §12. A component is not done until every box is true.
 - Imperative, sentence case: `Add quantity input`, `Fix table empty state`.
 - One logical change per commit.
 - Reference the registry item or issue when relevant.
-- Do not commit `.reference/`, generated build output, or secrets.
+- Do not commit `.reference/`, secrets, or generated build output other than
+  the published `docs/` export.
 
 ## When in doubt
 
