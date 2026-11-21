@@ -34,8 +34,8 @@ const WORKBENCHES = [
   },
   {
     name: "Sample Registry",
-    href: null,
-    status: "In progress",
+    href: "/docs/workbenches/sample-registry",
+    status: "Ready",
     description:
       "Index, filters, sample detail, and chain of custody across studies.",
   },
@@ -46,7 +46,7 @@ export default function WorkbenchesPage() {
     <article>
       <div className="flex flex-wrap items-center gap-2">
         <Badge variant="outline">Workbenches</Badge>
-        <Badge variant="outline">3 ready · 1 in progress</Badge>
+        <Badge variant="outline">4 ready</Badge>
       </div>
       <h1 className="mt-4 font-heading font-bold text-4xl tracking-tight">
         Workbenches
