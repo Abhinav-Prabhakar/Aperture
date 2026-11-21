@@ -28,6 +28,11 @@ const NAV = [
 
 export function DocsNav() {
   const pathname = usePathname();
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+  const current =
+    basePath && pathname.startsWith(basePath)
+      ? pathname.slice(basePath.length) || "/"
+      : pathname;
 
   return (
     <nav aria-label="Docs" className="grid gap-7">
@@ -40,8 +45,8 @@ export function DocsNav() {
             {group.items.map((item) => {
               const active =
                 item.href === "/docs"
-                  ? pathname === "/docs"
-                  : pathname.startsWith(item.href);
+                  ? current === "/docs"
+                  : current.startsWith(item.href);
               return (
                 <li key={item.href}>
                   <Link

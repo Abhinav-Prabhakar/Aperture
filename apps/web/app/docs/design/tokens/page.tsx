@@ -75,7 +75,10 @@ export default function TokensPage() {
       <h2 className="mt-10 font-heading font-semibold text-2xl tracking-tight">
         Surfaces
       </h2>
-      <div className="mt-4 grid gap-px overflow-hidden rounded-xl border bg-border sm:grid-cols-2">
+      <div
+        className="mt-4 grid gap-px overflow-hidden rounded-xl border bg-border sm:grid-cols-2"
+        data-shot="tokens-surfaces"
+      >
         {SURFACES.map(([token, job]) => (
           <div
             className="flex items-center gap-3 bg-background p-4"
@@ -122,7 +125,10 @@ export default function TokensPage() {
         Eight categorical colors adapted from Okabe–Ito. Use them in order, and
         never cycle past eight without grouping the remainder.
       </p>
-      <div className="mt-4 grid grid-cols-4 gap-2 sm:grid-cols-8">
+      <div
+        className="mt-4 grid grid-cols-4 gap-2 sm:grid-cols-8"
+        data-shot="tokens-palette"
+      >
         {CHARTS.map((index) => (
           <div key={index}>
             <div

@@ -187,9 +187,11 @@ export function SampleExplorer() {
           <TableHeader>
             <TableRow>
               <TableHead>Sample</TableHead>
-              <TableHead>Tissue</TableHead>
+              <TableHead className="hidden sm:table-cell">Tissue</TableHead>
               <TableHead className="text-end">Concentration</TableHead>
-              <TableHead className="text-end">A₄₈₂</TableHead>
+              <TableHead className="hidden text-end md:table-cell">
+                A₄₈₂
+              </TableHead>
               <TableHead>Status</TableHead>
             </TableRow>
           </TableHeader>
@@ -210,14 +212,16 @@ export function SampleExplorer() {
                 tabIndex={0}
               >
                 <TableCell className="font-mono text-xs">{sample.id}</TableCell>
-                <TableCell>{sample.tissue}</TableCell>
+                <TableCell className="hidden sm:table-cell">
+                  {sample.tissue}
+                </TableCell>
                 <TableCell className="text-end tabular-nums">
                   {formatConcentration(sample.concentration)}
                   <span className="ms-1 text-muted-foreground text-xs">
                     mg/L
                   </span>
                 </TableCell>
-                <TableCell className="text-end tabular-nums">
+                <TableCell className="hidden text-end tabular-nums md:table-cell">
                   {sample.absorbance.toFixed(3)}
                 </TableCell>
                 <TableCell>

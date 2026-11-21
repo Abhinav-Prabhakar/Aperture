@@ -55,7 +55,7 @@ export default function HomePage() {
     <>
       <SiteHeader />
       <main>
-        <section className="relative overflow-hidden border-b">
+        <section className="relative overflow-hidden border-b" data-shot="hero">
           <div
             aria-hidden="true"
             className="pointer-events-none absolute inset-0 opacity-60 [background-image:linear-gradient(to_right,color-mix(in_srgb,var(--foreground)_4%,transparent)_1px,transparent_1px),linear-gradient(to_bottom,color-mix(in_srgb,var(--foreground)_4%,transparent)_1px,transparent_1px)] [background-size:32px_32px] [mask-image:radial-gradient(ellipse_at_center,black,transparent_78%)]"
@@ -92,12 +92,17 @@ export default function HomePage() {
             </div>
 
             <div className="min-w-0">
-              <div className="rounded-2xl border bg-card p-1.5 shadow-sm">
+              <div
+                className="rounded-2xl border bg-card p-1.5 shadow-sm"
+                data-shot="explorer"
+              >
                 <div className="flex items-center gap-2 px-2.5 py-2">
                   <ApertureMark className="size-4" />
                   <span className="font-medium text-xs">Data Explorer</span>
-                  <span className="text-muted-foreground text-xs">/</span>
-                  <span className="truncate text-muted-foreground text-xs">
+                  <span className="hidden text-muted-foreground text-xs sm:inline">
+                    /
+                  </span>
+                  <span className="hidden truncate text-muted-foreground text-xs sm:inline">
                     Magnetic susceptibility · run 12
                   </span>
                   <div className="ms-auto flex items-center gap-2">
@@ -122,7 +127,11 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section aria-label="Project facts" className="border-b">
+        <section
+          aria-label="Project facts"
+          className="border-b"
+          data-shot="facts"
+        >
           <div className="container grid grid-cols-2 divide-x divide-border py-0 sm:grid-cols-3 lg:grid-cols-6">
             {[
               ["56", "elements"],
@@ -142,7 +151,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section className="border-b">
+        <section className="border-b" data-shot="layers">
           <div className="container py-16 lg:py-20">
             <div className="max-w-2xl">
               <p className="font-mono text-muted-foreground text-xs uppercase tracking-wider">
@@ -176,7 +185,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section className="border-b">
+        <section className="border-b" data-shot="principles">
           <div className="container grid gap-10 py-16 lg:grid-cols-[0.7fr_1.3fr] lg:py-20">
             <div>
               <p className="font-mono text-muted-foreground text-xs uppercase tracking-wider">

@@ -54,7 +54,10 @@ export default function ButtonPage() {
       <h2 className="mt-10 font-heading font-semibold text-2xl tracking-tight">
         Variants
       </h2>
-      <div className="mt-4 flex flex-wrap items-center gap-2 rounded-xl border p-5">
+      <div
+        className="mt-4 flex flex-wrap items-center gap-2 rounded-xl border p-5"
+        data-shot="button-variants"
+      >
         {VARIANTS.map((variant) => (
           <Button key={variant} variant={variant}>
             {variant === "destructive" || variant === "destructive-outline" ? (

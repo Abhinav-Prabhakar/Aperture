@@ -95,7 +95,10 @@ export default function InstrumentsPage() {
       <h2 className="mt-10 font-heading font-semibold text-2xl tracking-tight">
         Founding set
       </h2>
-      <div className="mt-4 overflow-hidden rounded-xl border">
+      <div
+        className="mt-4 overflow-hidden rounded-xl border"
+        data-shot="instruments-table"
+      >
         <Table>
           <TableHeader>
             <TableRow>

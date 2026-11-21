@@ -36,7 +36,10 @@ export default function CardPage() {
       <h2 className="mt-10 font-heading font-semibold text-2xl tracking-tight">
         Basic
       </h2>
-      <div className="mt-4 rounded-xl border bg-muted/32 p-6">
+      <div
+        className="mt-4 rounded-xl border bg-muted/32 p-6"
+        data-shot="card-basic"
+      >
         <Card className="max-w-md">
           <CardHeader>
             <CardTitle>Magnetic susceptibility</CardTitle>

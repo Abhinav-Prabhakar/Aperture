@@ -99,7 +99,10 @@ export default function ElementsPage() {
         <Badge variant="outline">Light · Dark · Contrast</Badge>
       </div>
 
-      <div className="mt-8 grid gap-px overflow-hidden rounded-xl border bg-border sm:grid-cols-2">
+      <div
+        className="mt-4 grid gap-px overflow-hidden rounded-xl border bg-border sm:grid-cols-2"
+        data-shot="elements-grid"
+      >
         {ELEMENTS.map((name, index) => {
           const documented = DOCUMENTED.has(name);
           return (

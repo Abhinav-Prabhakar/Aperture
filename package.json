@@ -12,6 +12,7 @@
     "build": "turbo run build",
     "clean": "turbo run clean && rm -rf node_modules .turbo",
     "dev": "turbo run dev",
+    "deploy:pages": "bash scripts/deploy-pages.sh",
     "format": "biome format --write .",
     "format:check": "biome format .",
     "lint": "biome check .",
