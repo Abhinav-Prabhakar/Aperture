@@ -1,158 +1,122 @@
 <div align="center">
 
-# Aperture
+<img src="./docs/assets/hero-light.webp" alt="Aperture — Building blocks for researchers" width="100%" />
 
-**Building blocks for researchers.**
+<br />
+<br />
 
-A copy-paste UI system for scientific software — elements, instruments, and whole
-workbenches — so researchers can spend their time on the science, not the interface.
+[![Status](https://img.shields.io/badge/status-pre--alpha-000?style=flat-square)](./PLAN.md)
+[![License](https://img.shields.io/badge/license-MIT-000?style=flat-square)](./LICENSE)
+[![Elements](https://img.shields.io/badge/elements-56-000?style=flat-square)](./registry/default/ui)
+[![Tests](https://img.shields.io/badge/tests-37_passing-000?style=flat-square)](./packages/quantities/test)
+[![React](https://img.shields.io/badge/React-19-000?style=flat-square&logo=react&logoColor=white)](https://react.dev)
+[![Tailwind](https://img.shields.io/badge/Tailwind-4-000?style=flat-square&logo=tailwindcss&logoColor=white)](https://tailwindcss.com)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.9-000?style=flat-square&logo=typescript&logoColor=white)](https://typescriptlang.org)
 
-`Pre-alpha` · `TypeScript` · `React` · `Tailwind CSS` · `MIT`
+**A copy-paste UI system for scientific software.**<br />
+Elements, instruments, and whole workbenches — so you spend your time on the science.
+
+[**Live site**](https://abhinav-prabhakar.github.io/Aperture/) · [**Elements**](https://abhinav-prabhakar.github.io/Aperture/docs/elements/) · [**Design contract**](./design.md) · [**Catalog**](./docs/catalog.md)
 
 </div>
 
 ---
 
-## Status
+## A workbench, not a widget demo
 
-Phase 0 scaffold. The monorepo, 56 vendored elements, the token system, the
-registry pipeline, the docs shell, and `@aperture/quantities` are in place and
-verified. The founding instruments need a domain review before they are marked
-beta; the workbenches and the CLI come next. See [`PLAN.md`](./PLAN.md) for the
-roadmap.
+<img src="./docs/assets/explorer-light.webp" alt="Data Explorer workbench with sample table, inspector, status badges, and a concentration trend" width="100%" />
 
-## Repository layout
+A table with units. An inspector with provenance. Missing values that read as missing, not zero. This is the whole idea: researchers should not rebuild the same instrument panel in every lab.
 
+## Three layers. One system.
+
+<img src="./docs/assets/layers.webp" alt="The Aperture layers: elements, instruments, workbenches" width="100%" />
+
+| | | |
+| :-- | :-- | :-- |
+| **Elements** | **Instruments** | **Workbenches** |
+| 56 accessible primitives, vendored from coss/ui. | Research-native components: quantities, uncertainty, logs, protocols. | Complete screens with navigation, canvas, inspector, and status. |
+
+## Details researchers notice
+
+<p align="center">
+  <img src="./docs/assets/card-basic.webp" alt="Card with values, units, and provenance" width="49%" />
+  <img src="./docs/assets/button-variants.webp" alt="Button variants" width="49%" />
+</p>
+
+<p align="center">
+  <img src="./docs/assets/tokens-surfaces.webp" alt="Achromatic surface tokens" width="49%" />
+  <img src="./docs/assets/tokens-palette.webp" alt="Eight-color colorblind-safe data palette" width="49%" />
+</p>
+
+Units live with the value. Uncertainty is a first-class input. The chrome is achromatic, so color is reserved for data and status. Tabular numerals, true minus signs, explicit missing values.
+
+## Built for the bench and the field
+
+<p align="center">
+  <img src="./docs/assets/instruments.webp" alt="The founding set of research instruments" width="49%" />
+  <img src="./docs/assets/elements-detail.webp" alt="A detail of the 56-element index" width="49%" />
+</p>
+
+Life sciences first — sample tables, plate readers, growth curves, dose–response, PCR programs, reagent inventory. The same grammar extends to physics, astronomy, chemistry, earth science, social science, economics, and the humanities.
+
+## Light. Dark. High contrast.
+
+<p align="center">
+  <img src="./docs/assets/hero-dark.webp" alt="Aperture in the dark theme" width="72%" />
+  <img src="./docs/assets/mobile-hero.webp" alt="Aperture on a phone" width="24%" />
+</p>
+
+One token contract across three themes and every screen size. Keyboard-first, screen-reader-aware, reduced-motion-safe, RTL-ready.
+
+## Install
+
+Point shadcn at the hosted registry:
+
+```json
+{
+  "registries": {
+    "@aperture": "https://abhinav-prabhakar.github.io/Aperture/r/{name}.json"
+  }
+}
 ```
-apps/web/                    Next.js docs and landing page
-registry/default/ui/         56 vendored coss/ui elements
-registry/default/examples/   Docs fixtures, also visual test fixtures
-registry/default/lib/        Shared registry utilities
-registry/default/hooks/      Shared registry hooks
-packages/quantities/         Units, uncertainty, and formatting (logic only)
-registry.json                Registry manifest (shadcn schema)
-design.md                    The design contract
-docs/catalog.md              Instrument and workbench inventory
-```
 
-## Local development
+Add the token sheet, then any element:
 
 ```bash
-bun install
-bun run dev        # http://localhost:4000
-
-bun run lint       # Biome
-bun run typecheck  # tsc, both workspaces
-bun run test       # Vitest
-
-bun run registry:build   # writes apps/web/public/r
-bun run build            # production build
+curl -o app/aperture.css https://abhinav-prabhakar.github.io/Aperture/aperture.css
+npx shadcn@latest add @aperture/button
 ```
+
+Every component lands in your repository. You own the code.
+
+## Status
+
+Phase 0: elements, tokens, registry, docs shell, and `@aperture/quantities` are in place. Instruments and workbenches are next. Counts and commands on the site describe the target, not a finished release.
 
 ---
 
-## Why Aperture exists
+<div align="center">
+<sub>
 
-Every research group rebuilds the same interface: a file uploader that chokes on a
-4 GB CSV, a table with no units, a plot with an unlabeled axis, a job queue that
-loses its state on refresh, a sample tracker held together by spreadsheets.
+Built on [coss/ui](https://coss.com/ui) by the team at Cal.com, with [Base UI](https://base-ui.com), [Tailwind CSS](https://tailwindcss.com), and [shadcn/ui](https://ui.shadcn.com).<br />
+Cal Sans and JetBrains Mono are used under the SIL Open Font License. MIT licensed.
 
-General-purpose UI kits give you buttons. Gradio gives you a demo. Neither gives a
-researcher a **workbench**.
+**[Aperture is not affiliated with or endorsed by Cal.com or coss.com.](./THIRD_PARTY_NOTICES.md)**
 
-Aperture is a library of research-native building blocks that you copy into your
-project and own. It is designed to feel like a scientific instrument: quiet,
-precise, dense when it needs to be, and honest about what the data says.
+</sub>
+</div>
 
-## Three layers
+<details>
+<summary><sub>See the whole page</sub></summary>
+<br />
+<img src="./docs/assets/full-light.webp" alt="The complete Aperture landing page" width="100%" />
+</details>
 
-| Layer | What it is | Example |
-| --- | --- | --- |
-| **Elements** | Accessible primitives with the Aperture design language. | Button, Input, Field, Table, Dialog, Sidebar |
-| **Instruments** | Focused research components that solve one real problem well. | Quantity Input, Data Table, Log Viewer, Protocol Steps, FITS Viewer |
-| **Workbenches** | Complete page layouts and application shells. | Data Explorer, Lab Dashboard, Notebook, Figure Composer |
-
-Elements come from [coss/ui](https://coss.com/ui), the open-source design system
-built by Cal.com. Instruments and Workbenches are built on top of them, using the
-same tokens, conventions, and visual grammar.
-
-## What the system gives you
-
-- **Copy-paste ownership.** Add a component with the shadcn CLI. The source lands
-  in your repo. No wrapper library, no black box.
-- **Research-native inputs.** Units, uncertainty, scientific notation, coordinates,
-  time zones, sample IDs, protocols, metadata, provenance.
-- **Data-dense displays.** Virtualized tables, column types, saved views, logs,
-  timelines, run status, sparklines, uncertainty bands.
-- **Whole screens, not just atoms.** Workspace shells, explorers, dashboards,
-  notebooks, field consoles, review flows, settings, auth, and print layouts.
-- **A real design system.** One `design.md` governs every future component, so the
-  library stays coherent as it grows across disciplines.
-- **Built for every researcher.** Life sciences, physics, astronomy, chemistry,
-  earth science, social science, economics, humanities, clinical research, ML, and
-  engineering — not only the lab-coat version of science.
-
-## Planned quick start
-
-```bash
-# Add the design tokens and base styles
-npx @aperture/cli init
-
-# Add an instrument
-npx shadcn@latest add @aperture/quantity-input
-
-# Add a complete workbench
-npx @aperture/cli add workbench data-explorer
-```
-
-> The CLI and registry are part of the build plan. Until then, see
-> [`PLAN.md`](./PLAN.md) for the architecture and rollout.
-
-## Design principles
-
-1. **Chrome is achromatic; color belongs to data.** The interface stays quiet so
-   the measurement, image, or map can speak.
-2. **Dense by default, legible at a glance.** Researchers read tables and logs for
-   a living. Density is a feature when it is structured.
-3. **Show the state.** Units, uncertainty, missing values, provenance, and run
-   status are never hidden.
-4. **Copy, don't depend.** You own the code. The design system is the contract.
-5. **Every screen is a workbench.** Layouts are first-class, because a pile of
-   components is not an application.
-6. **Accessible is not optional.** Keyboard-first, screen-reader-aware,
-   colorblind-safe, reduced-motion-safe, RTL-ready.
-
-## Documentation
-
-- [`PLAN.md`](./PLAN.md) — vision, architecture, roadmap, and launch plan
-- [`design.md`](./design.md) — the complete design system extracted from coss/ui
-- [`docs/catalog.md`](./docs/catalog.md) — the full inventory of instruments and workbenches
-- [`docs/landing-page.md`](./docs/landing-page.md) — the landing page brief and wireframe
-
-## Credits
-
-Aperture would not exist without the work of the open-source community.
-
-- **[coss/ui](https://github.com/cosscom/ui)** — the design system Aperture is
-  derived from. MIT © coss.com and Origin UI. Built by the team at
-  [Cal.com](https://cal.com). The tokens, component conventions, and much of the
-  element layer originate there. Please star their repository.
-- **[Base UI](https://base-ui.com)** — accessible, unstyled React primitives.
-- **[Tailwind CSS](https://tailwindcss.com)** — the styling engine.
-- **[shadcn/ui](https://ui.shadcn.com)** — the copy-paste registry model that
-  inspired the distribution approach.
-- **[Lucide](https://lucide.dev)** — the icon set.
-- **[Cal Sans](https://github.com/calcom/sans)** — SIL Open Font License 1.1.
-- **Paper Mono** — see the upstream font license before redistribution; a
-  fallback mono stack is documented in `design.md`.
-
-Aperture is an independent project. It is **not affiliated with or endorsed by
-Cal.com, coss.com, or the coss/ui team.** See
-[`THIRD_PARTY_NOTICES.md`](./THIRD_PARTY_NOTICES.md) for license details.
-
-## License
-
-MIT. See [`LICENSE`](./LICENSE).
-
-If you build something with Aperture, tell us. The best outcome is that a lab ships
-a tool it would never have had the time to build otherwise.
+<details>
+<summary><sub>All 56 elements</sub></summary>
+<br />
+<p align="center">
+  <img src="./docs/assets/elements.webp" alt="The complete element index" width="58%" />
+</p>
+</details>
