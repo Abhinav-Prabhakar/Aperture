@@ -1508,6 +1508,41 @@
           "type": "registry:block"
         }
       ]
+    },
+    {
+      "name": "lab-dashboard",
+      "type": "registry:block",
+      "title": "Lab Dashboard",
+      "description": "A complete lab operations workbench: instrument health, samples in flight, acknowledgeable alerts, today's schedule, activity log, and every state.",
+      "dependencies": [],
+      "registryDependencies": [
+        "@aperture/button",
+        "@aperture/data-table",
+        "@aperture/log-viewer",
+        "@aperture/sparkline",
+        "@aperture/stat",
+        "@aperture/status-badge",
+        "@aperture/timeline",
+        "@aperture/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/default/workbenches/lab-dashboard/types.ts",
+          "type": "registry:block"
+        },
+        {
+          "path": "registry/default/workbenches/lab-dashboard/adapter.ts",
+          "type": "registry:block"
+        },
+        {
+          "path": "registry/default/workbenches/lab-dashboard/mock-data.ts",
+          "type": "registry:block"
+        },
+        {
+          "path": "registry/default/workbenches/lab-dashboard/lab-dashboard.tsx",
+          "type": "registry:block"
+        }
+      ]
     }
   ]
 }
