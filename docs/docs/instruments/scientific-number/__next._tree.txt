@@ -1,5 +1,5 @@
 :HL["/Aperture/_next/static/chunks/4556wg_wjj50e.css","style"]
-:HL["/Aperture/_next/static/chunks/0c68p167_4erb.css","style"]
+:HL["/Aperture/_next/static/chunks/2bogs9k0d6mip.css","style"]
 :HL["/Aperture/_next/static/media/CalSansVF-s.p.057x_1lfa0doc.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/Aperture/_next/static/media/CalSansVF_Italic-s.p.0ud-vzzwgrjzi.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/Aperture/_next/static/media/JetBrainsMono_Medium-s.p.1qhstay9-mvz-.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
@@ -8,4 +8,4 @@
 3:[["children",{"s":"scientific-number","h":96,"c":"$Q4"}]]
 2:[["children",{"s":"instruments","h":96,"c":"$Q3"}]]
 1:[["children",{"s":"docs","h":96,"c":"$Q2"}]]
-0:{"b":"Yelg00p2csyOJJFYCxsQV","t":{"t":{"s":"","h":80,"c":"$Q1"}}}
+0:{"b":"KS4F_8dtHpDrXPVJdyJnx","t":{"t":{"s":"","h":80,"c":"$Q1"}}}

@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "uncertainty-input-demo",
+  "title": "Uncertainty Input demo",
+  "description": "Symmetric concentration and asymmetric half-life measurements with live reported forms.",
+  "registryDependencies": [
+    "@aperture/uncertainty-input"
+  ],
+  "files": [
+    {
+      "path": "registry/default/examples/uncertainty-input-demo.tsx",
+      "content": "\"use client\";\n\nimport { useState } from \"react\";\nimport {\n  UncertaintyInput,\n  type UncertaintyValue,\n} from \"@/registry/default/instruments/uncertainty-input\";\n\nexport function UncertaintyInputDemo() {\n  const [value, setValue] = useState<number | null>(12.47);\n  const [uncertainty, setUncertainty] = useState<UncertaintyValue | null>(0.32);\n\n  return (\n    <UncertaintyInput\n      className=\"w-full max-w-sm\"\n      hint=\"Standard deviation of three technical replicates.\"\n      label=\"Concentration\"\n      onUncertaintyChange={setUncertainty}\n      onValueChange={setValue}\n      uncertainty={uncertainty}\n      unit=\"µg/mL\"\n      value={value}\n    />\n  );\n}\n\nexport function AsymmetricUncertaintyDemo() {\n  const [value, setValue] = useState<number | null>(14.2);\n  const [uncertainty, setUncertainty] = useState<UncertaintyValue | null>({\n    lower: 1.5,\n    upper: 1.8,\n  });\n\n  return (\n    <UncertaintyInput\n      className=\"w-full max-w-sm\"\n      hint=\"95% confidence interval from the fit. Errors are not symmetric.\"\n      label=\"Half-life\"\n      onUncertaintyChange={setUncertainty}\n      onValueChange={setValue}\n      uncertainty={uncertainty}\n      unit=\"h\"\n      value={value}\n    />\n  );\n}\n",
+      "type": "registry:example"
+    }
+  ],
+  "type": "registry:example"
+}

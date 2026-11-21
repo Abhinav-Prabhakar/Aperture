@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "data-table-demo",
+  "title": "Data Table demo",
+  "description": "A plate sample table with sorted concentrations, QC flags, and selection.",
+  "registryDependencies": [
+    "@aperture/data-table",
+    "@aperture/scientific-number",
+    "@aperture/status-badge"
+  ],
+  "files": [
+    {
+      "path": "registry/default/examples/data-table-demo.tsx",
+      "content": "\"use client\";\n\nimport type { DataTableColumn } from \"@/registry/default/instruments/data-table\";\nimport { DataTable } from \"@/registry/default/instruments/data-table\";\nimport { ScientificNumber } from \"@/registry/default/instruments/scientific-number\";\nimport { StatusBadge } from \"@/registry/default/instruments/status-badge\";\n\ntype Sample = {\n  id: string;\n  sample: string;\n  well: string;\n  concentration: number | null;\n  a600: number;\n  qc: \"success\" | \"warning\" | \"error\";\n};\n\nconst SAMPLE: Sample[] = [\n  {\n    id: \"s1\",\n    sample: \"S-001\",\n    well: \"A1\",\n    concentration: 12.4,\n    a600: 0.412,\n    qc: \"success\",\n  },\n  {\n    id: \"s2\",\n    sample: \"S-002\",\n    well: \"A2\",\n    concentration: 11.9,\n    a600: 0.398,\n    qc: \"success\",\n  },\n  {\n    id: \"s3\",\n    sample: \"S-003\",\n    well: \"A3\",\n    concentration: null,\n    a600: 0.221,\n    qc: \"warning\",\n  },\n  {\n    id: \"s4\",\n    sample: \"S-004\",\n    well: \"A4\",\n    concentration: 12.8,\n    a600: 0.431,\n    qc: \"success\",\n  },\n  {\n    id: \"s5\",\n    sample: \"S-005\",\n    well: \"A5\",\n    concentration: 12.1,\n    a600: 4.12,\n    qc: \"error\",\n  },\n  {\n    id: \"s6\",\n    sample: \"S-006\",\n    well: \"A6\",\n    concentration: 11.6,\n    a600: 0.389,\n    qc: \"success\",\n  },\n];\n\nconst QC_LABEL = {\n  success: \"Passed\",\n  warning: \"Low signal\",\n  error: \"Censored\",\n} as const;\n\nconst COLUMNS: DataTableColumn<Sample>[] = [\n  {\n    id: \"sample\",\n    header: \"Sample\",\n    cell: (row) => <span className=\"font-mono text-xs\">{row.sample}</span>,\n    sortValue: (row) => row.sample,\n  },\n  {\n    id: \"well\",\n    header: \"Well\",\n    cell: (row) => <span className=\"font-mono text-xs\">{row.well}</span>,\n    sortValue: (row) => row.well,\n  },\n  {\n    id: \"concentration\",\n    header: \"Concentration\",\n    unit: \"µg/mL\",\n    align: \"end\",\n    numeric: true,\n    cell: (row) =>\n      row.concentration === null ? (\n        <span\n          className=\"text-muted-foreground\"\n          title=\"Not measured: detector saturated\"\n        >\n          —\n        </span>\n      ) : (\n        <ScientificNumber value={row.concentration} />\n      ),\n    sortValue: (row) => row.concentration,\n  },\n  {\n    id: \"a600\",\n    header: \"A₆₀₀\",\n    unit: \"AU\",\n    align: \"end\",\n    numeric: true,\n    cell: (row) => <ScientificNumber value={row.a600} />,\n    sortValue: (row) => row.a600,\n  },\n  {\n    id: \"qc\",\n    header: \"QC\",\n    cell: (row) => (\n      <StatusBadge label={QC_LABEL[row.qc]} size=\"sm\" status={row.qc} />\n    ),\n  },\n];\n\nexport function DataTableDemo() {\n  return (\n    <DataTable\n      columns={COLUMNS}\n      defaultSort={{ columnId: \"concentration\", direction: \"desc\" }}\n      getRowId={(row) => row.id}\n      getRowLabel={(row) => row.sample}\n      rows={SAMPLE}\n      selectable\n      title=\"Samples · plate 1\"\n    />\n  );\n}\n",
+      "type": "registry:example"
+    }
+  ],
+  "type": "registry:example"
+}
