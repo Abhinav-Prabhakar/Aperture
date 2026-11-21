@@ -32,20 +32,17 @@ A table with units. An inspector with provenance. Missing values that read as mi
 
 <img src="./docs/assets/layers.webp" alt="The Aperture layers: elements, instruments, workbenches" width="100%" />
 
-| | | |
-| :-- | :-- | :-- |
-| **Elements** | **Instruments** | **Workbenches** |
-| 56 accessible primitives, vendored from coss/ui. | Research-native components: quantities, uncertainty, logs, protocols. | Complete screens with navigation, canvas, inspector, and status. |
+**56 elements** · **12 instruments** · **4 workbenches** — one design contract from the first button to the finished screen.
 
 ## Details researchers notice
 
 <p align="center">
   <img src="./docs/assets/card-basic.webp" alt="Card with values, units, and provenance" width="49%" />
-  <img src="./docs/assets/button-variants.webp" alt="Button variants" width="49%" />
+  <img src="./docs/assets/tokens-surfaces.webp" alt="Achromatic surface tokens" width="49%" />
 </p>
 
 <p align="center">
-  <img src="./docs/assets/tokens-surfaces.webp" alt="Achromatic surface tokens" width="49%" />
+  <img src="./docs/assets/button-variants.webp" alt="Button variants" width="49%" />
   <img src="./docs/assets/tokens-palette.webp" alt="Eight-color colorblind-safe data palette" width="49%" />
 </p>
 
@@ -60,11 +57,12 @@ Units live with the value. Uncertainty is a first-class input. The chrome is ach
 
 Life sciences first — sample tables, plate readers, growth curves, dose–response, PCR programs, reagent inventory. The same grammar extends to physics, astronomy, chemistry, earth science, social science, economics, and the humanities.
 
-## Light. Dark. High contrast.
+## Light. Dark. Every screen.
+
+<img src="./docs/assets/hero-dark.webp" alt="Aperture in the dark theme" width="100%" />
 
 <p align="center">
-  <img src="./docs/assets/hero-dark.webp" alt="Aperture in the dark theme" width="72%" />
-  <img src="./docs/assets/mobile-hero.webp" alt="Aperture on a phone" width="24%" />
+  <img src="./docs/assets/mobile-hero.webp" alt="Aperture on a phone" width="30%" />
 </p>
 
 One token contract across three themes and every screen size. Keyboard-first, screen-reader-aware, reduced-motion-safe, RTL-ready.
