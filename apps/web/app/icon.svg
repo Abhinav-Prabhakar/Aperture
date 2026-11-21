@@ -1,0 +1,16 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 64 64"
+  role="img"
+  aria-label="Aperture"
+>
+  <rect width="64" height="64" rx="14" fill="#0a0a0a" />
+  <g fill="#fafafa" transform="translate(8 8)">
+    <path d="M24 24 L24.70 4.01 A20 20 0 0 1 40.96 13.40 Z" />
+    <path d="M24 24 L41.66 14.61 A20 20 0 0 1 41.66 33.39 Z" />
+    <path d="M24 24 L40.96 34.60 A20 20 0 0 1 24.70 43.99 Z" />
+    <path d="M24 24 L23.30 43.99 A20 20 0 0 1 7.04 34.60 Z" />
+    <path d="M24 24 L6.34 33.39 A20 20 0 0 1 6.34 14.61 Z" />
+    <path d="M24 24 L7.04 13.40 A20 20 0 0 1 23.30 4.01 Z" />
+  </g>
+</svg>
