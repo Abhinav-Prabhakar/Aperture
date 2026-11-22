@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "growth-curve-demo",
+  "title": "Growth Curve demo",
+  "description": "A synthetic three-replicate E. coli curve with a lag, exponential phase, stationary phase, and two missed reads.",
+  "registryDependencies": [
+    "@aperture/growth-curve"
+  ],
+  "files": [
+    {
+      "path": "registry/default/examples/growth-curve-demo.tsx",
+      "content": "\"use client\";\n\nimport {\n  GrowthCurve,\n  type GrowthCurveData,\n} from \"@/registry/default/instruments/growth-curve\";\n\nconst REPLICATES = [\n  { id: \"a1\", label: \"A1\" },\n  { id: \"a2\", label: \"A2\" },\n  { id: \"a3\", label: \"A3\" },\n] as const;\n\nconst TIMES = Array.from({ length: 25 }, (_, index) => index * 0.5);\nconst N0 = 0.019;\nconst CARRYING_CAPACITY = 1.62;\nconst GROWTH_RATE = 0.78;\nconst LAG = 1.6;\nconst MISSING: Record<string, number> = { a1: 11, a2: 19 };\n\nfunction expected(t: number): number {\n  if (t <= LAG) {\n    return N0 * (1 + 0.006 * t);\n  }\n  return (\n    CARRYING_CAPACITY /\n    (1 + (CARRYING_CAPACITY / N0 - 1) * Math.exp(-GROWTH_RATE * (t - LAG)))\n  );\n}\n\nfunction makeNoise(seed: number): () => number {\n  let state = seed >>> 0;\n  return () => {\n    state = (Math.imul(state, 1664525) + 1013904223) >>> 0;\n    return 1 + ((state >>> 8) / 0x1000000 - 0.5) * 0.08;\n  };\n}\n\nfunction reading(t: number, noise: () => number): number {\n  const value = expected(t) * noise();\n  return Number(value.toFixed(value < 0.1 ? 4 : 3));\n}\n\nconst NOISE = REPLICATES.map((_, index) =>\n  makeNoise(0x1f123bb5 + index * 0x9e3779b9),\n);\n\nexport const DEMO_GROWTH_CURVE: GrowthCurveData = {\n  description:\n    \"Synthetic logistic growth with a lag, exponential phase, and stationary phase. Two missed reads keep a gap in the curve rather than a zero.\",\n  id: \"EC-BW-LB-37\",\n  instrument: \"Spark 10M\",\n  medium: \"LB\",\n  name: \"E. coli BW25113 growth\",\n  replicates: REPLICATES,\n  source: \"Synthetic · Aperture demo\",\n  strain: \"BW25113\",\n  temperatureC: 37,\n  timeUnit: \"h\",\n  timepoints: TIMES.map((time, timeIndex) => ({\n    time,\n    values: REPLICATES.map((replicate, replicateIndex) =>\n      MISSING[replicate.id] === timeIndex\n        ? null\n        : reading(time, NOISE[replicateIndex]),\n    ),\n  })),\n  valueLabel: \"OD600\",\n};\n\nexport function GrowthCurveDemo() {\n  return <GrowthCurve data={DEMO_GROWTH_CURVE} />;\n}\n",
+      "type": "registry:example"
+    }
+  ],
+  "type": "registry:example"
+}

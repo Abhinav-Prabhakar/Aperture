@@ -1194,6 +1194,25 @@
       ]
     },
     {
+      "name": "growth-curve",
+      "type": "registry:ui",
+      "title": "Growth Curve",
+      "description": "OD/time with replicates, a mean and SD band, log-phase detection, keyboard inspection, a data table, and CSV export.",
+      "dependencies": [],
+      "registryDependencies": [
+        "@aperture/button",
+        "@aperture/status-badge",
+        "@aperture/table",
+        "@aperture/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/default/instruments/growth-curve.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
       "name": "scientific-number-demo",
       "type": "registry:example",
       "title": "Scientific Number demo",
@@ -1215,6 +1234,19 @@
       "files": [
         {
           "path": "registry/default/examples/sequence-viewer-demo.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "growth-curve-demo",
+      "type": "registry:example",
+      "title": "Growth Curve demo",
+      "description": "A synthetic three-replicate E. coli curve with a lag, exponential phase, stationary phase, and two missed reads.",
+      "registryDependencies": ["@aperture/growth-curve"],
+      "files": [
+        {
+          "path": "registry/default/examples/growth-curve-demo.tsx",
           "type": "registry:example"
         }
       ]
