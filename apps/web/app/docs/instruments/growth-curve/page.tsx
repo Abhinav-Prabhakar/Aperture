@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { CodeBlock } from "@/components/code-block";
 import { GrowthCurveDemo } from "@/registry/default/examples/growth-curve-demo";
 import { Badge } from "@/registry/default/ui/badge";
@@ -253,12 +254,12 @@ doubling time = ln(2) / μ`}
         correction, the R² threshold, the lag-phase boundary, and the
         doubling-time convention. Treat this instrument as usable, not final.
         The{" "}
-        <a
+        <Link
           className="underline underline-offset-4"
           href="/docs/instruments/sequence-viewer"
         >
           Sequence Viewer
-        </a>{" "}
+        </Link>{" "}
         carries the same preview status.
       </p>
     </article>
