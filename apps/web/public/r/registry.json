@@ -1213,6 +1213,25 @@
       ]
     },
     {
+      "name": "dose-response-curve",
+      "type": "registry:ui",
+      "title": "Dose–Response Curve",
+      "description": "A 4PL dose–response curve with replicates, SD bars, a confidence band, IC50/EC50, keyboard inspection, a data table, and CSV export.",
+      "dependencies": [],
+      "registryDependencies": [
+        "@aperture/button",
+        "@aperture/status-badge",
+        "@aperture/table",
+        "@aperture/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/default/instruments/dose-response-curve.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
       "name": "scientific-number-demo",
       "type": "registry:example",
       "title": "Scientific Number demo",
@@ -1247,6 +1266,19 @@
       "files": [
         {
           "path": "registry/default/examples/growth-curve-demo.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "dose-response-demo",
+      "type": "registry:example",
+      "title": "Dose–Response Curve demo",
+      "description": "A synthetic ten-dose AP-17 viability series with three replicates, a missed read, and an IC50 near 0.4 µM.",
+      "registryDependencies": ["@aperture/dose-response-curve"],
+      "files": [
+        {
+          "path": "registry/default/examples/dose-response-demo.tsx",
           "type": "registry:example"
         }
       ]
