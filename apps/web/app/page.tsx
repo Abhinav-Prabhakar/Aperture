@@ -18,12 +18,12 @@ const LAYERS = [
   {
     name: "Instruments",
     copy: "Research-native components that solve one real problem well. Quantity inputs, uncertainty, log viewers, protocol steps, spectra.",
-    detail: "12 in the founding set",
+    detail: "13 built, 12 in the founding set",
   },
   {
     name: "Workbenches",
     copy: "Complete screens with navigation, canvas, inspector, status bar, empty states, and the details that take another month.",
-    detail: "4 in the first release",
+    detail: "5 in the first release",
   },
 ];
 
@@ -135,7 +135,7 @@ export default function HomePage() {
           <div className="container grid grid-cols-2 divide-x divide-border py-0 sm:grid-cols-3 lg:grid-cols-6">
             {[
               ["56", "elements"],
-              ["12", "founding instruments"],
+              ["13", "instruments"],
               ["5", "workbenches"],
               ["MIT", "license"],
               ["AA", "WCAG 2.2 target"],

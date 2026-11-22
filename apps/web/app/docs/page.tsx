@@ -29,8 +29,8 @@ const LAYERS = [
     title: "Instruments",
     href: "/docs/instruments",
     description:
-      "Research-native components: quantity input, uncertainty, tables, logs, protocols, plots.",
-    badge: "12 ready",
+      "Research-native components: quantity input, uncertainty, tables, logs, protocols, sequences.",
+    badge: "13 built",
   },
   {
     title: "Workbenches",
@@ -65,8 +65,8 @@ export default function DocsPage() {
         <p className="font-medium text-sm">Phase 1 is well underway.</p>
         <p className="mt-1 text-muted-foreground text-sm leading-relaxed">
           The element layer, tokens, registry pipeline, all twelve founding
-          instruments, and all five workbenches are in place. The domain packs
-          are next.
+          instruments, the first life-sciences instrument, and all five
+          workbenches are in place. The rest of the domain pack is next.
         </p>
       </div>
 

@@ -34,6 +34,15 @@ const NAV = [
     ],
   },
   {
+    title: "Life sciences",
+    items: [
+      {
+        href: "/docs/instruments/sequence-viewer",
+        label: "Sequence Viewer",
+      },
+    ],
+  },
+  {
     title: "Workbenches",
     items: [
       { href: "/docs/workbenches", label: "Overview", exact: true },

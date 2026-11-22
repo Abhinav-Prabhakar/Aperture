@@ -8,7 +8,7 @@
 [![Status](https://img.shields.io/badge/status-pre--alpha-000?style=flat-square)](./PLAN.md)
 [![License](https://img.shields.io/badge/license-MIT-000?style=flat-square)](./LICENSE)
 [![Elements](https://img.shields.io/badge/elements-56-000?style=flat-square)](./registry/default/ui)
-[![Tests](https://img.shields.io/badge/tests-129_passing-000?style=flat-square)](./apps/web/test)
+[![Tests](https://img.shields.io/badge/tests-145_passing-000?style=flat-square)](./apps/web/test)
 [![React](https://img.shields.io/badge/React-19-000?style=flat-square&logo=react&logoColor=white)](https://react.dev)
 [![Tailwind](https://img.shields.io/badge/Tailwind-4-000?style=flat-square&logo=tailwindcss&logoColor=white)](https://tailwindcss.com)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.9-000?style=flat-square&logo=typescript&logoColor=white)](https://typescriptlang.org)
@@ -56,7 +56,7 @@ A quiet sidebar, breadcrumb, ⌘K command palette, inspector, status bar, and mo
 
 <img src="./docs/assets/layers.webp" alt="The Aperture layers: elements, instruments, workbenches" width="100%" />
 
-**56 elements** · **12 instruments** · **5 workbenches** — one design contract from the first button to the finished screen.
+**56 elements** · **13 instruments** · **5 workbenches** — one design contract from the first button to the finished screen.
 
 ## Details researchers notice
 
@@ -79,9 +79,9 @@ Units live with the value. Uncertainty is a first-class input. The chrome is ach
   <img src="./docs/assets/elements-detail.webp" alt="A detail of the 56-element index" width="49%" />
 </p>
 
-Life sciences first — sample tables, plate readers, growth curves, dose–response, PCR programs, reagent inventory. The same grammar extends to physics, astronomy, chemistry, earth science, social science, economics, and the humanities.
+Life sciences first — a sequence viewer, sample tables, plate readers, growth curves, dose–response, PCR programs, reagent inventory. The same grammar extends to physics, astronomy, chemistry, earth science, social science, economics, and the humanities.
 
-## Twelve instruments
+## The founding twelve
 
 <p align="center">
   <img src="./docs/assets/instrument-quantity-input-doc.webp" alt="Quantity Input: a concentration value with unit and uncertainty" width="32%" />
@@ -112,6 +112,12 @@ Every instrument ships with a docs page, tests, accessible names, and a registry
 ```bash
 npx shadcn@latest add @aperture/uncertainty-input
 ```
+
+## Into the first domain pack
+
+<img src="./docs/assets/instrument-sequence-viewer.webp" alt="Sequence Viewer: a 1,200 bp construct with feature tracks, a selected CDS, translation, GC content, and motif search" width="100%" />
+
+A 1,200 bp synthetic construct with feature tracks, a strand-aware CDS, start/stop/frame checks, motif search, GC content, and copy. It is the first life-sciences instrument, and it stays in preview until a domain advisor reviews the vocabulary and defaults. [Open the docs →](https://abhinav-prabhakar.github.io/Aperture/docs/instruments/sequence-viewer/)
 
 ## Light. Dark. Every screen.
 
@@ -146,7 +152,7 @@ Every component lands in your repository. You own the code.
 
 ## Status
 
-Phase 1: elements, tokens, registry, docs, `@aperture/quantities`, all twelve founding instruments, and all five workbenches are in place. The domain packs are next. Counts and commands on the site describe what exists, not a finished release.
+Phase 1: elements, tokens, registry, docs, `@aperture/quantities`, all twelve founding instruments, all five workbenches, and the first life-sciences instrument are in place. The rest of the domain pack is next. Counts and commands on the site describe what exists, not a finished release.
 
 ---
 

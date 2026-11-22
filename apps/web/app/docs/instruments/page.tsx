@@ -64,18 +64,22 @@ const INSTRUMENTS = [
 ];
 
 const LIFE_SCIENCE = [
-  "Sequence Viewer",
-  "Growth Curve",
-  "Dose–Response Curve",
-  "Survival Curve",
-  "Plate Reader Curve",
-  "PCR Program",
-  "Sample Table",
-  "Sample Map",
-  "Well Plate",
-  "Instrument Status",
-  "Calibration Log",
-  "Reagent Inventory",
+  {
+    name: "Sequence Viewer",
+    href: "/docs/instruments/sequence-viewer",
+    status: "preview",
+  },
+  { name: "Growth Curve", status: "planned" },
+  { name: "Dose–Response Curve", status: "planned" },
+  { name: "Survival Curve", status: "planned" },
+  { name: "Plate Reader Curve", status: "planned" },
+  { name: "PCR Program", status: "planned" },
+  { name: "Sample Table", status: "planned" },
+  { name: "Sample Map", status: "planned" },
+  { name: "Well Plate", status: "planned" },
+  { name: "Instrument Status", status: "planned" },
+  { name: "Calibration Log", status: "planned" },
+  { name: "Reagent Inventory", status: "planned" },
 ];
 
 const READY = new Map([
@@ -99,14 +103,15 @@ export default function InstrumentsPage() {
       <div className="flex flex-wrap items-center gap-2">
         <Badge variant="outline">Layer 02</Badge>
         <Badge variant="outline">Phase 1</Badge>
-        <Badge variant="outline">12 ready · 0 in progress</Badge>
+        <Badge variant="outline">12 ready · 1 preview</Badge>
       </div>
       <h1 className="mt-4 font-heading font-bold text-4xl tracking-tight">
         Instruments
       </h1>
       <p className="mt-3 text-lg text-muted-foreground leading-relaxed">
         Focused research components that solve one real problem well. The
-        founding set of twelve is ready. Workbenches come next.
+        founding twelve are ready, and the life-sciences pack has begun with the
+        Sequence Viewer.
       </p>
 
       <h2 className="mt-10 font-heading font-semibold text-2xl tracking-tight">
@@ -166,19 +171,29 @@ export default function InstrumentsPage() {
         First domain pack: life sciences and lab
       </h2>
       <p className="mt-2 text-muted-foreground leading-relaxed">
-        One pack, sequenced before the second. A pack is not done until a domain
-        advisor has reviewed terminology, defaults, and one real workflow.
+        One pack, sequenced before the second. The Sequence Viewer is the first
+        domain instrument; it stays in preview until a domain advisor has
+        reviewed terminology, defaults, and one real workflow.
       </p>
       <ul className="mt-4 grid gap-px overflow-hidden rounded-xl border bg-border sm:grid-cols-2">
-        {LIFE_SCIENCE.map((name) => (
+        {LIFE_SCIENCE.map((item) => (
           <li
             className="flex items-center justify-between gap-3 bg-background px-4 py-3"
-            key={name}
+            key={item.name}
           >
-            <span className="text-sm">{name}</span>
-            <span className="font-mono text-[10px] text-muted-foreground uppercase">
-              planned
-            </span>
+            <span className="text-sm">{item.name}</span>
+            {item.href ? (
+              <Link
+                className="font-mono text-[10px] text-muted-foreground uppercase underline-offset-4 hover:underline"
+                href={item.href}
+              >
+                {item.status}
+              </Link>
+            ) : (
+              <span className="font-mono text-[10px] text-muted-foreground uppercase">
+                {item.status}
+              </span>
+            )}
           </li>
         ))}
       </ul>
