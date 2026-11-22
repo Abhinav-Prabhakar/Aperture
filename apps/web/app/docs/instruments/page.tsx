@@ -69,7 +69,11 @@ const LIFE_SCIENCE = [
     href: "/docs/instruments/sequence-viewer",
     status: "preview",
   },
-  { name: "Growth Curve", status: "planned" },
+  {
+    name: "Growth Curve",
+    href: "/docs/instruments/growth-curve",
+    status: "preview",
+  },
   { name: "Dose–Response Curve", status: "planned" },
   { name: "Survival Curve", status: "planned" },
   { name: "Plate Reader Curve", status: "planned" },
@@ -103,15 +107,15 @@ export default function InstrumentsPage() {
       <div className="flex flex-wrap items-center gap-2">
         <Badge variant="outline">Layer 02</Badge>
         <Badge variant="outline">Phase 1</Badge>
-        <Badge variant="outline">12 ready · 1 preview</Badge>
+        <Badge variant="outline">12 ready · 2 preview</Badge>
       </div>
       <h1 className="mt-4 font-heading font-bold text-4xl tracking-tight">
         Instruments
       </h1>
       <p className="mt-3 text-lg text-muted-foreground leading-relaxed">
         Focused research components that solve one real problem well. The
-        founding twelve are ready, and the life-sciences pack has begun with the
-        Sequence Viewer.
+        founding twelve are ready, and the life-sciences pack now has two
+        preview instruments.
       </p>
 
       <h2 className="mt-10 font-heading font-semibold text-2xl tracking-tight">
@@ -171,9 +175,10 @@ export default function InstrumentsPage() {
         First domain pack: life sciences and lab
       </h2>
       <p className="mt-2 text-muted-foreground leading-relaxed">
-        One pack, sequenced before the second. The Sequence Viewer is the first
-        domain instrument; it stays in preview until a domain advisor has
-        reviewed terminology, defaults, and one real workflow.
+        One pack, sequenced before the second. The Sequence Viewer and Growth
+        Curve are the first domain instruments; both stay in preview until a
+        domain advisor has reviewed terminology, defaults, and one real
+        workflow.
       </p>
       <ul className="mt-4 grid gap-px overflow-hidden rounded-xl border bg-border sm:grid-cols-2">
         {LIFE_SCIENCE.map((item) => (

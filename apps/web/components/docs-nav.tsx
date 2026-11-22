@@ -40,6 +40,10 @@ const NAV = [
         href: "/docs/instruments/sequence-viewer",
         label: "Sequence Viewer",
       },
+      {
+        href: "/docs/instruments/growth-curve",
+        label: "Growth Curve",
+      },
     ],
   },
   {

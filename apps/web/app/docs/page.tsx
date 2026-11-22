@@ -29,8 +29,8 @@ const LAYERS = [
     title: "Instruments",
     href: "/docs/instruments",
     description:
-      "Research-native components: quantity input, uncertainty, tables, logs, protocols, sequences.",
-    badge: "13 built",
+      "Research-native components: quantity input, uncertainty, tables, logs, protocols, sequences, growth curves.",
+    badge: "14 built",
   },
   {
     title: "Workbenches",

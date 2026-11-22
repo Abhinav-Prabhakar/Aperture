@@ -8,7 +8,7 @@
 [![Status](https://img.shields.io/badge/status-pre--alpha-000?style=flat-square)](./PLAN.md)
 [![License](https://img.shields.io/badge/license-MIT-000?style=flat-square)](./LICENSE)
 [![Elements](https://img.shields.io/badge/elements-56-000?style=flat-square)](./registry/default/ui)
-[![Tests](https://img.shields.io/badge/tests-145_passing-000?style=flat-square)](./apps/web/test)
+[![Tests](https://img.shields.io/badge/tests-161_passing-000?style=flat-square)](./apps/web/test)
 [![React](https://img.shields.io/badge/React-19-000?style=flat-square&logo=react&logoColor=white)](https://react.dev)
 [![Tailwind](https://img.shields.io/badge/Tailwind-4-000?style=flat-square&logo=tailwindcss&logoColor=white)](https://tailwindcss.com)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.9-000?style=flat-square&logo=typescript&logoColor=white)](https://typescriptlang.org)
@@ -56,7 +56,7 @@ A quiet sidebar, breadcrumb, ⌘K command palette, inspector, status bar, and mo
 
 <img src="./docs/assets/layers.webp" alt="The Aperture layers: elements, instruments, workbenches" width="100%" />
 
-**56 elements** · **13 instruments** · **5 workbenches** — one design contract from the first button to the finished screen.
+**56 elements** · **14 instruments** · **5 workbenches** — one design contract from the first button to the finished screen.
 
 ## Details researchers notice
 
@@ -119,6 +119,12 @@ npx shadcn@latest add @aperture/uncertainty-input
 
 A 1,200 bp synthetic construct with feature tracks, a strand-aware CDS, start/stop/frame checks, motif search, GC content, and copy. It is the first life-sciences instrument, and it stays in preview until a domain advisor reviews the vocabulary and defaults. [Open the docs →](https://abhinav-prabhakar.github.io/Aperture/docs/instruments/sequence-viewer/)
 
+## The exponential phase, with the reads intact
+
+<img src="./docs/assets/instrument-growth-curve.webp" alt="Growth Curve: three E. coli replicates on a log axis with a mean and SD band, an auto-detected log phase, doubling time, and 25 time points" width="100%" />
+
+Three wells, a ±1 SD band, an auto-detected exponential window, doubling time, and a 25-row data table behind the chart. Missing reads stay gaps, non-positive reads are called out, and the CSV carries every replicate. The second life-sciences instrument, also in preview. [Open the docs →](https://abhinav-prabhakar.github.io/Aperture/docs/instruments/growth-curve/)
+
 ## Light. Dark. Every screen.
 
 <img src="./docs/assets/hero-dark.webp" alt="Aperture in the dark theme" width="100%" />
@@ -152,7 +158,7 @@ Every component lands in your repository. You own the code.
 
 ## Status
 
-Phase 1: elements, tokens, registry, docs, `@aperture/quantities`, all twelve founding instruments, all five workbenches, and the first life-sciences instrument are in place. The rest of the domain pack is next. Counts and commands on the site describe what exists, not a finished release.
+Phase 1: elements, tokens, registry, docs, `@aperture/quantities`, all twelve founding instruments, all five workbenches, and the first two life-sciences instruments are in place. The rest of the domain pack is next. Counts and commands on the site describe what exists, not a finished release.
 
 ---
 
