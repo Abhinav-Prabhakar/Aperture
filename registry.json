@@ -1127,6 +1127,27 @@
       ]
     },
     {
+      "name": "sequence-viewer",
+      "type": "registry:ui",
+      "title": "Sequence Viewer",
+      "description": "A DNA sequence with features, CDS translation, motif search, GC content, and copy.",
+      "dependencies": [],
+      "registryDependencies": [
+        "@aperture/badge",
+        "@aperture/button",
+        "@aperture/input",
+        "@aperture/status-badge",
+        "@aperture/use-copy-to-clipboard",
+        "@aperture/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/default/instruments/sequence-viewer.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
       "name": "quantity-input",
       "type": "registry:ui",
       "title": "Quantity Input",
@@ -1181,6 +1202,19 @@
       "files": [
         {
           "path": "registry/default/examples/scientific-number-demo.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "sequence-viewer-demo",
+      "type": "registry:example",
+      "title": "Sequence Viewer demo",
+      "description": "A synthetic expression construct with features, a CDS, and a unique restriction site.",
+      "registryDependencies": ["@aperture/sequence-viewer"],
+      "files": [
+        {
+          "path": "registry/default/examples/sequence-viewer-demo.tsx",
           "type": "registry:example"
         }
       ]
