@@ -991,6 +991,32 @@
       "description": "Utility from the Aperture element layer."
     },
     {
+      "name": "periodic-table-data",
+      "type": "registry:lib",
+      "title": "Periodic table data",
+      "description": "118-element reference dataset compiled from PubChem via periodic-table-data 1.1.1 (MIT), with conventional group, period, and block derived.",
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/default/lib/periodic-table-data.ts",
+          "type": "registry:lib"
+        }
+      ]
+    },
+    {
+      "name": "codata-constants",
+      "type": "registry:lib",
+      "title": "CODATA 2022 constants",
+      "description": "The 355 CODATA 2022 recommended values with NIST-published values, uncertainties, units, and exact and SI-defining flags.",
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/default/lib/codata-constants.ts",
+          "type": "registry:lib"
+        }
+      ]
+    },
+    {
       "dependencies": ["@base-ui/react"],
       "files": [
         {
@@ -1232,6 +1258,66 @@
       ]
     },
     {
+      "name": "spectrum-plot",
+      "type": "registry:ui",
+      "title": "Spectrum Plot",
+      "description": "Emission or absorption spectra with uncertainty, smoothing, a linear baseline, peak detection with FWHM, reference-line matching, a keyboard cursor, a data table, and CSV export.",
+      "dependencies": [],
+      "registryDependencies": [
+        "@aperture/button",
+        "@aperture/table",
+        "@aperture/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/default/instruments/spectrum-plot.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "periodic-table",
+      "type": "registry:ui",
+      "title": "Periodic Table",
+      "description": "All 118 elements in an 18-column grid with f-block strips, roving keyboard navigation, search, a detail panel, period and series trends, a full data table, and CSV export.",
+      "dependencies": [],
+      "registryDependencies": [
+        "@aperture/button",
+        "@aperture/input",
+        "@aperture/label",
+        "@aperture/table",
+        "@aperture/utils",
+        "@aperture/periodic-table-data"
+      ],
+      "files": [
+        {
+          "path": "registry/default/instruments/periodic-table.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "constants-reference",
+      "type": "registry:ui",
+      "title": "Constants Reference",
+      "description": "The CODATA 2022 fundamental constants with search across 355 values, curated and SI-defining subsets, exact and uncertain values, copy actions, and CSV export.",
+      "dependencies": [],
+      "registryDependencies": [
+        "@aperture/button",
+        "@aperture/input",
+        "@aperture/label",
+        "@aperture/utils",
+        "@aperture/use-copy-to-clipboard",
+        "@aperture/codata-constants"
+      ],
+      "files": [
+        {
+          "path": "registry/default/instruments/constants-reference.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
       "name": "scientific-number-demo",
       "type": "registry:example",
       "title": "Scientific Number demo",
@@ -1279,6 +1365,45 @@
       "files": [
         {
           "path": "registry/default/examples/dose-response-demo.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "spectrum-plot-demo",
+      "type": "registry:example",
+      "title": "Spectrum Plot demo",
+      "description": "A synthetic Orion Nebula optical spectrum with Hβ, [O III], Hα, [N II], and [S II] plus eight reference lines.",
+      "registryDependencies": ["@aperture/spectrum-plot"],
+      "files": [
+        {
+          "path": "registry/default/examples/spectrum-plot-demo.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "periodic-table-demo",
+      "type": "registry:example",
+      "title": "Periodic Table demo",
+      "description": "The bundled 118-element table with iron selected and the detail panel, trend, table, and export available.",
+      "registryDependencies": ["@aperture/periodic-table"],
+      "files": [
+        {
+          "path": "registry/default/examples/periodic-table-demo.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "constants-reference-demo",
+      "type": "registry:example",
+      "title": "Constants Reference demo",
+      "description": "The CODATA 2022 featured set with the fine-structure constant selected to show a measured value and uncertainty.",
+      "registryDependencies": ["@aperture/constants-reference"],
+      "files": [
+        {
+          "path": "registry/default/examples/constants-reference-demo.tsx",
           "type": "registry:example"
         }
       ]

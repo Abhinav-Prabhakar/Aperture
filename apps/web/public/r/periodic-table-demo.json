@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "periodic-table-demo",
+  "title": "Periodic Table demo",
+  "description": "The bundled 118-element table with iron selected and the detail panel, trend, table, and export available.",
+  "registryDependencies": [
+    "@aperture/periodic-table"
+  ],
+  "files": [
+    {
+      "path": "registry/default/examples/periodic-table-demo.tsx",
+      "content": "\"use client\";\n\nimport { PeriodicTable } from \"@/registry/default/instruments/periodic-table\";\n\nexport function PeriodicTableDemo() {\n  return <PeriodicTable defaultElement={26} />;\n}\n",
+      "type": "registry:example"
+    }
+  ],
+  "type": "registry:example"
+}
