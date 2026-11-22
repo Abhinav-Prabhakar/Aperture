@@ -36,8 +36,8 @@ const LAYERS = [
     title: "Workbenches",
     href: "/docs/workbenches",
     description:
-      "Complete screens: data explorer, lab dashboard, run detail, sample registry.",
-    badge: "4 ready",
+      "Complete screens: workspace shell, data explorer, lab dashboard, run detail, sample registry.",
+    badge: "5 ready",
   },
 ];
 
@@ -65,8 +65,8 @@ export default function DocsPage() {
         <p className="font-medium text-sm">Phase 1 is well underway.</p>
         <p className="mt-1 text-muted-foreground text-sm leading-relaxed">
           The element layer, tokens, registry pipeline, all twelve founding
-          instruments, and all four core workbenches are in place. The domain
-          packs are next.
+          instruments, and all five workbenches are in place. The domain packs
+          are next.
         </p>
       </div>
 
@@ -133,6 +133,11 @@ npx shadcn@latest add @aperture/data-explorer`}
             href: "/docs/elements/card",
             label: "Card",
             detail: "The panel grammar used across every workbench.",
+          },
+          {
+            href: "/docs/workbenches/workspace-shell",
+            label: "Workspace Shell",
+            detail: "The frame: navigation, command palette, inspector, and status bar.",
           },
           {
             href: "/docs/workbenches/data-explorer",

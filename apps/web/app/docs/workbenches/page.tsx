@@ -12,6 +12,13 @@ export const metadata: Metadata = {
 
 const WORKBENCHES = [
   {
+    name: "Workspace Shell",
+    href: "/docs/workbenches/workspace-shell",
+    status: "Ready",
+    description:
+      "Sidebar, breadcrumbs, command palette, inspector, status bar, and mobile navigation.",
+  },
+  {
     name: "Data Explorer",
     href: "/docs/workbenches/data-explorer",
     status: "Ready",
@@ -46,7 +53,7 @@ export default function WorkbenchesPage() {
     <article>
       <div className="flex flex-wrap items-center gap-2">
         <Badge variant="outline">Workbenches</Badge>
-        <Badge variant="outline">4 ready</Badge>
+        <Badge variant="outline">5 ready</Badge>
       </div>
       <h1 className="mt-4 font-heading font-bold text-4xl tracking-tight">
         Workbenches
@@ -99,8 +106,9 @@ export default function WorkbenchesPage() {
       </h2>
       <ul className="mt-3 grid gap-2 text-sm leading-relaxed">
         <li>
-          Every state: loading, empty, error, permission denied, and offline.
-          None of them is a blank screen.
+          Every data state: loading, empty, error, permission denied, and
+          offline. None of them is a blank screen. The shell adds offline,
+          command palette, inspector, and mobile navigation states.
         </li>
         <li>
           A mock adapter with realistic, non-sensitive data. Replace it with your

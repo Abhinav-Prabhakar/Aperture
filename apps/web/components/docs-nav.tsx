@@ -37,6 +37,7 @@ const NAV = [
     title: "Workbenches",
     items: [
       { href: "/docs/workbenches", label: "Overview", exact: true },
+      { href: "/docs/workbenches/workspace-shell", label: "Workspace Shell" },
       { href: "/docs/workbenches/data-explorer", label: "Data Explorer" },
       { href: "/docs/workbenches/lab-dashboard", label: "Lab Dashboard" },
       { href: "/docs/workbenches/run-detail", label: "Run Detail" },

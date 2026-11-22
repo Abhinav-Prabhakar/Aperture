@@ -8,7 +8,7 @@
 [![Status](https://img.shields.io/badge/status-pre--alpha-000?style=flat-square)](./PLAN.md)
 [![License](https://img.shields.io/badge/license-MIT-000?style=flat-square)](./LICENSE)
 [![Elements](https://img.shields.io/badge/elements-56-000?style=flat-square)](./registry/default/ui)
-[![Tests](https://img.shields.io/badge/tests-121_passing-000?style=flat-square)](./apps/web/test)
+[![Tests](https://img.shields.io/badge/tests-129_passing-000?style=flat-square)](./apps/web/test)
 [![React](https://img.shields.io/badge/React-19-000?style=flat-square&logo=react&logoColor=white)](https://react.dev)
 [![Tailwind](https://img.shields.io/badge/Tailwind-4-000?style=flat-square&logo=tailwindcss&logoColor=white)](https://tailwindcss.com)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.9-000?style=flat-square&logo=typescript&logoColor=white)](https://typescriptlang.org)
@@ -46,11 +46,17 @@ Parameters as recorded, QC metrics against their acceptance rules, six artifacts
 
 Twelve samples across four studies, with freezer coordinates, remaining volume, aliquots, chain of custody, and the runs that used them. Missing volume is an em dash. Quarantined and destroyed records stay visible. [Open the registry →](https://abhinav-prabhakar.github.io/Aperture/workbenches/sample-registry/)
 
+## The frame around all four
+
+<img src="./docs/assets/workbench-workspace-shell.webp" alt="Workspace Shell with grouped navigation, breadcrumbs, command palette, lab overview, and status bar" width="100%" />
+
+A quiet sidebar, breadcrumb, ⌘K command palette, inspector, status bar, and mobile drawers. The four workbenches above run inside it, and your workbenches can too. [Open the workspace →](https://abhinav-prabhakar.github.io/Aperture/workbenches/)
+
 ## Three layers. One system.
 
 <img src="./docs/assets/layers.webp" alt="The Aperture layers: elements, instruments, workbenches" width="100%" />
 
-**56 elements** · **12 instruments** · **4 workbenches** — one design contract from the first button to the finished screen.
+**56 elements** · **12 instruments** · **5 workbenches** — one design contract from the first button to the finished screen.
 
 ## Details researchers notice
 
@@ -140,7 +146,7 @@ Every component lands in your repository. You own the code.
 
 ## Status
 
-Phase 1: elements, tokens, registry, docs, `@aperture/quantities`, all twelve founding instruments, and all four core workbenches are in place. The domain packs are next. Counts and commands on the site describe what exists, not a finished release.
+Phase 1: elements, tokens, registry, docs, `@aperture/quantities`, all twelve founding instruments, and all five workbenches are in place. The domain packs are next. Counts and commands on the site describe what exists, not a finished release.
 
 ---
 
