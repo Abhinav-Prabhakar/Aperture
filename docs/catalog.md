@@ -279,6 +279,8 @@ domain advisor has reviewed terminology, defaults, and one real workflow.
 
 ### 3.1 Life sciences and lab
 
+**Shipped in preview:** Sequence Viewer · Growth Curve · Dose–Response Curve.
+
 | Instrument | What it does | Priority |
 | --- | --- | --- |
 | **Sequence Viewer** | FASTA/GenBank with features, translation, and search. | P1 |
@@ -305,6 +307,8 @@ domain advisor has reviewed terminology, defaults, and one real workflow.
 | **Adverse Event Table** | CTCAE grading, relationship, action, outcome. | P2 |
 
 ### 3.2 Physics, astronomy, and chemistry
+
+**Shipped in preview:** Spectrum Plot · Periodic Table · Constants Reference.
 
 | Instrument | What it does | Priority |
 | --- | --- | --- |

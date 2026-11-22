@@ -8,7 +8,7 @@
 [![Status](https://img.shields.io/badge/status-pre--alpha-000?style=flat-square)](./PLAN.md)
 [![License](https://img.shields.io/badge/license-MIT-000?style=flat-square)](./LICENSE)
 [![Elements](https://img.shields.io/badge/elements-56-000?style=flat-square)](./registry/default/ui)
-[![Tests](https://img.shields.io/badge/tests-182_passing-000?style=flat-square)](./apps/web/test)
+[![Tests](https://img.shields.io/badge/tests-228_passing-000?style=flat-square)](./apps/web/test)
 [![React](https://img.shields.io/badge/React-19-000?style=flat-square&logo=react&logoColor=white)](https://react.dev)
 [![Tailwind](https://img.shields.io/badge/Tailwind-4-000?style=flat-square&logo=tailwindcss&logoColor=white)](https://tailwindcss.com)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.9-000?style=flat-square&logo=typescript&logoColor=white)](https://typescriptlang.org)
@@ -56,7 +56,7 @@ A quiet sidebar, breadcrumb, ⌘K command palette, inspector, status bar, and mo
 
 <img src="./docs/assets/layers.webp" alt="The Aperture layers: elements, instruments, workbenches" width="100%" />
 
-**56 elements** · **15 instruments** · **5 workbenches** — one design contract from the first button to the finished screen.
+**56 elements** · **18 instruments** · **5 workbenches** — one design contract from the first button to the finished screen.
 
 ## Details researchers notice
 
@@ -131,6 +131,20 @@ Three wells, a ±1 SD band, an auto-detected exponential window, doubling time, 
 
 Ten doses, three replicates, one missed read, and a 4PL fit with a 95% confidence band. The IC50 is 0.405 µM with an interval of 0.378–0.434 µM; the low- and high-dose plateaus and the Hill slope stay visible. The third life-sciences instrument, also in preview. [Open the docs →](https://abhinav-prabhakar.github.io/Aperture/docs/instruments/dose-response/)
 
+## Into the physical sciences
+
+<img src="./docs/assets/instrument-spectrum-plot.webp" alt="Spectrum Plot: an Orion Nebula optical spectrum with H-beta, the [O III] doublet, H-alpha, [N II], and [S II], with detected peaks and reference lines" width="100%" />
+
+A synthetic optical spectrum with raw and smoothed traces, a one-sigma band, detected peaks with FWHM, and eight rest wavelengths matched with residuals. Every wavelength is inspectable from the keyboard, and the CSV carries the raw, smoothed, and baseline-corrected values. The first physical-sciences instrument, in preview. [Open the docs →](https://abhinav-prabhakar.github.io/Aperture/docs/instruments/spectrum-plot/)
+
+<img src="./docs/assets/instrument-periodic-table.webp" alt="Periodic Table: all 118 elements with iron selected, block tints, a detail panel, and electronegativity trend" width="100%" />
+
+All 118 elements in an 18-column grid with f-block strips, block tints, roving keyboard navigation, search, a detail panel, a period trend, and a full CSV export. Elements without a standard atomic weight are marked rather than given a false one. The second physical-sciences instrument, in preview. [Open the docs →](https://abhinav-prabhakar.github.io/Aperture/docs/instruments/periodic-table/)
+
+<img src="./docs/assets/instrument-constants-reference.webp" alt="Constants Reference: CODATA 2022 constants with the fine-structure constant selected, showing its value, its uncertainty, the featured badge, and the exact markers in the list" width="100%" />
+
+The complete CODATA 2022 listing — 355 values, 20 featured, and the seven defining constants of the SI. Exactness is explicit, units are typeset, values and uncertainties copy without retyping, and the visible set exports as CSV. The third physical-sciences instrument, in preview. [Open the docs →](https://abhinav-prabhakar.github.io/Aperture/docs/instruments/constants-reference/)
+
 ## Light. Dark. Every screen.
 
 <img src="./docs/assets/hero-dark.webp" alt="Aperture in the dark theme" width="100%" />
@@ -164,7 +178,7 @@ Every component lands in your repository. You own the code.
 
 ## Status
 
-Phase 1: elements, tokens, registry, docs, `@aperture/quantities`, all twelve founding instruments, all five workbenches, and the first three life-sciences instruments are in place. The rest of the domain pack is next. Counts and commands on the site describe what exists, not a finished release.
+Phase 1: elements, tokens, registry, docs, `@aperture/quantities`, all twelve founding instruments, all five workbenches, and the first three instruments in each of the life-sciences and physical-sciences packs are in place. The rest of the domain packs come next. Counts and commands on the site describe what exists, not a finished release.
 
 ---
 

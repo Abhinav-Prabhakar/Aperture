@@ -13,7 +13,7 @@ import {
 export const metadata: Metadata = {
   title: "Instruments",
   description:
-    "The founding set of Aperture research instruments and the first domain pack.",
+    "The founding set of Aperture research instruments and the first two domain packs.",
 };
 
 const INSTRUMENTS = [
@@ -90,6 +90,28 @@ const LIFE_SCIENCE = [
   { name: "Reagent Inventory", status: "planned" },
 ];
 
+const PHYSICAL_SCIENCE = [
+  {
+    name: "Spectrum Plot",
+    href: "/docs/instruments/spectrum-plot",
+    status: "preview",
+  },
+  {
+    name: "Periodic Table",
+    href: "/docs/instruments/periodic-table",
+    status: "preview",
+  },
+  {
+    name: "Constants Reference",
+    href: "/docs/instruments/constants-reference",
+    status: "preview",
+  },
+  { name: "XRD Pattern", status: "planned" },
+  { name: "Phase Diagram", status: "planned" },
+  { name: "Crystal Structure", status: "planned" },
+  { name: "Decay Scheme", status: "planned" },
+];
+
 const READY = new Map([
   ["Scientific Number", "scientific-number"],
   ["Quantity Input", "quantity-input"],
@@ -111,15 +133,15 @@ export default function InstrumentsPage() {
       <div className="flex flex-wrap items-center gap-2">
         <Badge variant="outline">Layer 02</Badge>
         <Badge variant="outline">Phase 1</Badge>
-        <Badge variant="outline">12 ready · 3 preview</Badge>
+        <Badge variant="outline">12 ready · 6 preview</Badge>
       </div>
       <h1 className="mt-4 font-heading font-bold text-4xl tracking-tight">
         Instruments
       </h1>
       <p className="mt-3 text-lg text-muted-foreground leading-relaxed">
         Focused research components that solve one real problem well. The
-        founding twelve are ready, and the life-sciences pack now has three
-        preview instruments.
+        founding twelve are ready. The life-sciences and physical-sciences
+        packs each add three preview instruments.
       </p>
 
       <h2 className="mt-10 font-heading font-semibold text-2xl tracking-tight">
@@ -186,6 +208,38 @@ export default function InstrumentsPage() {
       </p>
       <ul className="mt-4 grid gap-px overflow-hidden rounded-xl border bg-border sm:grid-cols-2">
         {LIFE_SCIENCE.map((item) => (
+          <li
+            className="flex items-center justify-between gap-3 bg-background px-4 py-3"
+            key={item.name}
+          >
+            <span className="text-sm">{item.name}</span>
+            {item.href ? (
+              <Link
+                className="font-mono text-[10px] text-muted-foreground uppercase underline-offset-4 hover:underline"
+                href={item.href}
+              >
+                {item.status}
+              </Link>
+            ) : (
+              <span className="font-mono text-[10px] text-muted-foreground uppercase">
+                {item.status}
+              </span>
+            )}
+          </li>
+        ))}
+      </ul>
+
+      <h2 className="mt-10 font-heading font-semibold text-2xl tracking-tight">
+        Second domain pack: physical sciences
+      </h2>
+      <p className="mt-2 text-muted-foreground leading-relaxed">
+        Spectra, the periodic table, and physical constants are the first
+        physical-sciences instruments. All three stay in preview until a domain
+        advisor has reviewed terminology, defaults, data provenance, and one
+        real workflow.
+      </p>
+      <ul className="mt-4 grid gap-px overflow-hidden rounded-xl border bg-border sm:grid-cols-2">
+        {PHYSICAL_SCIENCE.map((item) => (
           <li
             className="flex items-center justify-between gap-3 bg-background px-4 py-3"
             key={item.name}

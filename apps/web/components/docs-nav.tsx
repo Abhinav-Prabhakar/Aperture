@@ -51,6 +51,23 @@ const NAV = [
     ],
   },
   {
+    title: "Physical sciences",
+    items: [
+      {
+        href: "/docs/instruments/spectrum-plot",
+        label: "Spectrum Plot",
+      },
+      {
+        href: "/docs/instruments/periodic-table",
+        label: "Periodic Table",
+      },
+      {
+        href: "/docs/instruments/constants-reference",
+        label: "Constants Reference",
+      },
+    ],
+  },
+  {
     title: "Workbenches",
     items: [
       { href: "/docs/workbenches", label: "Overview", exact: true },
