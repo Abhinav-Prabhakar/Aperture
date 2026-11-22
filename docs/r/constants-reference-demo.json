@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "constants-reference-demo",
+  "title": "Constants Reference demo",
+  "description": "The CODATA 2022 featured set with the fine-structure constant selected to show a measured value and uncertainty.",
+  "registryDependencies": [
+    "@aperture/constants-reference"
+  ],
+  "files": [
+    {
+      "path": "registry/default/examples/constants-reference-demo.tsx",
+      "content": "\"use client\";\n\nimport { ConstantsReference } from \"@/registry/default/instruments/constants-reference\";\n\nexport function ConstantsReferenceDemo() {\n  return (\n    <ConstantsReference\n      defaultConstantId=\"fine-structure-constant\"\n      defaultFilter=\"featured\"\n    />\n  );\n}\n",
+      "type": "registry:example"
+    }
+  ],
+  "type": "registry:example"
+}
