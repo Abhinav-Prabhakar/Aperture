@@ -45,7 +45,7 @@ export function SiteHeader() {
           <a
             aria-label="Aperture on GitHub"
             className={buttonVariants({ size: "icon-sm", variant: "ghost" })}
-            href="https://github.com/aperture-ui/aperture"
+            href="https://github.com/Abhinav-Prabhakar/Aperture"
             rel="noreferrer"
             target="_blank"
           >
