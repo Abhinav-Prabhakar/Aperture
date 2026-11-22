@@ -1619,6 +1619,28 @@
           "type": "registry:block"
         }
       ]
+    },
+    {
+      "name": "workspace-shell",
+      "type": "registry:block",
+      "title": "Workspace Shell",
+      "description": "A complete application frame: grouped sidebar, breadcrumbs, command palette, inspector, status bar, mobile drawers, and print.",
+      "dependencies": [],
+      "registryDependencies": [
+        "@aperture/avatar",
+        "@aperture/breadcrumb",
+        "@aperture/button",
+        "@aperture/command",
+        "@aperture/kbd",
+        "@aperture/sheet",
+        "@aperture/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/default/workbenches/workspace-shell/workspace-shell.tsx",
+          "type": "registry:block"
+        }
+      ]
     }
   ]
 }
