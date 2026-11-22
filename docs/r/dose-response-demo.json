@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "dose-response-demo",
+  "title": "Dose–Response Curve demo",
+  "description": "A synthetic ten-dose AP-17 viability series with three replicates, a missed read, and an IC50 near 0.4 µM.",
+  "registryDependencies": [
+    "@aperture/dose-response-curve"
+  ],
+  "files": [
+    {
+      "path": "registry/default/examples/dose-response-demo.tsx",
+      "content": "\"use client\";\n\nimport {\n  DoseResponseCurve,\n  type DoseResponseData,\n} from \"@/registry/default/instruments/dose-response-curve\";\n\nconst REPLICATES = [\n  { id: \"a1\", label: \"A1\" },\n  { id: \"a2\", label: \"A2\" },\n  { id: \"a3\", label: \"A3\" },\n] as const;\n\nconst DOSES = [0.001, 0.003, 0.01, 0.03, 0.1, 0.3, 1, 3, 10, 30] as const;\nconst LOW_PLATEAU = 4;\nconst HIGH_PLATEAU = 99;\nconst IC50 = 0.42;\nconst HILL = 1.15;\nconst MISSING = { a2: 3 } as const;\n\nfunction expected(dose: number): number {\n  return (\n    LOW_PLATEAU + (HIGH_PLATEAU - LOW_PLATEAU) / (1 + (dose / IC50) ** HILL)\n  );\n}\n\nfunction makeJitter(seed: number): () => number {\n  let state = seed >>> 0;\n  return () => {\n    state = (Math.imul(state, 1664525) + 1013904223) >>> 0;\n    return ((state >>> 8) / 0x1000000 - 0.5) * 4;\n  };\n}\n\nconst jitter = makeJitter(0x5eed);\n\nexport const DEMO_DOSE_RESPONSE: DoseResponseData = {\n  id: \"AP17-HELA-72H\",\n  name: \"Compound AP-17 viability\",\n  description:\n    \"Synthetic ten-point viability series for demonstration only. Not a real assay.\",\n  compound: \"AP-17\",\n  cellLine: \"HeLa\",\n  duration: \"72 h\",\n  instrument: \"Plate reader · luminescence\",\n  doseUnit: \"µM\",\n  responseLabel: \"Viability\",\n  responseUnit: \"%\",\n  replicates: REPLICATES,\n  points: DOSES.map((dose, doseIndex) => ({\n    dose,\n    values: REPLICATES.map((replicate) =>\n      MISSING[replicate.id as keyof typeof MISSING] === doseIndex\n        ? null\n        : Number((expected(dose) + jitter()).toFixed(2)),\n    ),\n  })),\n  source: \"Synthetic demo data\",\n};\n\nexport function DoseResponseDemo() {\n  return <DoseResponseCurve data={DEMO_DOSE_RESPONSE} />;\n}\n",
+      "type": "registry:example"
+    }
+  ],
+  "type": "registry:example"
+}

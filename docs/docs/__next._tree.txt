@@ -1,9 +1,9 @@
 :HL["/Aperture/_next/static/chunks/4556wg_wjj50e.css","style"]
-:HL["/Aperture/_next/static/chunks/3qkn3y2_yd25k.css","style"]
+:HL["/Aperture/_next/static/chunks/0wmee1t9a83qv.css","style"]
 :HL["/Aperture/_next/static/media/CalSansVF-s.p.057x_1lfa0doc.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/Aperture/_next/static/media/CalSansVF_Italic-s.p.0ud-vzzwgrjzi.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/Aperture/_next/static/media/JetBrainsMono_Medium-s.p.1qhstay9-mvz-.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/Aperture/_next/static/media/JetBrainsMono_Regular-s.p.191wd21g92b3l.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 2:[["children",{"s":"__PAGE__","h":160}]]
 1:[["children",{"s":"docs","h":96,"c":"$Q2"}]]
-0:{"b":"IEuXGbrSgkWlv4xL9hrff","t":{"t":{"s":"","h":80,"c":"$Q1"}}}
+0:{"b":"_BHqATzvAOfORKO8gKJem","t":{"t":{"s":"","h":80,"c":"$Q1"}}}
