@@ -135,7 +135,7 @@ export default function HomePage() {
           <div className="container grid grid-cols-2 divide-x divide-border py-0 sm:grid-cols-3 lg:grid-cols-6">
             {[
               ["56", "elements"],
-              ["14", "instruments"],
+              ["15", "instruments"],
               ["5", "workbenches"],
               ["MIT", "license"],
               ["AA", "WCAG 2.2 target"],

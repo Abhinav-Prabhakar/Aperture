@@ -44,6 +44,10 @@ const NAV = [
         href: "/docs/instruments/growth-curve",
         label: "Growth Curve",
       },
+      {
+        href: "/docs/instruments/dose-response",
+        label: "Dose–Response Curve",
+      },
     ],
   },
   {

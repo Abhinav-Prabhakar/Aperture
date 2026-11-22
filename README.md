@@ -8,7 +8,7 @@
 [![Status](https://img.shields.io/badge/status-pre--alpha-000?style=flat-square)](./PLAN.md)
 [![License](https://img.shields.io/badge/license-MIT-000?style=flat-square)](./LICENSE)
 [![Elements](https://img.shields.io/badge/elements-56-000?style=flat-square)](./registry/default/ui)
-[![Tests](https://img.shields.io/badge/tests-161_passing-000?style=flat-square)](./apps/web/test)
+[![Tests](https://img.shields.io/badge/tests-182_passing-000?style=flat-square)](./apps/web/test)
 [![React](https://img.shields.io/badge/React-19-000?style=flat-square&logo=react&logoColor=white)](https://react.dev)
 [![Tailwind](https://img.shields.io/badge/Tailwind-4-000?style=flat-square&logo=tailwindcss&logoColor=white)](https://tailwindcss.com)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.9-000?style=flat-square&logo=typescript&logoColor=white)](https://typescriptlang.org)
@@ -56,7 +56,7 @@ A quiet sidebar, breadcrumb, ⌘K command palette, inspector, status bar, and mo
 
 <img src="./docs/assets/layers.webp" alt="The Aperture layers: elements, instruments, workbenches" width="100%" />
 
-**56 elements** · **14 instruments** · **5 workbenches** — one design contract from the first button to the finished screen.
+**56 elements** · **15 instruments** · **5 workbenches** — one design contract from the first button to the finished screen.
 
 ## Details researchers notice
 
@@ -125,6 +125,12 @@ A 1,200 bp synthetic construct with feature tracks, a strand-aware CDS, start/st
 
 Three wells, a ±1 SD band, an auto-detected exponential window, doubling time, and a 25-row data table behind the chart. Missing reads stay gaps, non-positive reads are called out, and the CSV carries every replicate. The second life-sciences instrument, also in preview. [Open the docs →](https://abhinav-prabhakar.github.io/Aperture/docs/instruments/growth-curve/)
 
+## The half-max, with the curve attached
+
+<img src="./docs/assets/instrument-dose-response.webp" alt="Dose–Response Curve: ten AP-17 doses with three replicates, a 4PL fit, a 95% confidence band, and an IC50 of 0.405 µM" width="100%" />
+
+Ten doses, three replicates, one missed read, and a 4PL fit with a 95% confidence band. The IC50 is 0.405 µM with an interval of 0.378–0.434 µM; the low- and high-dose plateaus and the Hill slope stay visible. The third life-sciences instrument, also in preview. [Open the docs →](https://abhinav-prabhakar.github.io/Aperture/docs/instruments/dose-response/)
+
 ## Light. Dark. Every screen.
 
 <img src="./docs/assets/hero-dark.webp" alt="Aperture in the dark theme" width="100%" />
@@ -158,7 +164,7 @@ Every component lands in your repository. You own the code.
 
 ## Status
 
-Phase 1: elements, tokens, registry, docs, `@aperture/quantities`, all twelve founding instruments, all five workbenches, and the first two life-sciences instruments are in place. The rest of the domain pack is next. Counts and commands on the site describe what exists, not a finished release.
+Phase 1: elements, tokens, registry, docs, `@aperture/quantities`, all twelve founding instruments, all five workbenches, and the first three life-sciences instruments are in place. The rest of the domain pack is next. Counts and commands on the site describe what exists, not a finished release.
 
 ---
 

@@ -65,7 +65,7 @@ export default function DocsPage() {
         <p className="font-medium text-sm">Phase 1 is well underway.</p>
         <p className="mt-1 text-muted-foreground text-sm leading-relaxed">
           The element layer, tokens, registry pipeline, all twelve founding
-          instruments, the first life-sciences instrument, and all five
+          instruments, the first three life-sciences instruments, and all five
           workbenches are in place. The rest of the domain pack is next.
         </p>
       </div>
