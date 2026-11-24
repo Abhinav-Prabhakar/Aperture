@@ -54,6 +54,11 @@ Toast · Toggle · Toggle Group · Toolbar · Tooltip.
 These are useful to every researcher, regardless of discipline. This is where
 the product earns trust.
 
+> The 2026 research memo — [`research/instruments-2026.md`](./research/instruments-2026.md)
+> — audits this list, scores 20 compound instruments against a stricter test,
+> and sets the build order. This catalog is the long tail; the memo is the
+> shortlist.
+
 ### 2.1 Data intake and structure
 
 | Instrument | What it does | Priority |

@@ -868,7 +868,7 @@ weeks.
 
 ### Phase 0 — Foundation (weeks 1–3)
 
-- Monorepo, CI, Biome, TypeScript strict.
+- Monorepo, Biome, TypeScript strict. Verification is local; no CI workflows.
 - Vendor coss/ui elements; record upstream commit and patch log.
 - Tokens, fonts, theme presets, Contrast theme.
 - Registry pipeline and validation.
@@ -909,6 +909,31 @@ error, delta stat, chart empty/tooltip, code block/terminal, relative time/time
 zone, job status, step tracker, protocol checklist, sample/instrument cards,
 export dialog). These are mostly compositions of the founding set, not new
 primitives.
+
+### Phase 1.5 — The research-act layer (weeks 11–16, parallel with Phase 2)
+
+The founding instruments are mostly display and input. The next layer records
+what happens to data between acquisition and publication. See
+[`docs/research/instruments-2026.md`](./docs/research/instruments-2026.md) for
+the evidence, the scoring test, and the 20 candidates.
+
+First pack, in build order:
+
+1. **Measurement Table** — typed columns with units, precision, missing codes,
+   detection limits, and uncertainty.
+2. **Exclusion & Transformation Ledger** — append-only record of every filter,
+   exclusion, and derivation, with reconciled counts.
+3. **Calibration & QC Panel** — standards, blanks, LOD/LOQ, Levey–Jennings
+   chart, Westgard rules, acceptance, certificate.
+4. **Run Comparison** — parameters, metrics, artifacts, unit-aware deltas.
+5. **Import Mapper** — detect, map, validate, preview, commit, retaining the
+   original file and checksum.
+6. **Dataset Card** — identity, version, license, DOI, citation, provenance
+   link.
+
+**Exit:** a workbench can take an instrument export to a documented, comparable
+dataset without a spreadsheet, and every number in it traces to a recorded
+decision.
 
 ### Phase 2 — Workbenches v1 (weeks 8–14)
 
@@ -983,7 +1008,7 @@ keep the same order; the order matters more than the dates.
 
 ### Week 1 — Ground truth
 
-- [ ] Initialize the monorepo and CI.
+- [ ] Initialize the monorepo and local verification scripts.
 - [ ] Vendor coss/ui elements at `b2336c4`; add `LICENSE`, `NOTICE`,
       `UPSTREAM.md`.
 - [ ] Port the token block, fonts, and theme presets.
