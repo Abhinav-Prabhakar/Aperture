@@ -29,8 +29,8 @@ const LAYERS = [
     title: "Instruments",
     href: "/docs/instruments",
     description:
-      "Research-native components: quantities, uncertainty, tables, logs, protocols, sequences, growth curves, spectra, the periodic table, constants.",
-    badge: "18 built",
+      "Research-native components: quantities, uncertainty, measurement tables, exclusion ledgers, result blocks, manifests, logs, protocols, sequences, growth curves, spectra, the periodic table, constants.",
+    badge: "26 built",
   },
   {
     title: "Workbenches",
@@ -66,8 +66,20 @@ export default function DocsPage() {
         <p className="mt-1 text-muted-foreground text-sm leading-relaxed">
           The element layer, tokens, registry pipeline, all twelve founding
           instruments, the first three life-sciences instruments, the first
-          three physical-sciences instruments, and all five workbenches are in
-          place. The rest of the domain packs come next.
+          three physical-sciences instruments, all five workbenches, and the
+          first eight research records are in place. The remaining research-act
+          instruments and the rest of the domain packs come next.
+        </p>
+        <p className="mt-2 text-muted-foreground text-sm leading-relaxed">
+          The research records came from an audit of the first eighteen
+          instruments. Read{" "}
+          <Link
+            className="underline underline-offset-4"
+            href="/docs/research/instruments-2026"
+          >
+            what researchers actually need
+          </Link>{" "}
+          for the evidence and the build order.
         </p>
       </div>
 

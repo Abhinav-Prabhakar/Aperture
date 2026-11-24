@@ -13,7 +13,7 @@ import {
 export const metadata: Metadata = {
   title: "Instruments",
   description:
-    "The founding set of Aperture research instruments and the first two domain packs.",
+    "The founding instruments, the eight research records, and the two domain packs.",
 };
 
 const INSTRUMENTS = [
@@ -61,6 +61,57 @@ const INSTRUMENTS = [
     "Experiment",
     "Ordered, checkable steps with timing and notes.",
   ],
+];
+
+const RESEARCH_RECORDS = [
+  {
+    name: "Measurement Table",
+    href: "/docs/instruments/measurement-table",
+    job: "Units, precision, missing codes, limits, uncertainty.",
+    status: "ready",
+  },
+  {
+    name: "Exclusion & Transformation Ledger",
+    href: "/docs/instruments/exclusion-ledger",
+    job: "Every exclusion with a reason and reconciled counts.",
+    status: "ready",
+  },
+  {
+    name: "Statistical Result Block",
+    href: "/docs/instruments/statistical-result",
+    job: "Estimate, interval, n, test, p, assumptions.",
+    status: "ready",
+  },
+  {
+    name: "Missingness & Censoring Map",
+    href: "/docs/instruments/missingness-map",
+    job: "Missing, censored, not applicable, not collected.",
+    status: "ready",
+  },
+  {
+    name: "Dataset Card",
+    href: "/docs/instruments/dataset-card",
+    job: "Identity, license, checksum, DOI, citation.",
+    status: "ready",
+  },
+  {
+    name: "Run Comparison",
+    href: "/docs/instruments/run-comparison",
+    job: "Unit-aware diffs with tolerance and missing policy.",
+    status: "ready",
+  },
+  {
+    name: "Calibration & QC",
+    href: "/docs/instruments/calibration-qc",
+    job: "Standards, LOD/LOQ, Levey–Jennings, Westgard.",
+    status: "preview",
+  },
+  {
+    name: "Reproducibility Manifest",
+    href: "/docs/instruments/reproducibility-manifest",
+    job: "Commit, command, environment, seeds, hashes.",
+    status: "ready",
+  },
 ];
 
 const LIFE_SCIENCE = [
@@ -133,15 +184,16 @@ export default function InstrumentsPage() {
       <div className="flex flex-wrap items-center gap-2">
         <Badge variant="outline">Layer 02</Badge>
         <Badge variant="outline">Phase 1</Badge>
-        <Badge variant="outline">12 ready · 6 preview</Badge>
+        <Badge variant="outline">19 ready · 7 preview</Badge>
       </div>
       <h1 className="mt-4 font-heading font-bold text-4xl tracking-tight">
         Instruments
       </h1>
       <p className="mt-3 text-lg text-muted-foreground leading-relaxed">
         Focused research components that solve one real problem well. The
-        founding twelve are ready. The life-sciences and physical-sciences
-        packs each add three preview instruments.
+        founding twelve cover display and input; the eight research records
+        cover what happens to data between acquisition and publication. The two
+        domain packs add six instruments, all in preview.
       </p>
 
       <h2 className="mt-10 font-heading font-semibold text-2xl tracking-tight">
@@ -193,6 +245,65 @@ export default function InstrumentsPage() {
                 </TableRow>
               );
             })}
+          </TableBody>
+        </Table>
+      </div>
+
+      <h2
+        className="mt-10 font-heading font-semibold text-2xl tracking-tight"
+        id="research-records"
+      >
+        Research records
+      </h2>
+      <p className="mt-2 max-w-prose text-muted-foreground leading-relaxed">
+        The eight instruments that carry research semantics: identity,
+        provenance, uncertainty, disposition, comparability, and compliance.
+        They were chosen from the audit in{" "}
+        <Link
+          className="underline underline-offset-4"
+          href="/docs/research/instruments-2026"
+        >
+          What researchers need from Aperture
+        </Link>
+        , not from a list of chart types. Seven are Ready; Calibration &amp; QC
+        stays in preview until a laboratory advisor has reviewed its defaults.
+      </p>
+      <div
+        className="mt-4 overflow-hidden rounded-xl border"
+        data-shot="research-records-table"
+      >
+        <Table>
+          <TableHeader>
+            <TableRow>
+              <TableHead>Instrument</TableHead>
+              <TableHead className="hidden sm:table-cell">Job</TableHead>
+              <TableHead className="text-end">Status</TableHead>
+            </TableRow>
+          </TableHeader>
+          <TableBody>
+            {RESEARCH_RECORDS.map((item) => (
+              <TableRow key={item.name}>
+                <TableCell className="font-medium">
+                  <Link
+                    className="underline-offset-4 hover:underline"
+                    href={item.href}
+                  >
+                    {item.name}
+                  </Link>
+                </TableCell>
+                <TableCell className="hidden max-w-md whitespace-normal text-muted-foreground sm:table-cell">
+                  {item.job}
+                </TableCell>
+                <TableCell className="text-end">
+                  <Badge
+                    size="sm"
+                    variant={item.status === "ready" ? "success" : "outline"}
+                  >
+                    {item.status === "ready" ? "Ready" : "Preview"}
+                  </Badge>
+                </TableCell>
+              </TableRow>
+            ))}
           </TableBody>
         </Table>
       </div>

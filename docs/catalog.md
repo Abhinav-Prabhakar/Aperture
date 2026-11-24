@@ -275,6 +275,31 @@ the product earns trust.
 | **Authorship Editor** | Ordered authors, affiliations, CRediT roles, corresponding. | P1 |
 | **Data Availability Editor** | Repository, accession, embargo, conditions. | P2 |
 
+### 2.10 Research records (built)
+
+The eight instruments from the first research-act pack. They are universal, not
+domain-specific: the same measurement table, ledger, and manifest apply in a
+biochemistry lab, a materials lab, and a survey archive. Seven are ready;
+Calibration & QC is in preview pending a laboratory-advisor review.
+
+| Instrument | What it records | Status |
+| --- | --- | --- |
+| **Measurement Table** | Type, unit, precision, missing codes, detection limits, uncertainty, flags, and a CSV that keeps them. | Ready |
+| **Exclusion & Transformation Ledger** | Exclusions, transformations, imputations, and unit conversions with reconciled counts and reason codes. | Ready |
+| **Statistical Result Block** | Estimate, interval, n, test, exact p-value, effect size, assumptions, consistency warnings. | Ready |
+| **Missingness & Censoring Map** | Missing, censored, not applicable, and not collected as distinct states, plus co-missing patterns. | Ready |
+| **Dataset Card** | Owner, stage, version, license, checksum, DOI, access, relations, and a generated citation. | Ready |
+| **Run Comparison** | Unit-aware diffs of parameters and metrics with tolerances and missing-value policy. | Ready |
+| **Calibration & QC Panel** | Standards, blanks, LOD/LOQ, Levey–Jennings chart, Westgard rules, release verdict. | Preview |
+| **Reproducibility Manifest** | Commit, command, environment, packages, seeds, hashed inputs and outputs. | Ready |
+
+The remaining twelve candidates from the memo — Import Mapper, Sample Lineage,
+Run Card, Provenance Graph, Review Queue, Inter-rater Agreement, Reporting
+Checklist, Preregistration Diff, Screening Flow, Plate Layout, Ontology Picker,
+and Figure Spec — are not built. See
+[`research/instruments-2026.md`](./research/instruments-2026.md) for their
+contracts and scores.
+
 ---
 
 ## 3. Domain packs

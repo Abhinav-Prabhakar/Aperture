@@ -8,7 +8,7 @@
 [![Status](https://img.shields.io/badge/status-pre--alpha-000?style=flat-square)](./PLAN.md)
 [![License](https://img.shields.io/badge/license-MIT-000?style=flat-square)](./LICENSE)
 [![Elements](https://img.shields.io/badge/elements-56-000?style=flat-square)](./registry/default/ui)
-[![Tests](https://img.shields.io/badge/tests-228_passing-000?style=flat-square)](./apps/web/test)
+[![Tests](https://img.shields.io/badge/tests-248_passing-000?style=flat-square)](./apps/web/test)
 [![React](https://img.shields.io/badge/React-19-000?style=flat-square&logo=react&logoColor=white)](https://react.dev)
 [![Tailwind](https://img.shields.io/badge/Tailwind-4-000?style=flat-square&logo=tailwindcss&logoColor=white)](https://tailwindcss.com)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.9-000?style=flat-square&logo=typescript&logoColor=white)](https://typescriptlang.org)
@@ -56,7 +56,7 @@ A quiet sidebar, breadcrumb, ⌘K command palette, inspector, status bar, and mo
 
 <img src="./docs/assets/layers.webp" alt="The Aperture layers: elements, instruments, workbenches" width="100%" />
 
-**56 elements** · **18 instruments** · **5 workbenches** — one design contract from the first button to the finished screen.
+**56 elements** · **26 instruments** · **5 workbenches** — one design contract from the first button to the finished screen. Nineteen instruments are ready; seven remain in preview until an advisor reviews their defaults.
 
 ## Details researchers notice
 
@@ -112,6 +112,70 @@ Every instrument ships with a docs page, tests, accessible names, and a registry
 ```bash
 npx shadcn@latest add @aperture/uncertainty-input
 ```
+
+## The layer that was missing
+
+The first eighteen instruments were audited in November 2026, and the result
+changed the catalog. Eight of them — Stat, Sparkline, Timeline, Status Badge,
+Log Viewer, Metadata Editor, File Dropzone, Data Table — are generic patterns
+with research styling. Three — Scientific Number, Quantity Input, Uncertainty
+Input — are genuine measurement primitives. Seven are domain or workflow views.
+None of the eighteen recorded what happened between acquisition and publication:
+what was excluded, how an instrument was calibrated, which sample became which
+aliquot, which run produced which figure, or who approved the result.
+
+That gap is not about drawing charts. It is the **epistemic state** around the
+chart: identity, provenance, uncertainty, disposition, comparability, and
+compliance. Generic UI kits have no representation for those states, so every
+research team invents a worse one in a spreadsheet.
+
+The evidence is specific:
+
+| Problem | Reported rate | Why it matters |
+| --- | --- | --- |
+| Spreadsheet identifiers | **30.9%** of papers with Excel gene lists | 3,436 papers across 5,086 files, six years after the problem was publicized. `SEPT2` still becomes a date. |
+| Notebook reproducibility | **24.11%** executed; **4.03%** reproduced | Hidden state and out-of-order cells are the norm. A “Run” button is not a manifest. |
+| Error bars | **49%** SE · **42%** SD · **5%** unspecified · one 95% CI | The bar exists; the contract for what it means does not. |
+| Reporting compliance | Randomization **30–40%**; blinding **~20%**; sample size **<10%** | ARRIVE 2.0. The decisions were made months before the checklist was opened. |
+| Sample identity | **4 in 284** isolations (**1.4%**) | One biobank, with SOPs in place. The failure was a label, an aliquot, or a handoff. |
+| Data handling | **84%** of 286 researchers; **14%** had a LIMS | Spreadsheets remain the lab database, and the backlog is measured in person-hours. |
+
+The memo that documents the audit scores twenty candidates against a
+twelve-point test: object or act, prevents a known error, cross-domain, not
+generic, copy-paste sized, produces an artifact. Score each 0–2; shortlist at
+9/12, build at 10/12. The companion rule is that an instrument must compose at
+least three atoms and enforce at least one research invariant. Otherwise it is
+an element, not an instrument.
+
+### The first research records
+
+Eight instruments were built from that list. Seven are ready. Calibration & QC
+stays in preview until a laboratory advisor reviews its defaults.
+
+| Instrument | What it records | Status |
+| --- | --- | --- |
+| **Measurement Table** | Type, unit, precision, missing codes, detection limits, uncertainty — and an export that keeps them. | Ready |
+| **Exclusion & Transformation Ledger** | Every exclusion, transformation, imputation, and unit conversion, with reconciled counts and a reason code. | Ready |
+| **Statistical Result Block** | Estimate, interval, n, test, exact p-value, effect size, assumptions, and a plain-language sentence. | Ready |
+| **Missingness & Censoring Map** | Missing, censored, not applicable, and not collected as four different facts, plus co-missing patterns. | Ready |
+| **Dataset Card** | Owner, stage, version, license, checksum, DOI, access, relations, and a generated citation. | Ready |
+| **Run Comparison** | A unit-aware diff of run parameters and metrics with tolerance, missing values, and no subtraction across units. | Ready |
+| **Calibration & QC Panel** | Standards, blanks, LOD/LOQ, a Levey–Jennings chart, named Westgard rules, and a release verdict. | Preview |
+| **Reproducibility Manifest** | Commit, command, environment, packages, seeds, and hashed inputs and outputs in one portable record. | Ready |
+
+The taxonomy is the product architecture, not a domain pack:
+
+| State | The question it answers | Instrument |
+| --- | --- | --- |
+| **Identity** | What is this, exactly? | Dataset Card |
+| **Provenance** | Where did it come from, and what happened to it? | Exclusion Ledger, Reproducibility Manifest |
+| **Uncertainty** | How sure are we, and what is missing? | Measurement Table, Missingness Map, Statistical Result |
+| **Disposition** | What did we decide to do with it? | Exclusion Ledger, Calibration & QC |
+| **Comparability** | Can these be compared? | Measurement Table, Run Comparison |
+| **Compliance** | Does it meet the standard? | Calibration & QC, Reproducibility Manifest |
+
+[**Read the full research memo →**](./docs/research/instruments-2026.md) ·
+[**Open the research records →**](https://abhinav-prabhakar.github.io/Aperture/docs/instruments#research-records)
 
 ## Into the first domain pack
 
@@ -178,7 +242,11 @@ Every component lands in your repository. You own the code.
 
 ## Status
 
-Phase 1: elements, tokens, registry, docs, `@aperture/quantities`, all twelve founding instruments, all five workbenches, and the first three instruments in each of the life-sciences and physical-sciences packs are in place. The rest of the domain packs come next. Counts and commands on the site describe what exists, not a finished release.
+Phase 1: elements, tokens, registry, docs, `@aperture/quantities`, all twelve founding instruments, all five workbenches, and the first three instruments in each of the life-sciences and physical-sciences packs are in place.
+
+Phase 1.5: the first eight research-record instruments are built, tested, and documented. The memo in [`docs/research/instruments-2026.md`](./docs/research/instruments-2026.md) is the design record: the audit, the six kinds of state, the scored list, the build order, and the sources. The remaining twelve candidates — Import Mapper, Sample Lineage, Run Card, Provenance Graph, Review Queue, Inter-rater Agreement, Reporting Checklist, Preregistration Diff, Screening Flow, Plate Layout, Ontology Picker, and Figure Spec — come next.
+
+Counts and commands on the site describe what exists, not a finished release.
 
 ---
 

@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "statistical-result-demo",
+  "title": "Statistical Result demo",
+  "description": "A Welch t-test result with an interval, corrected p-value, effect size, and visible assumptions.",
+  "registryDependencies": [
+    "@aperture/statistical-result"
+  ],
+  "files": [
+    {
+      "path": "registry/default/examples/statistical-result-demo.tsx",
+      "content": "\"use client\";\n\nimport type { StatisticalResult } from \"@/registry/default/instruments/statistical-result\";\nimport { StatisticalResultBlock } from \"@/registry/default/instruments/statistical-result\";\n\nconst RESULT: StatisticalResult = {\n  alpha: 0.05,\n  assumptions: [\n    {\n      detail: \"Shapiro–Wilk p = 0.18 on the residuals\",\n      name: \"Residual normality\",\n      status: \"met\",\n    },\n    {\n      detail: \"Welch correction applied; equal variances are not assumed\",\n      name: \"Homogeneity of variance\",\n      status: \"met\",\n    },\n    {\n      detail: \"Samples came from two batches; batch is a fixed effect\",\n      name: \"Independence of observations\",\n      status: \"met\",\n    },\n    {\n      detail: \"No formal test; assignment was not randomized\",\n      name: \"No unmeasured confounding\",\n      status: \"notChecked\",\n    },\n  ],\n  correction: \"Holm–Bonferroni, 4 comparisons\",\n  effectSize: {\n    label: \"Cohen's d\",\n    value: 0.71,\n  },\n  estimate: 0.62,\n  interval: { level: 95, lower: 0.34, upper: 0.9 },\n  method:\n    \"Linear model with batch as a fixed effect and HC3 standard errors; complete cases only (n = 48 of 52).\",\n  n: 48,\n  p: 0.00011,\n  precision: 2,\n  statistic: { df: \"36.4\", label: \"t\", value: 4.31 },\n  tails: \"two-sided\",\n  test: \"Welch two-sample t-test\",\n  unit: \"mmol/L\",\n  warning:\n    \"Observational contrast between groups. The estimate is adjusted, not causal.\",\n};\n\nexport function StatisticalResultDemo() {\n  return (\n    <StatisticalResultBlock\n      description=\"Fasting glucose at week 12, adjusted for batch. The interval, n, test, and assumptions stay attached to the number.\"\n      estimateLabel=\"Mean difference\"\n      result={RESULT}\n      title=\"Treatment vs control, week 12\"\n    />\n  );\n}\n",
+      "type": "registry:example"
+    }
+  ],
+  "type": "registry:example"
+}

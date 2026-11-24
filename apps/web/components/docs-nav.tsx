@@ -10,6 +10,15 @@ const NAV = [
     items: [{ href: "/docs", label: "Introduction" }],
   },
   {
+    title: "Research",
+    items: [
+      {
+        href: "/docs/research/instruments-2026",
+        label: "What researchers need",
+      },
+    ],
+  },
+  {
     title: "Instruments",
     items: [
       { href: "/docs/instruments", label: "Overview", exact: true },
@@ -30,6 +39,43 @@ const NAV = [
       {
         href: "/docs/instruments/uncertainty-input",
         label: "Uncertainty Input",
+      },
+    ],
+  },
+  {
+    title: "Research records",
+    items: [
+      {
+        href: "/docs/instruments/measurement-table",
+        label: "Measurement Table",
+      },
+      {
+        href: "/docs/instruments/exclusion-ledger",
+        label: "Exclusion Ledger",
+      },
+      {
+        href: "/docs/instruments/statistical-result",
+        label: "Statistical Result",
+      },
+      {
+        href: "/docs/instruments/missingness-map",
+        label: "Missingness Map",
+      },
+      {
+        href: "/docs/instruments/dataset-card",
+        label: "Dataset Card",
+      },
+      {
+        href: "/docs/instruments/run-comparison",
+        label: "Run Comparison",
+      },
+      {
+        href: "/docs/instruments/calibration-qc",
+        label: "Calibration & QC",
+      },
+      {
+        href: "/docs/instruments/reproducibility-manifest",
+        label: "Reproducibility Manifest",
       },
     ],
   },

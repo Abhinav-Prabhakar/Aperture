@@ -931,6 +931,14 @@ First pack, in build order:
 6. **Dataset Card** — identity, version, license, DOI, citation, provenance
    link.
 
+**Status (November 2026).** Five of the six listed above are built — the
+Measurement Table, Exclusion & Transformation Ledger, Run Comparison, and
+Dataset Card as Ready; Calibration & QC as Preview pending a laboratory-advisor
+review. Import Mapper is not built. Three additional instruments from the memo
+were pulled forward because they complete the same story: the Statistical Result
+Block, Missingness & Censoring Map, and Reproducibility Manifest. Each has a
+docs page, a demo, a registry entry, pure helpers, and tests.
+
 **Exit:** a workbench can take an instrument export to a documented, comparable
 dataset without a spreadsheet, and every number in it traces to a recorded
 decision.
