@@ -1318,6 +1318,147 @@
       ]
     },
     {
+      "name": "measurement-table",
+      "type": "registry:ui",
+      "title": "Measurement Table",
+      "description": "A table whose columns declare type, unit, precision, missing codes, detection limits, and uncertainty — and whose CSV export keeps all of them.",
+      "dependencies": [],
+      "registryDependencies": [
+        "@aperture/button",
+        "@aperture/table",
+        "@aperture/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/default/instruments/measurement-table.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "exclusion-ledger",
+      "type": "registry:ui",
+      "title": "Exclusion & Transformation Ledger",
+      "description": "An append-only record of exclusions, transformations, imputations, and unit conversions with reconciled counts, gap detection, and CSV/JSON export.",
+      "dependencies": [],
+      "registryDependencies": [
+        "@aperture/button",
+        "@aperture/table",
+        "@aperture/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/default/instruments/exclusion-ledger.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "statistical-result",
+      "type": "registry:ui",
+      "title": "Statistical Result Block",
+      "description": "An estimate with its interval, n, test, exact p-value, effect size, assumptions, consistency warnings, and a plain-language sentence.",
+      "dependencies": [],
+      "registryDependencies": [
+        "@aperture/button",
+        "@aperture/utils",
+        "@aperture/use-copy-to-clipboard"
+      ],
+      "files": [
+        {
+          "path": "registry/default/instruments/statistical-result.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "missingness-map",
+      "type": "registry:ui",
+      "title": "Missingness & Censoring Map",
+      "description": "Column and row completeness with declared codes for missing, censored, not applicable, and not collected, plus co-missing patterns and coded export.",
+      "dependencies": [],
+      "registryDependencies": ["@aperture/button", "@aperture/utils"],
+      "files": [
+        {
+          "path": "registry/default/instruments/missingness-map.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "dataset-card",
+      "type": "registry:ui",
+      "title": "Dataset Card",
+      "description": "One dataset's identity — owner, version, stage, license, DOI, checksum, access, and relations — with a completeness checklist and a generated citation.",
+      "dependencies": [],
+      "registryDependencies": [
+        "@aperture/badge",
+        "@aperture/button",
+        "@aperture/utils",
+        "@aperture/use-copy-to-clipboard"
+      ],
+      "files": [
+        {
+          "path": "registry/default/instruments/dataset-card.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "run-comparison",
+      "type": "registry:ui",
+      "title": "Run Comparison",
+      "description": "A unit-aware side-by-side diff of run parameters and metrics with tolerance, missing values, deltas, and an explicit refusal to subtract across units.",
+      "dependencies": [],
+      "registryDependencies": [
+        "@aperture/button",
+        "@aperture/table",
+        "@aperture/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/default/instruments/run-comparison.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "calibration-qc",
+      "type": "registry:ui",
+      "title": "Calibration & QC Panel",
+      "description": "Linear calibration with standards, blanks, LOD/LOQ, a Levey–Jennings chart, named Westgard rules, and an explicit release verdict.",
+      "dependencies": [],
+      "registryDependencies": [
+        "@aperture/button",
+        "@aperture/table",
+        "@aperture/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/default/instruments/calibration-qc.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "reproducibility-manifest",
+      "type": "registry:ui",
+      "title": "Reproducibility Manifest",
+      "description": "A portable record of the commit, command, environment, package versions, parameters, seeds, and hashed inputs and outputs behind a result.",
+      "dependencies": [],
+      "registryDependencies": [
+        "@aperture/button",
+        "@aperture/utils",
+        "@aperture/use-copy-to-clipboard"
+      ],
+      "files": [
+        {
+          "path": "registry/default/instruments/reproducibility-manifest.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
       "name": "scientific-number-demo",
       "type": "registry:example",
       "title": "Scientific Number demo",
@@ -1683,6 +1824,110 @@
       "files": [
         {
           "path": "registry/default/examples/uncertainty-input-demo.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "measurement-table-demo",
+      "type": "registry:example",
+      "title": "Measurement Table demo",
+      "description": "A synthetic serum panel with units, missing codes, a censored troponin, and one unparsed value.",
+      "registryDependencies": ["@aperture/measurement-table"],
+      "files": [
+        {
+          "path": "registry/default/examples/measurement-table-demo.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "exclusion-ledger-demo",
+      "type": "registry:example",
+      "title": "Exclusion Ledger demo",
+      "description": "Forty-eight raw records become forty included across exclusions, a transformation, an imputation, and a unit conversion.",
+      "registryDependencies": ["@aperture/exclusion-ledger"],
+      "files": [
+        {
+          "path": "registry/default/examples/exclusion-ledger-demo.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "statistical-result-demo",
+      "type": "registry:example",
+      "title": "Statistical Result demo",
+      "description": "A Welch t-test result with an interval, corrected p-value, effect size, and visible assumptions.",
+      "registryDependencies": ["@aperture/statistical-result"],
+      "files": [
+        {
+          "path": "registry/default/examples/statistical-result-demo.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "missingness-map-demo",
+      "type": "registry:example",
+      "title": "Missingness Map demo",
+      "description": "Twelve samples across nine assays with haemolysis, site-level omission, and censored troponin.",
+      "registryDependencies": ["@aperture/missingness-map"],
+      "files": [
+        {
+          "path": "registry/default/examples/missingness-map-demo.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "dataset-card-demo",
+      "type": "registry:example",
+      "title": "Dataset Card demo",
+      "description": "A restricted raw serum export with a checksum, a generated citation, and three related records.",
+      "registryDependencies": ["@aperture/dataset-card"],
+      "files": [
+        {
+          "path": "registry/default/examples/dataset-card-demo.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "run-comparison-demo",
+      "type": "registry:example",
+      "title": "Run Comparison demo",
+      "description": "Two instrument runs that differ in flow rate and gradient, with one missing metric and a bar-to-psi unit mismatch.",
+      "registryDependencies": ["@aperture/run-comparison"],
+      "files": [
+        {
+          "path": "registry/default/examples/run-comparison-demo.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "calibration-qc-demo",
+      "type": "registry:example",
+      "title": "Calibration & QC demo",
+      "description": "Six standards, five blanks, and ten controls where a 1-3s violation rejects an otherwise excellent curve.",
+      "registryDependencies": ["@aperture/calibration-qc"],
+      "files": [
+        {
+          "path": "registry/default/examples/calibration-qc-demo.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "reproducibility-manifest-demo",
+      "type": "registry:example",
+      "title": "Reproducibility Manifest demo",
+      "description": "A clean mixed-model run with a commit, command, pinned R packages, seeds, and hashed inputs and outputs.",
+      "registryDependencies": ["@aperture/reproducibility-manifest"],
+      "files": [
+        {
+          "path": "registry/default/examples/reproducibility-manifest-demo.tsx",
           "type": "registry:example"
         }
       ]

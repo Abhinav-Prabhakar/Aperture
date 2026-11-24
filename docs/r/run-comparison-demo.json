@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "run-comparison-demo",
+  "title": "Run Comparison demo",
+  "description": "Two instrument runs that differ in flow rate and gradient, with one missing metric and a bar-to-psi unit mismatch.",
+  "registryDependencies": [
+    "@aperture/run-comparison"
+  ],
+  "files": [
+    {
+      "path": "registry/default/examples/run-comparison-demo.tsx",
+      "content": "\"use client\";\n\nimport type { ComparisonRun } from \"@/registry/default/instruments/run-comparison\";\nimport { RunComparison } from \"@/registry/default/instruments/run-comparison\";\n\nconst BASELINE: ComparisonRun = {\n  id: \"RUN-2026-11-02-AU5800\",\n  instrument: \"AU5800\",\n  label: \"Run 118\",\n  metrics: {\n    LOD: { unit: \"ng/mL\", value: 0.4 },\n    carryover: { unit: \"%\", value: 0.08 },\n    \"peak area\": { unit: \"counts\", value: 18420 },\n    \"plate count\": { value: 12400 },\n    \"resolution (2:1)\": { value: 1.8 },\n    \"retention time\": { unit: \"min\", value: 6.42 },\n    \"tailing factor\": { value: 1.12 },\n  },\n  parameters: {\n    \"column temperature\": { unit: \"°C\", value: 35 },\n    \"detection wavelength\": { unit: \"nm\", value: 214 },\n    \"flow rate\": { unit: \"mL/min\", value: 0.3 },\n    \"gradient length\": { unit: \"min\", value: 12 },\n    \"injection volume\": { unit: \"µL\", value: 2 },\n    \"system pressure\": { unit: \"bar\", value: 420 },\n  },\n  startedAt: \"2026-11-02 08:14\",\n};\n\nconst CANDIDATE: ComparisonRun = {\n  id: \"RUN-2026-11-09-AU5800\",\n  instrument: \"AU5800\",\n  label: \"Run 119\",\n  metrics: {\n    LOD: { unit: \"ng/mL\", value: 0.38 },\n    \"peak area\": { unit: \"counts\", value: 19180 },\n    \"plate count\": { value: 12150 },\n    \"resolution (2:1)\": { value: 1.6 },\n    \"retention time\": { unit: \"min\", value: 6.51 },\n    \"tailing factor\": { value: 1.09 },\n  },\n  parameters: {\n    \"column temperature\": { unit: \"°C\", value: 35 },\n    \"detection wavelength\": { unit: \"nm\", value: 214 },\n    \"flow rate\": { unit: \"mL/min\", value: 0.32 },\n    \"gradient length\": { unit: \"min\", value: 14 },\n    \"injection volume\": { unit: \"µL\", value: 2 },\n    \"system pressure\": { unit: \"psi\", value: 6100 },\n  },\n  startedAt: \"2026-11-09 08:11\",\n};\n\nexport function RunComparisonDemo() {\n  return (\n    <RunComparison\n      description=\"The candidate run moves the flow rate and gradient, loses the carryover measurement, and reports pressure in psi instead of bar. The diff refuses to subtract across a unit change.\"\n      runs={[BASELINE, CANDIDATE]}\n      title=\"Method transfer check\"\n    />\n  );\n}\n",
+      "type": "registry:example"
+    }
+  ],
+  "type": "registry:example"
+}

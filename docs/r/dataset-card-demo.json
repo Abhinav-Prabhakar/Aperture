@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "dataset-card-demo",
+  "title": "Dataset Card demo",
+  "description": "A restricted raw serum export with a checksum, a generated citation, and three related records.",
+  "registryDependencies": [
+    "@aperture/dataset-card"
+  ],
+  "files": [
+    {
+      "path": "registry/default/examples/dataset-card-demo.tsx",
+      "content": "\"use client\";\n\nimport type { DatasetRecord } from \"@/registry/default/instruments/dataset-card\";\nimport { DatasetCard } from \"@/registry/default/instruments/dataset-card\";\n\nconst DATASET: DatasetRecord = {\n  access: \"restricted\",\n  accessNote:\n    \"De-identified participant data. Application and data-use agreement required; no re-identification attempts.\",\n  checksum: {\n    algorithm: \"sha256\",\n    value: \"9f2c41b7a8d3e56c0b1f4a7d2e8c95b36f0a1d4c7e2b8f5903a6c1d4e7b2f8a5c\",\n  },\n  contributors: [\"R. Iyer\", \"S. Okafor\", \"M. Lindqvist\"],\n  createdAt: \"2026-10-18\",\n  description:\n    \"Fasting serum chemistry, C-reactive protein, and troponin for 48 adults enrolled at two sites. One row per participant per draw; the analysis set is a separate derived file.\",\n  doi: \"10.5281/zenodo.0000000\",\n  format: \"CSV + data dictionary\",\n  id: \"DS-COHORT12-SERUM\",\n  keywords: [\"serum chemistry\", \"cohort\", \"troponin\", \"CRP\"],\n  license: \"CC BY-NC 4.0\",\n  method:\n    \"Venepuncture at 08:00 after a 10 h fast. Analyser: AU5800, two-point calibration per run. Haemolysis index recorded; samples at 3+ excluded from the analysis set.\",\n  owner: \"Prabhakar Lab\",\n  ownerAffiliation: \"Department of Clinical Biochemistry\",\n  related: [\n    {\n      id: \"DS-COHORT12-ANALYSIS\",\n      label: \"Cohort 12 analysis set (v4)\",\n      relation: \"documents\",\n    },\n    {\n      id: \"RUN-2026-11-02-AU5800\",\n      label: \"AU5800 run, 2 Nov 2026\",\n      relation: \"derivedFrom\",\n    },\n    {\n      id: \"DS-COHORT12-PROTOCOL\",\n      label: \"Study protocol v2.1\",\n      relation: \"partOf\",\n    },\n  ],\n  repository: \"Zenodo\",\n  size: \"412 KB\",\n  stage: \"raw\",\n  title: \"Cohort 12 serum chemistry, raw export\",\n  updatedAt: \"2026-11-05\",\n  version: \"1.2.0\",\n  warning:\n    \"Contains draw dates. Dates are shifted per participant before any public release.\",\n};\n\nexport function DatasetCardDemo() {\n  return <DatasetCard dataset={DATASET} />;\n}\n",
+      "type": "registry:example"
+    }
+  ],
+  "type": "registry:example"
+}

@@ -1,5 +1,5 @@
 :HL["/Aperture/_next/static/chunks/4556wg_wjj50e.css","style"]
-:HL["/Aperture/_next/static/chunks/0e6udwfv4570c.css","style"]
+:HL["/Aperture/_next/static/chunks/0czyj1-vce8jw.css","style"]
 :HL["/Aperture/_next/static/media/CalSansVF-s.p.057x_1lfa0doc.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/Aperture/_next/static/media/CalSansVF_Italic-s.p.0ud-vzzwgrjzi.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/Aperture/_next/static/media/JetBrainsMono_Medium-s.p.1qhstay9-mvz-.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
@@ -8,4 +8,4 @@
 3:[["children",{"s":"tokens","h":96,"c":"$Q4"}]]
 2:[["children",{"s":"design","h":96,"c":"$Q3"}]]
 1:[["children",{"s":"docs","h":96,"c":"$Q2"}]]
-0:{"b":"eRE0E9EUguWGDfmxZSCKY","t":{"t":{"s":"","h":80,"c":"$Q1"}}}
+0:{"b":"Nz9d9ZeJ-25aNiAka9Xcv","t":{"t":{"s":"","h":80,"c":"$Q1"}}}

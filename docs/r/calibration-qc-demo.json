@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "calibration-qc-demo",
+  "title": "Calibration & QC demo",
+  "description": "Six standards, five blanks, and ten controls where a 1-3s violation rejects an otherwise excellent curve.",
+  "registryDependencies": [
+    "@aperture/calibration-qc"
+  ],
+  "files": [
+    {
+      "path": "registry/default/examples/calibration-qc-demo.tsx",
+      "content": "\"use client\";\n\nimport type { CalibrationQcData } from \"@/registry/default/instruments/calibration-qc\";\nimport { CalibrationQcPanel } from \"@/registry/default/instruments/calibration-qc\";\n\nconst DATA: CalibrationQcData = {\n  blanks: [112, 118, 105, 109, 114],\n  controls: [\n    { at: \"2026-09-07\", value: 1002 },\n    { at: \"2026-09-14\", value: 996 },\n    { at: \"2026-09-21\", value: 1008 },\n    { at: \"2026-09-28\", value: 1010 },\n    { at: \"2026-10-05\", value: 990 },\n    { at: \"2026-10-12\", value: 1004 },\n    { at: \"2026-10-19\", value: 1120, runId: \"RUN-117\" },\n    { at: \"2026-10-26\", value: 1006 },\n    { at: \"2026-11-02\", value: 998 },\n    { at: \"2026-11-09\", value: 1012 },\n  ],\n  controlMean: 1000,\n  controlSd: 30,\n  id: \"CAL-2026-11-04-AU5800\",\n  instrument: \"AU5800 · lot 24C\",\n  method:\n    \"Six-point external standard curve, 1/x weighting not applied; blank SD from five independent blanks. Control limits from the 2026 stable period.\",\n  name: \"Cortisol calibration and QC\",\n  responseUnit: \"mAU·s\",\n  source: \"Synthetic · Aperture demo\",\n  standards: [\n    { level: 0, response: 118, uncertainty: 8 },\n    { level: 0.5, response: 612, uncertainty: 9 },\n    { level: 1, response: 1118, uncertainty: 10 },\n    { level: 2, response: 2115, uncertainty: 11 },\n    { level: 5, response: 5105, uncertainty: 14 },\n    { level: 10, response: 10120, uncertainty: 18 },\n  ],\n  unit: \"ng/mL\",\n  analyte: \"Cortisol\",\n};\n\nexport function CalibrationQcDemo() {\n  return (\n    <CalibrationQcPanel\n      data={DATA}\n      description=\"Six standards, five blanks, and ten weekly controls. The 19 October control sits 4 SD above the mean, so the run is rejected even though the curve itself is excellent.\"\n    />\n  );\n}\n",
+      "type": "registry:example"
+    }
+  ],
+  "type": "registry:example"
+}
